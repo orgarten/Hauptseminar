@@ -17,6 +17,7 @@ from scipy import signal
 import numpy as np
 from os import listdir
 import os
+import time
 
 middle = 1
 print("Correlation of stereo WAV-Files \n\n"
@@ -70,12 +71,15 @@ def stereo(path, blockSize, workingdir):
                                     # don't ask why, it's just fresh, fruity, stupid, fruity
     return(dataA, dataB)         # return sample data of both channels
 
-def main():  
-    
+def main():
+    starttime = time.time()
+
                         # ask for wanted sample block size
     blockSize = input("Specify block size [<100k for fast calculation] or press ENTER to use standard block size:")
     if blockSize:    
-        blockSize = int(blockSize) # convert given block size from string to int 
+        blockSize = int(blockSize) # convert given block size from string to int
+        print type(blockSize)
+        print blockSize # to see if the input was taken correctly
     #if blockszie is empty or exceeds limits
     if not blockSize or blockSize < 0:
         blockSize = 8192
@@ -91,6 +95,7 @@ def main():
         wd = os.getcwd() + "/WAVE/"
         specificFile = input("Specify path to file: ") # user input of specific filepath
         print(specificFile)
+        starttime = time.time()
         (dataA, dataB) = stereo(specificFile, blockSize, wd)         # get data of wav file
 #        corr = correlate(dataA, dataB)           # get correlation output of wav data using correlation in time domain
         corr = correlate_fft(dataA, dataB)      # get correlation output of wav data using correlation in frequency domain
@@ -100,6 +105,7 @@ def main():
         print("\nProcessing files: \n")        
         wd = os.getcwd() + "/WAVE/"       # saves path of wav files to 'wd' (workingdirectory/WAVE/)
         print(wd)
+        starttime = time.time()
         dirlist = [f for f in os.listdir(wd) if os.path.isfile(os.path.join(wd, f))]    # creates list of files in wav directory
         while len(dirlist) > 0:
             element = dirlist.pop(0)         # returns and deletes first element of dirlist
@@ -112,7 +118,9 @@ def main():
             corr = correlate_fft(dataA, dataB)      # get correlation output of wav data using correlation in frequency domain
             plt.plot(corr)           # plot correlation output
     
-    print("Finished!\n")            
+    print("Finished!\n")
+    endtime = time.time()
+    print endtime - starttime
 
     plt. show()             # show plot
         
@@ -121,5 +129,5 @@ def main():
     "(  )  ',_.'\n"
     "Xx'xX \n")
 
-if __name__ == "__main__":    
+if __name__ == "__main__":
     main()
