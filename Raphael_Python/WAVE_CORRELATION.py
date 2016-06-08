@@ -14,12 +14,12 @@ TODO
 import scipy.io.wavfile as wav
 import matplotlib.pyplot as plt
 from scipy import signal
-import numpy as np
+import scipy.integrate as integrate
 from os import listdir
 import os
+import numpy as np
 import time
 
-middle = 1
 print("Correlation of stereo WAV-Files \n\n"
 
 "   |\      _,,,---,,_\n"                       # Meow
@@ -30,28 +30,22 @@ print("Correlation of stereo WAV-Files \n\n"
 "created by O. Garten, R. Hildebrand, F. Roth, L. Weber\n\n"
 
 "")
-# correlation needs a lot calculation power
-# so be carefull with filesize, about 0.5 - 1 seconds is enough
 
-s = "S"     # define variable for stupid-user-input
-S = "S"     # with this definition m, M, s, S will work
-            # instead of "M" or "S"
-     
-
-
-def correlate(dataA, dataB):
-
-    corr = signal.correlate(dataA, dataB, mode='full')  # calculate correlation function in time domain
-    maximum = max(corr) + 0.0 # get maximum and convert to float
-    corr = corr/maximum     # normalize the correlated data
-    return corr     # return result
+#def correlate(dataA, dataB):
+#
+#    corr = signal.correlate(dataA, dataB, mode='full')  # calculate correlation function in time domain
+#    maximum = max(corr) + 0.0 # get maximum and convert to float
+#    corr = corr/maximum     # normalize the correlated data
+#    return corr     # return result
 
 def correlate_fft(dataA, dataB):
-
+    starttime = time.time()
     corr = signal.fftconvolve(dataA, dataB[::-1], mode='full') # calculate correlation function in frequency domain
     maximum = max(corr) + 0.0 # get maximum and convert to float
     corr = corr/maximum     # normalize the correlated data
-    print(corr)
+    stoptime = time.time()  # time measurement
+    print("Runtime: ", (stoptime-starttime))    
+    interpret(corr) # interpret correlation result
     return corr     # return result
     
 def stereo(path, blockSize, workingdir):
@@ -71,15 +65,25 @@ def stereo(path, blockSize, workingdir):
                                     # don't ask why, it's just fresh, fruity, stupid, fruity
     return(dataA, dataB)         # return sample data of both channels
 
-def main():
-    starttime = time.time()
-
-                        # ask for wanted sample block size
+def interpret(corr):
+    
+    maximum = max(corr)     # get correlation maximum
+    corrLength = len(corr)  # get correlation length
+    middle = corrLength/2   # get middle of correlation
+    maxRegionStart = middle - corrLength*0.005   # get start point of integration region
+    maxRegionStop = middle + corrLength*0.005    # get stop point of integration region
+    maxRegion = corr[maxRegionStart:maxRegionStop]    # create list of integration region
+    integrated = sum(abs(maxRegion))    # integrate (simply add) the absolute values of the integration region
+    maxResult = maximum*len(maxRegion)     # calculate the max. possible result
+    print("peaky:", integrated/maxResult)
+    print("maximum:", maximum)    
+    
+def main():  
+    
+    # ask for wanted sample block size
     blockSize = input("Specify block size [<100k for fast calculation] or press ENTER to use standard block size:")
     if blockSize:    
-        blockSize = int(blockSize) # convert given block size from string to int
-        print type(blockSize)
-        print blockSize # to see if the input was taken correctly
+        blockSize = int(blockSize) # convert given block size from string to int 
     #if blockszie is empty or exceeds limits
     if not blockSize or blockSize < 0:
         blockSize = 8192
@@ -95,7 +99,6 @@ def main():
         wd = os.getcwd() + "/WAVE/"
         specificFile = input("Specify path to file: ") # user input of specific filepath
         print(specificFile)
-        starttime = time.time()
         (dataA, dataB) = stereo(specificFile, blockSize, wd)         # get data of wav file
 #        corr = correlate(dataA, dataB)           # get correlation output of wav data using correlation in time domain
         corr = correlate_fft(dataA, dataB)      # get correlation output of wav data using correlation in frequency domain
@@ -105,7 +108,6 @@ def main():
         print("\nProcessing files: \n")        
         wd = os.getcwd() + "/WAVE/"       # saves path of wav files to 'wd' (workingdirectory/WAVE/)
         print(wd)
-        starttime = time.time()
         dirlist = [f for f in os.listdir(wd) if os.path.isfile(os.path.join(wd, f))]    # creates list of files in wav directory
         while len(dirlist) > 0:
             element = dirlist.pop(0)         # returns and deletes first element of dirlist
@@ -118,16 +120,15 @@ def main():
             corr = correlate_fft(dataA, dataB)      # get correlation output of wav data using correlation in frequency domain
             plt.plot(corr)           # plot correlation output
     
-    print("Finished!\n")
-    endtime = time.time()
-    print endtime - starttime
+    print("Finished!\n")            
 
     plt. show()             # show plot
-        
+    
+    
     print("\n     >=< \n"      #hippo!
     ",.--'  ''-.\n"
     "(  )  ',_.'\n"
     "Xx'xX \n")
 
-if __name__ == "__main__":
+if __name__ == "__main__":    
     main()
