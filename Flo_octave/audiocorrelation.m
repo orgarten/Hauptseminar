@@ -16,7 +16,7 @@ pkg load signal;
 path = '.\WAVE\music.wav';
 
 % set priority (time/length)
-priority = 'length';
+priority = 'time';
 
 % length of correlation
 Lcor = 8192; 
@@ -26,7 +26,10 @@ Ncor = 1;
 
 % start of correlation in audio file in seconds 
 t_start = 0;
-t_end = 10.05;
+t_end = 0.1;
+
+%plot in samples or seconds
+x_axis = 'seconds';
 
 
 %% CODE
@@ -44,7 +47,7 @@ end
 %% correlate 
 for i = 1:1:Ncor
  % in time
-    correlation_t(i,:) = xcorr(channel_a(i,:), channel_b(i,:),'coeff');
+    [correlation_t(i,:), lags(i,:)] = xcorr(channel_a(i,:), channel_b(i,:),'coeff');
 
  % in frequency 
     correlation_f(i,:) = freqMult(channel_a(i,:), channel_b(i,:));
@@ -55,8 +58,14 @@ end
 %% calculate ripple factor and decline factor
 ripple = calc_ripple(correlation_t)
 
+[~,I] = max(abs(correlation_t));
+lagDiff = lags(I)
+timeDiff = lagDiff/rate
 
-plotTandF(correlation_t(1,:), correlation_f(1,:));
+envelope = calc_envelope(correlation_t, length(channel_a), rate);
+%envelope = correlation_t;
+
+plotTandF(channel_a, channel_b, correlation_t(1,:), correlation_f(1,:), envelope, x_axis, rate);
 
 
 
@@ -71,5 +80,3 @@ plotTandF(correlation_t(1,:), correlation_f(1,:));
 %% save results
 
 disp('finished');
-
-
