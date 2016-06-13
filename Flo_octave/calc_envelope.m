@@ -1,33 +1,31 @@
-function [envelope, fil] = calc_envelope (correlation, N, rate)
+function [envelope, fil] = calc_envelope (correlation, N_len, rate, Ncor)
 % calculates the envelope by using AM-Demodulation
-f_c = 43900;
+% cutoff-frequency in Herz
+f_c = 200;
+
+% building lowpass filter
 fil = zeros(1, length(correlation));
-if round(length(correlation)/2 + 1 + N*f_c/rate) >= length(correlation)
+if 2*round(N_len*f_c/rate) >= length(fil)
   fil(1:1:length(fil)) = 1;
 else
-  fil(round(length(correlation)/2 + 1 - N*f_c/rate) :1: round(length(correlation)/2 + 1 + N*f_c/rate)) = 1;
+  fil(1:1:round(N_len*f_c/rate)) = 1;
+  fil(round(length(fil)-N_len*f_c/rate):1:length(fil)) = 1;
 end
-one(1:1:length(fil)) = 1;
-fil = xor(fil, one);
+
+% multiplication in frequency domain 
+for i = 1:Ncor
+  corr_f(i,:) = fft(abs(correlation(i,:))); 
+  corr_lp(i,:) = corr_f(i,:) .* fil;
+  envelope(i,:) = ifft(corr_lp(i,:));
+end
 
 %figure
 %plot(1:1:length(fil), fil);
-corr_f = fft(abs(correlation)); 
-
-%corr_sw(:,1:1:length(corr_f(1,:))/2) = corr_f(:,length(corr_f(1,:))/2+1:1:length(corr_f(1,:)));
-%corr_sw(:,length(corr_f(1,:))/2+1:1:length(corr_f(1,:))) = corr_f(:,1:1:length(corr_f(1,:))/2);
-corr_sw = corr_f;
-
 %figure
-%plot(1:1:length(corr_sw), corr_sw);
+%plot(1:1:length(corr_f), corr_f);
 %set(gca, 'YLim', [-1.5 1.5]);
-
-corr_lp = corr_sw .* fil;
-
 %figure
 %plot(1:1:length(corr_lp), corr_lp);
 %set(gca, 'YLim', [-1.5 1.5]);
-
-envelope = ifft(corr_lp);
 
 end

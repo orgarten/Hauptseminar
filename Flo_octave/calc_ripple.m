@@ -1,30 +1,33 @@
-function [ ripple ] = calc_ripple(correlation)
+function [ ripple ] = calc_ripple(correlation, N)
 % this function calculates the ripple(peakyness) of the crosscorrelation
 
 %% calculate energy in entire correlation
-W = 0;
+W = zeros(N,1);
 
 for i = 1:length(correlation(1,:))
-  W = W + correlation(1,i)^2;
+  W(:,1) = W(:,1) + correlation(:,i).^2;
 end
 
 W_ges = W;
 
 %% calculate energy in top 5% 
+for i = 1:N
+  top(i,1) = abs(prctile(correlation(i,:), 95)); 
+end
 
-top = abs(prctile(correlation, 95)); 
+W = zeros(N,1); 
 
-W = 0; 
-
-for i = 1:length(correlation(1,:))
-  if abs(correlation(1,i)) > top
-    W = W + correlation(1,i)^2;
+for k = 1:N
+  for i = 1:length(correlation(1,:))
+    if abs(correlation(k,i)) > top(k)
+      W(k) = W(k) + correlation(k,i)^2;
+    end
   end
 end
 
 W_top = W;
 
 %% calculate ripple
-ripple = W_top/W_ges;
+ripple = W_top./W_ges;
 
 end

@@ -16,21 +16,20 @@ pkg load signal;
 path = '.\WAVE\music.wav';
 
 % set priority (time/length)
-priority = 'time';
+priority = 'length';
+
+% plot in samples or seconds
+x_axis = 'samples';
 
 % length of correlation
 Lcor = 8192; 
 
 % amount of correlations 
-Ncor = 1;
+Ncor = 3;
 
 % start of correlation in audio file in seconds 
 t_start = 0;
 t_end = 0.1;
-
-%plot in samples or seconds
-x_axis = 'seconds';
-
 
 %% CODE
 %% load part of the signal from given path
@@ -53,22 +52,23 @@ for i = 1:1:Ncor
     correlation_f(i,:) = freqMult(channel_a(i,:), channel_b(i,:));
 end
 
-%% plot
-
 %% calculate ripple factor and decline factor
-ripple = calc_ripple(correlation_t)
+ripple = calc_ripple(correlation_t, Ncor)
 
-[~,I] = max(abs(correlation_t));
-lagDiff = lags(I)
-timeDiff = lagDiff/rate
+envelope = calc_envelope(correlation_t, length(channel_a), rate, Ncor);
 
-envelope = calc_envelope(correlation_t, length(channel_a), rate);
-%envelope = correlation_t;
+% calculate offset between channels
 
-plotTandF(channel_a, channel_b, correlation_t(1,:), correlation_f(1,:), envelope, x_axis, rate);
-
+[~,I] = max(abs(correlation_t(1,:)));
+lagDiff = lags(I);
+timeDiff = lagDiff/rate;
 
 
+
+%% plot
+for i = 1:Ncor
+  plotTandF(channel_a(i,:), channel_b(i,:), correlation_t(i,:), correlation_f(i,:), envelope(i,:), x_axis, rate);
+end
 
 %% delete unneeded variables
 %if strcmp(priority,'length') == 1

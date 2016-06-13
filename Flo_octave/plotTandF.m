@@ -18,6 +18,7 @@ figure;
 ax1 = subplot(2,2,1);
 plot(shift_t, channel_a);
 title('channel a');
+set(gca, 'XLim', [shift_t(1) shift_t(length(shift_t))]);
 if strcmp(x_axis, 'seconds') == 1
   xlabel(['time/s']);
 else
@@ -27,6 +28,7 @@ end
 ax2 = subplot(2,2,2);
 plot(shift_t, channel_b);
 title('channel b');
+set(gca, 'XLim', [shift_t(1) shift_t(length(shift_t))]);
 if strcmp(x_axis, 'seconds') == 1
   xlabel(['time/s']);
 else
@@ -40,6 +42,7 @@ end
 ax3 = subplot(2, 2, [3,4]);
 plot(shift, correlation_t, shift, envelope, 'r--');
 title('correlation_t');
+legend('correlation', 'envelope');
 if strcmp(x_axis, 'seconds') == 1
   xlabel(['time/s']);
 else
