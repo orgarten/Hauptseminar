@@ -16,17 +16,20 @@ pkg load optim;
 % works with wav, mp3, flac, aif, au, aifc, ogg
 path = '.\WAVE\music.wav';
 
+% results (display/save)
+output = 'display';
+
 % set priority (time/length)
 priority = 'length';
 
-% plot in samples or seconds
+% plot in (samples/seconds)
 x_axis = 'seconds';
 
 % length of correlation
 Lcor = 8192; 
 
 % amount of correlations 
-Ncor = 3;
+Ncor = 1;
 
 % start of correlation in audio file in seconds 
 t_start = 0;
@@ -44,9 +47,19 @@ if strcmp(priority, 'time')
     Ncor = 1;
 end
 
-%% correlate 
+%% extracting name from path
+str1 = regexp(path, '\\' ,'split');
+str2 = regexp(str1{length(str1)}, '\.' , 'split');
+
 for i = 1:Ncor
-  % in time
+  % completing name
+  if strcmp(output, 'save')
+    name = strcat(str2{1}, '_res(', num2str(i), ')');
+    path_res = strcat('.\RESULTS\', name, '\', name);
+    mkdir('.\RESULTS', name);
+  end
+  
+  %% correlate  in time
   [correlation_t(i,:), lags(i,:)] = xcorr(channel_a(i,:), channel_b(i,:),'coeff');
 
   % in frequency 
@@ -65,14 +78,17 @@ for i = 1:Ncor
   [regression(i,:), sigma(i)] = calc_reg(envelope(i,:), rate, index_en(i));
 
   %% plot
-  string = sprintf('ripple = %f \n', ripple(i));
+  line_1 = sprintf('ripple = %f \n', ripple(i));
   if strcmp(x_axis, 'seconds') == 1
-    string_2 = sprintf('timeDiff = %f s \n\\sigma = %f s', timeDiff(i), sigma(i)/rate);
+    line_2 = sprintf('timeDiff = %f s \n\\sigma = %f s', timeDiff(i), sigma(i)/rate);
   else
-    string_2 = sprintf('samplesDiff = %d samples \n\\sigma = %d samples', lagDiff(i), sigma(i));
+    line_2 = sprintf('samplesDiff = %d samples \n\\sigma = %d samples', lagDiff(i), sigma(i));
   end
-  string = strcat(string, string_2);
-  plotTandF(channel_a(i,:), channel_b(i,:), correlation_t(i,:), envelope(i,:), regression(i,:), x_axis, rate, string);
+  string = strcat(line_1, line_2);
+  fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation_t(i,:), envelope(i,:), regression(i,:), x_axis, rate, string, output);
+  if strcmp(output, 'save')
+    ack = save_pic(fig, path_res, i)
+  end
 end
 %ripple
 %sigma
