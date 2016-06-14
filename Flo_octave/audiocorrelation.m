@@ -7,32 +7,33 @@
 % ########          v 0.1               ########
 % ##############################################
 clear; clc;
-%% input
+pkg load signal;
+pkg load optim;
+
+%% INPUT
+
 % path of audiofile
 % works with wav, mp3, flac, aif, au, aifc, ogg
-
-pkg load signal;
-
 path = '.\WAVE\music.wav';
 
 % set priority (time/length)
 priority = 'length';
 
 % plot in samples or seconds
-x_axis = 'samples';
+x_axis = 'seconds';
 
 % length of correlation
 Lcor = 8192; 
 
 % amount of correlations 
-Ncor = 3;
+Ncor = 1;
 
 % start of correlation in audio file in seconds 
 t_start = 0;
 t_end = 0.1;
 
 %% CODE
-%% load part of the signal from given path
+% load part of the signal from given path
 %  row --> channel
 [data, rate] = readAudio(path, t_start, t_end, Lcor, Ncor, priority); 
 
@@ -44,31 +45,42 @@ if strcmp(priority, 'time')
 end
 
 %% correlate 
-for i = 1:1:Ncor
+for i = 1:Ncor
  % in time
     [correlation_t(i,:), lags(i,:)] = xcorr(channel_a(i,:), channel_b(i,:),'coeff');
 
  % in frequency 
-    correlation_f(i,:) = freqMult(channel_a(i,:), channel_b(i,:));
+    %correlation_f(i,:) = freqMult(channel_a(i,:), channel_b(i,:));
+
+
+  %% calculate offset between channels
+  [~,I(i)] = max(abs(correlation_t(i,:)));
+  lagDiff(i) = lags(I(i));
+  timeDiff(i) = lagDiff(i)/rate;
+
+
+
+  %% calculate ripple factor and decline factor
+  ripple(i) = calc_ripple(correlation_t(i,:));
+
+  envelope(i,:) = calc_envelope(correlation_t(i,:), length(channel_a), rate);
+  [~,index_en(i)] = max (envelope(i,:));
+  [regression(i,:), sigma(i)] = calc_reg(envelope(i,:), rate, index_en(i));
+
+  %% plot
+  string = sprintf('ripple = %f \n', ripple(i));
+  if strcmp(x_axis, 'seconds') == 1
+    string_2 = sprintf('sigma = %f s \ntimeDiff = %f s', sigma(i)/rate, timeDiff(i));
+  else
+    string_2 = sprintf('sigma = %d samples \nsamplesDiff = %d samples', sigma(i), lagDiff(i));
+  end
+  string = strcat(string, string_2);
+  plotTandF(channel_a(i,:), channel_b(i,:), correlation_t(i,:), envelope(i,:), regression(i,:), x_axis, rate, string);
 end
-
-%% calculate ripple factor and decline factor
-ripple = calc_ripple(correlation_t, Ncor)
-
-envelope = calc_envelope(correlation_t, length(channel_a), rate, Ncor);
-
-% calculate offset between channels
-
-[~,I] = max(abs(correlation_t(1,:)));
-lagDiff = lags(I);
-timeDiff = lagDiff/rate;
-
-
-
-%% plot
-for i = 1:Ncor
-  plotTandF(channel_a(i,:), channel_b(i,:), correlation_t(i,:), correlation_f(i,:), envelope(i,:), x_axis, rate);
-end
+ripple
+sigma
+lagDiff
+timeDiff
 
 %% delete unneeded variables
 %if strcmp(priority,'length') == 1

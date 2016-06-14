@@ -1,15 +1,15 @@
-function [ output_args ] = plotTandF( channel_a, channel_b, correlation_t, correlation_f, envelope, x_axis, rate)
+function [ output_args ] = plotTandF( channel_a, channel_b, correlation_t, envelope, regression, x_axis, rate, string)
 %PLOTTANDF Summary of this function goes here
 %   Detailed explanation goes here
 
 shift = -(length(correlation_t)-1)/2:1:(length(correlation_t)-1)/2;
-shift_f = -(length(correlation_f)-1)/2:1:(length(correlation_f)-1)/2;
+%shift_f = -(length(correlation_f)-1)/2:1:(length(correlation_f)-1)/2;
 shift_t = 1:1:length(channel_a);
 
 if strcmp(x_axis, 'seconds') == 1
   scale = 1/rate; 
   shift = shift .* scale;
-  shift_f = shift_f .* scale;
+  %shift_f = shift_f .* scale;
   shift_t = shift_t .* scale;
 end
 
@@ -40,15 +40,18 @@ if length(envelope) < length(shift)
 end
 
 ax3 = subplot(2, 2, [3,4]);
-plot(shift, correlation_t, shift, envelope, 'r--');
+plot(shift, correlation_t, shift, envelope, 'm--', shift, regression, 'g:');
 title('correlation_t');
-legend('correlation', 'envelope');
+legend('correlation', 'envelope', 'regression');
 if strcmp(x_axis, 'seconds') == 1
   xlabel(['time/s']);
 else
   xlabel(['samples']);
 end
-limits = get(gca, 'XLim');
+limits_x = get(gca, 'XLim');
+limits_y = get(gca, 'YLim');
+text(limits_x(1) * 7/8 , limits_y(1) * 1/2, string);
+
 
 %ax2 = subplot(2, 1, 2);
 %plot(shift_f, correlation_f);
