@@ -26,7 +26,7 @@ x_axis = 'seconds';
 Lcor = 8192; 
 
 % amount of correlations 
-Ncor = 1;
+Ncor = 3;
 
 % start of correlation in audio file in seconds 
 t_start = 0;
@@ -46,19 +46,16 @@ end
 
 %% correlate 
 for i = 1:Ncor
- % in time
-    [correlation_t(i,:), lags(i,:)] = xcorr(channel_a(i,:), channel_b(i,:),'coeff');
+  % in time
+  [correlation_t(i,:), lags(i,:)] = xcorr(channel_a(i,:), channel_b(i,:),'coeff');
 
- % in frequency 
-    %correlation_f(i,:) = freqMult(channel_a(i,:), channel_b(i,:));
-
+  % in frequency 
+  %correlation_f(i,:) = freqMult(channel_a(i,:), channel_b(i,:));
 
   %% calculate offset between channels
   [~,I(i)] = max(abs(correlation_t(i,:)));
   lagDiff(i) = lags(I(i));
   timeDiff(i) = lagDiff(i)/rate;
-
-
 
   %% calculate ripple factor and decline factor
   ripple(i) = calc_ripple(correlation_t(i,:));
@@ -70,17 +67,17 @@ for i = 1:Ncor
   %% plot
   string = sprintf('ripple = %f \n', ripple(i));
   if strcmp(x_axis, 'seconds') == 1
-    string_2 = sprintf('sigma = %f s \ntimeDiff = %f s', sigma(i)/rate, timeDiff(i));
+    string_2 = sprintf('timeDiff = %f s \n\\sigma = %f s', timeDiff(i), sigma(i)/rate);
   else
-    string_2 = sprintf('sigma = %d samples \nsamplesDiff = %d samples', sigma(i), lagDiff(i));
+    string_2 = sprintf('samplesDiff = %d samples \n\\sigma = %d samples', lagDiff(i), sigma(i));
   end
   string = strcat(string, string_2);
   plotTandF(channel_a(i,:), channel_b(i,:), correlation_t(i,:), envelope(i,:), regression(i,:), x_axis, rate, string);
 end
-ripple
-sigma
-lagDiff
-timeDiff
+%ripple
+%sigma
+%lagDiff
+%timeDiff
 
 %% delete unneeded variables
 %if strcmp(priority,'length') == 1
