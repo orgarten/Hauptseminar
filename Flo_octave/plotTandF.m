@@ -1,4 +1,4 @@
-function [ output_args ] = plotTandF( channel_a, channel_b, correlation_t, envelope, regression, x_axis, rate, string)
+function [ FigHandle ] = plotTandF( channel_a, channel_b, correlation_t, envelope, regression, x_axis, rate, string, output)
 %PLOTTANDF Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -13,7 +13,12 @@ if strcmp(x_axis, 'seconds') == 1
   shift_t = shift_t .* scale;
 end
 
-figure;
+FigHandle = figure;
+set(FigHandle, 'Position', [100, 100, 1366, 768]);
+set(FigHandle,'PaperPositionMode','auto');
+if strcmp(output, 'save') == 1
+  set(FigHandle, 'Visible', 'off');
+end
 
 ax1 = subplot(2,2,1);
 plot(shift_t, channel_a);
