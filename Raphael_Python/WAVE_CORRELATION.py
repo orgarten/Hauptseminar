@@ -44,10 +44,10 @@ def correlate_fft(dataA, dataB):
     maximum = max(corr) + 0.0 # get maximum and convert to float
     corr = corr/maximum     # normalize the correlated data
     stoptime = time.time()  # time measurement
-    print("Runtime: ", (stoptime-starttime))    
+    print("Runtime: ", (stoptime-starttime))
     interpret(corr) # interpret correlation result
     return corr     # return result
-    
+
 def stereo(path, blockSize, workingdir):
 
     (rate, data) = wav.read(path, mmap=False)   # import stereo WAV file
@@ -56,7 +56,7 @@ def stereo(path, blockSize, workingdir):
             blockStart = middle - blockSize/2     # find starting point of block
             blockStop = middle + blockSize/2      # find stop point of block
             data = data[blockStart:blockStop]       # cut whole data to block
-    saveFile = path.replace(workingdir, workingdir + "/BLOCKS/")    # path for used blocks 
+    saveFile = path.replace(workingdir, workingdir + "/BLOCKS/")    # path for used blocks
     print(saveFile)
     wav.write(saveFile, rate, data)              # write used block to new wav file
     (dataA, dataB) = np.hsplit(data,2)        # split the 2 stereo channels
@@ -66,7 +66,7 @@ def stereo(path, blockSize, workingdir):
     return(dataA, dataB)         # return sample data of both channels
 
 def interpret(corr):
-    
+
     maximum = max(corr)     # get correlation maximum
     corrLength = len(corr)  # get correlation length
     middle = corrLength/2   # get middle of correlation
@@ -75,24 +75,24 @@ def interpret(corr):
     maxRegion = corr[maxRegionStart:maxRegionStop]    # create list of integration region
     integrated = sum(abs(maxRegion))    # integrate (simply add) the absolute values of the integration region
     maxResult = maximum*len(maxRegion)     # calculate the max. possible result
-    print("peaky:", integrated/maxResult)
-    print("maximum:", maximum)    
-    
-def main():  
-    
+    print("peaky:", 1-integrated/maxResult)
+    print("maximum:", maximum)
+
+def main():
+
     # ask for wanted sample block size
     blockSize = input("Specify block size [<100k for fast calculation] or press ENTER to use standard block size:")
-    if blockSize:    
-        blockSize = int(blockSize) # convert given block size from string to int 
+    if blockSize:
+        blockSize = int(blockSize) # convert given block size from string to int
     #if blockszie is empty or exceeds limits
     if not blockSize or blockSize < 0:
         blockSize = 8192
         print("Blocksize set to 8192")
-        
+
     print("[S] - Use single file with specified path\n"
     "[ENTER] - use stereo files at /PATH/TO/THIS/SCRIPT/WAVE/\n")
-    
-    userinput = input("[S]/[ENTER]:") 
+
+    userinput = input("[S]/[ENTER]:")
     userinput = str.lower(userinput)
     if userinput == "s":
         print("S pressed")
@@ -103,32 +103,32 @@ def main():
 #        corr = correlate(dataA, dataB)           # get correlation output of wav data using correlation in time domain
         corr = correlate_fft(dataA, dataB)      # get correlation output of wav data using correlation in frequency domain
         plt.plot(corr)                   # plot correlation output
-            
+
     else:
-        print("\nProcessing files: \n")        
+        print("\nProcessing files: \n")
         wd = os.getcwd() + "/WAVE/"       # saves path of wav files to 'wd' (workingdirectory/WAVE/)
         print(wd)
         dirlist = [f for f in os.listdir(wd) if os.path.isfile(os.path.join(wd, f))]    # creates list of files in wav directory
         while len(dirlist) > 0:
             element = dirlist.pop(0)         # returns and deletes first element of dirlist
-          
+
             #print(element)
-            
+
             filepath = wd + element           # get full path of file
             (dataA, dataB) = stereo(filepath, blockSize, wd)        # get data of wav file
    #         corr = correlate(dataA, dataB)              # get correlation output of wav data using correlation in time domain
             corr = correlate_fft(dataA, dataB)      # get correlation output of wav data using correlation in frequency domain
             plt.plot(corr)           # plot correlation output
-    
-    print("Finished!\n")            
+
+    print("Finished!\n")
 
     plt. show()             # show plot
-    
-    
+
+
     print("\n     >=< \n"      #hippo!
     ",.--'  ''-.\n"
     "(  )  ',_.'\n"
     "Xx'xX \n")
 
-if __name__ == "__main__":    
+if __name__ == "__main__":
     main()

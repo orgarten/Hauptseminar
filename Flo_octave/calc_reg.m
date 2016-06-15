@@ -2,34 +2,40 @@ function [regression, sigma] = calc_reg(envelope, rate, I)
 % tries to fit a gaussian curve to the envelope
 
 stoI = 0.0001;
-niter = 40;
+niter = 60;
 x = 1:length(envelope);
 data = zeros(1, length(envelope));
+ack = 0; 
 
 for i = I:-1:1
   if envelope(i) < envelope(I)/20
     data_min = i;
+    ack = ack +1;
     break
   end
 end
 for i = I:1:length(envelope)
   if envelope(i) < envelope(I)/20
     data_max = i;
+    ack = ack +1;
     break
   end
 end
 
-data(data_min:1:data_max) = 1;
- 
-init = [envelope(I); I; length(envelope)/3];
+if ack == 2
+  data(data_min:1:data_max) = 1;
+  data = data .* envelope;
+else
+  data = envelope;
+end
 
-data = data .* envelope;
+init = [envelope(I); I; length(envelope)/3; 0];
 
 global verbose;
 verbose = 0;
 
 [f, p, cvg, iter, corp, covp] = leasqr(x', data', init, 'gaussEqn', stoI, niter);
 
-sigma = p(3)/sqrt(2);
+sigma = abs(p(3))/sqrt(2);
 regression = f';
 end
