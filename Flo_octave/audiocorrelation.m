@@ -23,7 +23,7 @@ output = 'display';
 calc = 'freqMult';
 
 % set priority (time/length)
-priority = 'time';
+priority = 'length';
 
 % plot in (samples/seconds)
 x_axis = 'seconds';
@@ -32,11 +32,11 @@ x_axis = 'seconds';
 Lcor = 8192; 
 
 % amount of correlations 
-Ncor = 1;
+Ncor = 10;
 
 % start of correlation in audio file in seconds 
-t_start = 0;
-t_end = 0.5;
+t_start = 1;
+t_end = 1.1;
 
 %-------------------------------------------------------------------------------
 %% CODE
@@ -52,10 +52,11 @@ end
 [channel_a, channel_b] = splitChannel(data, Lcor, Ncor, priority);
 
 % deleting last sample if amount odd
-%if mod(length(channel_a(1,:),2) == 1
-%  channel_a(:,length(channel_a)) = [];
-%  channel_b(:,length(channel_b)) = [];
-%end
+len = length(channel_a(1,:));
+if mod(len,2) == 1
+  channel_a(:,length(channel_a)) = [];
+  channel_b(:,length(channel_b)) = [];
+end
 
 %% extracting name from path
 if strcmp(output, 'save')  
@@ -92,11 +93,11 @@ for i = 1:Ncor
   % create envelope by AM-Demodulation
   [envelope(i,:), index_en(i)] = calc_envelope(correlation(i,:), length(channel_a), rate);
   % fit a gaussian curve to envelope
-  [regression(i,:), sigma(i)] = calc_reg(envelope(i,:), rate, index_en(i));
+  [regression(i,:), sigma(i), ampl(i)] = calc_reg(envelope(i,:), rate, index_en(i));
 
   %% plot
   % puts string together, that is shown in the plot
-  txt = build_txt(ripple(i), sigma(i), lagDiff(i), timeDiff(i), rate, x_axis);
+  txt = build_txt(ripple(i), sigma(i), ampl(i), lagDiff(i), timeDiff(i), rate, x_axis);
   
   % shows the figure
   fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), regression(i,:), x_axis, rate, txt, output);

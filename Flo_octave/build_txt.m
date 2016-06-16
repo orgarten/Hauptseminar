@@ -1,7 +1,7 @@
-function [txt] = build_txt(ripple, sigma, lagDiff, timeDiff, rate, x_axis)
+function [txt] = build_txt(ripple, sigma, ampl, lagDiff, timeDiff, rate, x_axis)
 % puts together the String that is shown in the plot
 
-line_1 = sprintf('ripple = %f \n', ripple);
+line_1 = sprintf('ripple = %f \nampl = %f \n', ripple, ampl);
 if strcmp(x_axis, 'seconds') == 1
   line_2 = sprintf('timeDiff = %f s \n\\sigma = %f s', timeDiff, sigma/rate);
 else

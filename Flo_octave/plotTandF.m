@@ -44,7 +44,7 @@ end
 
 ax3 = subplot(2, 2, [3,4]);
 plot(shift, correlation, shift, envelope, 'r-.', 'LineWidth', 1, shift, regression, 'k--', 'LineWidth', 1);
-title('correlation normalized to length');
+title('correlation normalized to length^2');
 legend('correlation', 'envelope', 'regression');
 if strcmp(x_axis, 'seconds') == 1
   xlabel(['time/s']);
@@ -55,9 +55,9 @@ set(gca, 'XLim', [shift(1) shift(length(shift))]);
 limits_x = get(gca, 'XLim');
 limits_y = get(gca, 'YLim');
 if strcmp(output, 'save')
-  text(limits_x(1) * 7/8 , limits_y(1) * 5/6, txt);
+  text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/12, txt);
 else
-  text(limits_x(1) * 7/8 , limits_y(1) * 3/4, txt);
+  text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/8, txt);
 end
 
 end

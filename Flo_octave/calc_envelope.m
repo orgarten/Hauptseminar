@@ -1,7 +1,7 @@
 function [envelope, index_en] = calc_envelope (correlation, N_len, rate)
 % calculates the envelope by using AM-Demodulation
 % cutoff-frequency in Herz
-f_c = 30*rate/length(correlation);
+f_c = 20*rate/length(correlation);
 
 % building lowpass filter
 fil = zeros(1, length(correlation));
