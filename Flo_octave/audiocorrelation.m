@@ -9,12 +9,13 @@
 clear; clc;
 pkg load signal;
 pkg load optim;
+pkg load io;
 %-------------------------------------------------------------------------------
 %% INPUT
 
 % path of audiofile
 % works with wav, mp3, flac, aif, au, aifc, ogg
-path = '.\WAVE\music.wav';
+path = 'WAVE/music.wav';
 
 % results (display/save)
 output = 'display';
@@ -32,7 +33,7 @@ x_axis = 'seconds';
 Lcor = 8192; 
 
 % amount of correlations 
-Ncor = 10;
+Ncor = 2;
 
 % start of correlation in audio file in seconds 
 t_start = 1;
