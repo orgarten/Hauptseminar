@@ -1,19 +1,30 @@
-function [regression, sigma] = calc_reg(envelope, rate, I)
-% tries to fit a gaussian curve to the envelope
+function [regression, param] = calc_reg(data, rate, I, type)
+% tries to fit a gaussian curve (type=0) or a exp function (type=1) to the envelope
 
 stoI = 0.0001;
 niter = 60;
-x = 1:length(envelope);
-data = zeros(1, length(envelope));
+x = 1:length(data);
+%data = zeros(1, length(data));
 ack = 0; 
-
-init = [envelope(I); I; length(envelope)/3; 0];
 
 global verbose;
 verbose = 0;
 
-[f, p, cvg, iter, corp, covp] = leasqr(x', envelope', init, 'gaussEqn', stoI, niter);
+if type == 0
+  init = [data(I); I; length(data)/3; 0];
+  name = 'gaussEqn';
+else
+  init = [1; 0];
+  name = 'expEqn';
+end
 
-sigma = abs(p(3))/sqrt(2);
+[f, p, cvg, iter, corp, covp] = leasqr(x', data', init, name, stoI, niter);
+
+if type == 0
+  param = abs(p(3))/sqrt(2);
+else
+  param = p(1);
+end
+
 regression = f';
 end

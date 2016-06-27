@@ -5,7 +5,7 @@ function file_names = search_dir (start_path)
   names = {files.name};
   
   for i = 1:1:length(names(1,:))
-    wav_pos = strfind(names{,i}, '.wav');
+    wav_pos = strfind(names{1,i}, '.wav');
     if (wav_pos != 0)
       file_names{1,end+1} = strcat(start_path, '\\',names{1,i});
     end

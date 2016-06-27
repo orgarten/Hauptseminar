@@ -52,20 +52,25 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
     %% calculate ripple factor
     ripple(i) = calc_ripple(correlation(i,:));
     
+    % sort correlation
+    sorted(i,:) = sort(abs(correlation(i,:)), 'descend');
+    % fit a exp curve to sorted correlation
+    [reg_exp(i,:), ex(i)] = calc_reg(sorted(i,:), rate, 1, 1);
+    
     % create envelope by AM-Demodulation
     [envelope(i,:), index_en(i)] = calc_envelope(correlation(i,:), length(channel_a), rate);
     % fit a gaussian curve to envelope
-    [regression(i,:), sigma(i)] = calc_reg(envelope(i,:), rate, index_en(i));
+    [reg_gauss(i,:), sigma(i)] = calc_reg(envelope(i,:), rate, index_en(i), 0);
 
     %% plot
     % puts string together, that is shown in the plot
-    txt = build_txt(ripple(i), sigma(i), lagDiff(i), timeDiff(i), rate, x_axes);
+    txt = build_txt(ripple(i), sigma(i), ex(i), lagDiff(i), timeDiff(i), rate, x_axes);
     
     % shows the figure
-    fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), regression(i,:), x_axes, rate, txt, output);
+    fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), reg_gauss(i,:), sorted(i,:), reg_exp(i,:), x_axes, rate, txt, output);
     
     
-    param = [param; [ripple(i) sigma(i) ampl(i) timeDiff(i)]];
+    param = [param; [ripple(i) sigma(i) ex(i) timeDiff(i)]];
     
     %% save results
     if strcmp(output, 'save')

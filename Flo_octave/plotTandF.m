@@ -1,4 +1,4 @@
-function [ FigHandle ] = plotTandF( channel_a, channel_b, correlation, envelope, regression, x_axis, rate, txt, output)
+function [ FigHandle ] = plotTandF( channel_a, channel_b, correlation, envelope, regression, sorted, reg_exp, x_axis, rate, txt, output)
 %PLOTTANDF Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -44,7 +44,7 @@ end
 
 ax3 = subplot(2, 2, [3,4]);
 plot(shift, correlation, shift, envelope, 'r-.', 'LineWidth', 1, shift, regression, 'k--', 'LineWidth', 1);
-title('correlation normalized to length^2');
+title('correlation normalized to max');
 legend('correlation', 'envelope', 'regression');
 if strcmp(x_axis, 'seconds') == 1
   xlabel(['time/s']);
@@ -59,5 +59,8 @@ if strcmp(output, 'save')
 else
   text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/8, txt);
 end
+
+figure
+plot(shift_t, sorted, shift_t, reg_exp); 
 
 end
