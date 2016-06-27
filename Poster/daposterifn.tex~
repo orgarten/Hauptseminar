@@ -1,0 +1,169 @@
+%-------------------------------------------------
+\documentclass[tnt,diplom]{daposterifn}
+%-------------------------------------------------
+%* options:
+%* tnt, hf, tk, mns /default: -none-
+%* diplom, master   /default: diplom
+%* extern
+
+
+%-------------------------------------------------
+% BITTE HIER PARAMETER SETZEN!
+%-------------------------------------------------
+
+\setDAParameter[\LARGE]{Thema}{Statistische Analyse von Ultra-Breitband-Übertragungskanälen}
+\setDAParameter{Student}{Florian Roth, Raphael Hildebrand, Lucas Weber, Orell Garten}
+\setDAParameter{BetreuerTUD}{Carsten Hermann}
+%\setDAParameter{BetreuerExternName}{}
+%\setDAParameter{BetreuerExternFirma}{}
+\setDAParameter{Hochschullehrer}{Prof. Dr.-Ing. Frank Fitzek}
+\setDAParameter{VerteidigungDatum}{27.11.2010}
+
+%-------------------------------------------------
+
+\setStudentPassbild[5.0cm]{./figures/passbild}
+\setStudentWerdegang[\small][1.0ex]{%
+	07/2003\newline
+	Schulabschluss in Sowieso-Dingskirchen
+	
+%	seit 10/2003\newline
+%	Studium Elektrotechnik an der TU Bergakademie Freiberg
+	
+	seit 10/2005\newline
+	Studium Elektrotechnik, Studienrichtung Informationstechnik, an der TU Dresden
+	
+%	10/2007 - 03/2008\newline
+%	Auslandsstudium an der École Polytechnique Fédérale de Lausanne, Schweiz
+	
+	10/2008 - 03/2009\newline
+	Fachpraktikum bei Firma-Fiktiv und Partner in GanzWoAnders-Blahausen
+}
+
+
+%-------------------------------------------------
+% BEGINN DES DOKUMENTS
+%-------------------------------------------------
+
+\begin{document}
+
+
+\includeDADetails
+
+
+%* uncomment next line to switch the document language (for caption labels etc.) to English (default: German)
+%\selectlanguage{english}
+
+
+\begin{multicols}{3}
+
+
+%-------------------------------------------------
+% BITTE HIER EIGENEN INHALT EINFÜGEN!
+%-------------------------------------------------
+
+%-------------------------------------------------
+\section*{Einleitung}
+%-------------------------------------------------
+
+Blakflsajg öfjg fdöj g däfgjkdfljgsdf ögsdfg
+
+\blindtext[1]
+
+
+%-------------------------------------------------
+\section*{Hauptteil}
+%-------------------------------------------------
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+
+%-------------------------------------------------
+\subsection*{Unterüberschrift Ebene 2}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam $c = \sqrt{a^2 + b^2}$, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+\begin{alignat*}{1}
+	y = \sum_{i=1}^{M} \left[ c_i \, \frac{x_i - \alpha}{1 + \prod_{j=1}^{M} r_{i,j} x_i} + \max \{ \theta_i, \sigma^2 \} \right]
+\end{alignat*}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+
+%-------------------------------------------------
+\subsubsection*{Unterüberschrift Ebene 3}
+
+\blindtext[1]
+
+\blindtext[1]
+
+
+%-------------------------------------------------
+\subsubsection*{Unterüberschrift Ebene 3}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+\begin{itemize}
+	\item Ut ornare est ac arcu molestie sed porttitor.
+	\item Aliquam ultricies sollicitudin quam.
+	\item Nunc porta placerat arcu, ac bibendum massa adipiscing id. Nulla facilisi.
+				Vivamus a arcu ut urna vehicula rhoncus quis vel lectus.
+	\item Nullam ornare, sem dictum mollis dictum, ante nulla sollicitudin nunc, in dictum mauris tellus nec dolor. 
+\end{itemize}
+
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+\begin{center}
+	\includegraphics[width=\linewidth]{./figures/abbildung}
+	\captionof{figure}{Unterschrift für Abbildung.\label{fig:abbildung}}
+\end{center}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+\begin{center}
+	\begin{tabularx}{\linewidth}{|l|X|X|}
+	  \hline
+		jdffdslf & fjdsf jhg lkjgljfdlg jfdj jrgjfdkgeag & jfdfjwgr igjirejg \\ \hline
+		ejperg   & jgjk rpe jbhpets jpgfg                & gkfdl gh jthjp trhks tpsjrstäj trjs js irithjmn \\ \hline
+	\end{tabularx}
+	\captionof{table}{Unterschrift für Tabelle.\label{tab:tabelle}}
+\end{center}
+
+\blindtext[1]
+
+
+%-------------------------------------------------
+\subsection*{Unterüberschrift Ebene 2}
+
+\blindtext[1]
+
+Donec fringilla rhoncus dolor et pretium. Donec non neque eget mi imperdiet porttitor. Nulla facilisi. Ut porta justo nec tortor sollicitudin in elementum sem lobortis. Sed non cursus nunc. Morbi ac felis mollis dolor pulvinar ullamcorper id nec dui. Sed id nibh magna, sit amet laoreet elit.
+\begin{enumerate}
+	\item Duis adipiscing venenatis risus, et condimentum risus commodo nec.
+	\item Quisque ut leo quis leo porta pellentesque ut sit amet leo. Phasellus quis pharetra nisl.
+	\item Fusce imperdiet rhoncus ante, sed iaculis elit euismod vel.
+\end{enumerate}
+Aenean ac nulla ipsum. Sed nulla dui, consectetur sit amet ultrices eget, semper nec ipsum. Pellentesque lacinia ornare sapien, ac accumsan nulla congue eget. Aliquam gravida nulla id justo egestas accumsan.
+
+Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel gravida at, eleifend eget tortor. Phasellus blandit nisi vel leo euismod a vestibulum est vestibulum. Duis convallis dignissim turpis. Nam ullamcorper molestie urna et iaculis.
+
+\blindtext[1]
+
+
+%-------------------------------------------------
+\section*{Zusammenfassung}
+%-------------------------------------------------
+
+Aenean ac nulla ipsum. Sed nulla dui, consectetur sit amet ultrices eget, semper nec ipsum. Pellentesque lacinia ornare sapien, ac accumsan nulla congue eget. Aliquam gravida nulla id justo egestas accumsan.
+Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel gravida at, eleifend eget tortor. Phasellus blandit nisi vel leo euismod a vestibulum est vestibulum. Duis convallis dignissim turpis. Nam ullamcorper molestie urna et iaculis.
+
+\blindtext[1]
+
+\blindtext[1]
+
+\blindtext[1]
+
+
+\end{multicols}
+
+
+\end{document}

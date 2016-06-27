@@ -1,0 +1,625 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.2.12)  27 JUN 2016 09:47
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**daposterifn.tex
+(./daposterifn.tex
+LaTeX2e <2015/10/01> patch level 2
+Babel <3.9m> and hyphenation patterns for 79 languages loaded.
+(./daposterifn.cls
+Document Class: daposterifn 2011/11/07 v0.6 daposterifn class (Anne Wolf)
+(/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(/usr/share/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+))
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2015/08/03 3.9m The Babel package
+
+(/usr/share/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
+
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2015/08/03 3.9m Babel common definitions
+\babel@savecnt=\count87
+\U@D=\dimen103
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+(/usr/share/texmf-dist/tex/generic/babel-german/ngerman.ldf
+Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
+
+(/usr/share/texmf-dist/tex/generic/babel-german/ngermanb.ldf
+Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
+\l@naustrian = a dialect from \language\l@ngerman 
+\l@nswissgerman = a dialect from \language\l@ngerman 
+Package babel Info: Making " an active character on input line 88.
+)))
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen104
+\Gm@wd@mp=\dimen105
+\Gm@odd@mp=\dimen106
+\Gm@even@mp=\dimen107
+\Gm@layoutwidth=\dimen108
+\Gm@layoutheight=\dimen109
+\Gm@layouthoffset=\dimen110
+\Gm@layoutvoffset=\dimen111
+\Gm@dimlist=\toks17
+)
+(/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/share/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen112
+\extrarowheight=\dimen113
+\NC@list=\toks18
+\extratabsurround=\skip43
+\backup@length=\skip44
+)
+(/usr/share/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 142.
+
+(/usr/share/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count91
+))
+\everycr=\toks19
+\minrowclearance=\skip45
+)
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count92
+\calc@Bcount=\count93
+\calc@Adimen=\dimen114
+\calc@Bdimen=\dimen115
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count94
+\calc@Cskip=\skip48
+)
+(/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip49
+\f@ncyO@elh=\skip50
+\f@ncyO@erh=\skip51
+\f@ncyO@olh=\skip52
+\f@ncyO@orh=\skip53
+\f@ncyO@elf=\skip54
+\f@ncyO@erf=\skip55
+\f@ncyO@olf=\skip56
+\f@ncyO@orf=\skip57
+)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
+\TX@col@width=\dimen116
+\TX@old@table=\dimen117
+\TX@old@col=\dimen118
+\TX@target=\dimen119
+\TX@delta=\dimen120
+\TX@cols=\count95
+\TX@ftn=\toks20
+)
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+)
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
+)
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/paralist/paralist.sty
+Package: paralist 2013/06/09 v2.4 Extended list environments
+\pltopsep=\skip58
+\plpartopsep=\skip59
+\plitemsep=\skip60
+\plparsep=\skip61
+\pl@lab=\toks21
+)
+(/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen123
+\WF@size=\dimen124
+\c@WF@wrappedlines=\count96
+\WF@box=\box26
+\WF@everypar=\toks22
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/share/texmf-dist/tex/latex/blindtext/blindtext.sty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+
+(/usr/share/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count97
+\c@Blindtext=\count98
+\c@blind@countparstart=\count99
+\blind@countxx=\count100
+\blindtext@numBlindtext=\count101
+\blind@countyy=\count102
+\c@blindlist=\count103
+\c@blindlistlevel=\count104
+\c@blindlist@level=\count105
+\blind@listitem=\count106
+\c@blind@listcount=\count107
+\c@blind@levelcount=\count108
+\blind@mathformula=\count109
+\blind@Mathformula=\count110
+\c@blind@randomcount=\count111
+\c@blind@randommax=\count112
+\c@blind@pangramcount=\count113
+\c@blind@pangrammax=\count114
+)
+(/usr/share/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
+\c@tracingmulticols=\count115
+\mult@box=\box27
+\multicol@leftmargin=\dimen125
+\c@unbalance=\count116
+\c@collectmore=\count117
+\doublecol@number=\count118
+\multicoltolerance=\count119
+\multicolpretolerance=\count120
+\full@width=\dimen126
+\page@free=\dimen127
+\premulticols=\dimen128
+\postmulticols=\dimen129
+\multicolsep=\skip62
+\multicolbaselineskip=\skip63
+\partial@page=\box28
+\last@line=\box29
+\maxbalancingoverflow=\dimen130
+\mult@rightbox=\box30
+\mult@grightbox=\box31
+\mult@gfirstbox=\box32
+\mult@firstbox=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\c@columnbadness=\count121
+\c@finalcolumnbadness=\count122
+\last@try=\dimen131
+\multicolovershoot=\dimen132
+\multicolundershoot=\dimen133
+\mult@nat@firstbox=\box51
+\colbreak@box=\box52
+\mc@col@check@num=\count123
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/twoopt.sty
+Package: twoopt 2008/08/11 v1.5 Definitions with two optional arguments (HO)
+)
+(/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2015/09/17 v3.3-111 Customizing captions (AR)
+
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2015/09/20 v1.7-115 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen134
+\captionmargin@=\dimen135
+\captionwidth=\dimen136
+\caption@tempdima=\dimen137
+\caption@indent=\dimen138
+\caption@parindent=\dimen139
+\caption@hangindent=\dimen140
+)
+\c@ContinuedFloat=\count124
+Package caption Info: wrapfig package is loaded.
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip64
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks23
+\ex@=\dimen141
+))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen142
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count125
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count126
+\leftroot@=\count127
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count128
+\DOTSCASE@=\count129
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+\big@size=\dimen143
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count130
+\c@MaxMatrixCols=\count131
+\dotsspace@=\muskip10
+\c@parentequation=\count132
+\dspbrk@lvl=\count133
+\tag@help=\toks24
+\row@=\count134
+\column@=\count135
+\maxfields@=\count136
+\andhelp@=\toks25
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
+\@envbody=\toks26
+\multlinegap=\skip65
+\multlinetaggap=\skip66
+\mathdisplay@stack=\toks27
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+\daposterLayoutHoeheKopfbalkenDunkel=\skip67
+\daposterLayoutHoeheKopfbalkenHell=\skip68
+\daposterLayoutHoeheFussbalken=\skip69
+\daposterLayoutRandLinks=\skip70
+\daposterLayoutRandRechts=\skip71
+\daposterLayoutRandInnenOben=\skip72
+\daposterLayoutRandInnenUnten=\skip73
+\daposterLayoutHoeheDetails=\skip74
+\daposterLayoutSpaltenabstand=\skip75
+\daposterLayoutRandDetailsUnten=\skip76
+\daposterLayoutRuleHeightDetailsUnten=\skip77
+\daposterLayoutPassbildBreite=\skip78
+\daposterLayoutPassbildRandInnen=\skip79
+\daposterLayoutParSkipWerdegang=\skip80
+\daposterLayoutSkipObenTitle=\skip81
+\daposterLayoutSkipUntenTitle=\skip82
+\daposterLayoutBreiteDetailsArbeit=\skip83
+\daposterLayoutBreiteDetailsStudent=\skip84
+) (./daposterifn.aux)
+\openout1 = `daposterifn.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 47.
+
+(/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a1paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(99.58464pt, 1490.92441pt, 99.58464pt)
+* v-part:(T,H,B)=(0.0pt, 2392.87677pt, 0.0pt)
+* \paperwidth=1690.09369pt
+* \paperheight=2392.87677pt
+* \textwidth=1490.92441pt
+* \textheight=1951.8591pt
+* \oddsidemargin=27.31465pt
+* \evensidemargin=27.31465pt
+* \topmargin=-109.26999pt
+* \headheight=278.83707pt
+* \headsep=42.67912pt
+* \topskip=10.0pt
+* \footskip=156.49014pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=35.56593pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count137
+\scratchdimen=\dimen150
+\scratchbox=\box55
+\nofMPsegments=\count138
+\nofMParguments=\count139
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count140
+\MPscratchDim=\dimen151
+\MPnumerator=\count141
+\makeMPintoPDFobject=\count142
+\everyMPtoPDFconversion=\toks29
+) (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 47.
+
+(/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<./figures/passbild.pdf, id=1, 60.225pt x 90.3375pt>
+File: ./figures/passbild.pdf Graphic file (type pdf)
+
+<use ./figures/passbild.pdf>
+Package pdftex.def Info: ./figures/passbild.pdf used on input line 50.
+(pdftex.def)             Requested size: 142.26378pt x 213.41655pt.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 83.
+ (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 83.
+
+(/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 83.
+
+
+(/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 83.
+
+
+(/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <20.74> on input line 83.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 83.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 83.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 104.
+
+
+(/usr/share/texmf-dist/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <20.74> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 104.
+
+<./figures/abbildung.pdf, id=2, 161.60374pt x 98.3675pt>
+File: ./figures/abbildung.pdf Graphic file (type pdf)
+
+<use ./figures/abbildung.pdf>
+Package pdftex.def Info: ./figures/abbildung.pdf used on input line 114.
+(pdftex.def)             Requested size: 473.26418pt x 288.09068pt.
+
+<./figures/logos/Logo-TU_weiss.pdf, id=3, 256.96pt x 75.28125pt>
+<use ./figures/logos/Logo-TU_weiss.pdf>
+File: ./figures/logos/Logo-TU_weiss.pdf Graphic file (type pdf)
+
+<use ./figures/logos/Logo-TU_weiss.pdf>
+Package pdftex.def Info: ./figures/logos/Logo-TU_weiss.pdf used on input line 1
+67.
+(pdftex.def)             Requested size: 373.94691pt x 109.5437pt.
+
+<./figures/logos/Logo-ET_weiss.pdf, id=4, 249.93375pt x 68.255pt>
+File: ./figures/logos/Logo-ET_weiss.pdf Graphic file (type pdf)
+
+<use ./figures/logos/Logo-ET_weiss.pdf>
+Package pdftex.def Info: ./figures/logos/Logo-ET_weiss.pdf used on input line 1
+67.
+(pdftex.def)             Requested size: 237.0391pt x 64.7294pt.
+
+<./figures/logos/Logo-TK.pdf, id=5, 457.71pt x 463.7325pt>
+File: ./figures/logos/Logo-TK.pdf Graphic file (type pdf)
+
+<use ./figures/logos/Logo-TK.pdf>
+Package pdftex.def Info: ./figures/logos/Logo-TK.pdf used on input line 167.
+(pdftex.def)             Requested size: 63.8834pt x 64.7294pt.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+Non-PDF special ignored! <./figures/logos/Logo-TU_weiss.pdf> <./figures/passbil
+d.pdf> <./figures/abbildung.pdf> <./figures/logos/Logo-ET_weiss.pdf> <./figures
+/logos/Logo-TK.pdf>] (./daposterifn.aux) ) 
+Here is how much of TeX's memory you used:
+ 5512 strings out of 493054
+ 80296 string characters out of 6140586
+ 207552 words of memory out of 5000000
+ 8903 multiletter control sequences out of 15000+600000
+ 38695 words of font info for 34 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 43i,27n,45p,445b,550s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvip
+s/lm/lm-mathex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/sh
+are/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/en
+c/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</
+usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fo
+nts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
+12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf
+-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
+Output written on daposterifn.pdf (1 page, 128859 bytes).
+PDF statistics:
+ 63 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+
