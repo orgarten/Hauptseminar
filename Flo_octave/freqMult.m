@@ -21,7 +21,8 @@ correlation_t = ifft(correlation);
 correlation(:,1:length(correlation_t)/2) = correlation_t(:,length(correlation_t)/2+1:length(correlation_t));
 correlation(:,length(correlation_t)/2+1:length(correlation_t)) = correlation_t(:,1:length(correlation_t)/2);
 
-correlation = real(correlation)/(length(correlation)/rate)^2;
+correlation = real(correlation)/max(correlation);
+%(length(correlation)/rate)^2
 end
 
 end

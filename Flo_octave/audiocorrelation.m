@@ -55,11 +55,11 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
     % create envelope by AM-Demodulation
     [envelope(i,:), index_en(i)] = calc_envelope(correlation(i,:), length(channel_a), rate);
     % fit a gaussian curve to envelope
-    [regression(i,:), sigma(i), ampl(i)] = calc_reg(envelope(i,:), rate, index_en(i));
+    [regression(i,:), sigma(i)] = calc_reg(envelope(i,:), rate, index_en(i));
 
     %% plot
     % puts string together, that is shown in the plot
-    txt = build_txt(ripple(i), sigma(i), ampl(i), lagDiff(i), timeDiff(i), rate, x_axes);
+    txt = build_txt(ripple(i), sigma(i), lagDiff(i), timeDiff(i), rate, x_axes);
     
     % shows the figure
     fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), regression(i,:), x_axes, rate, txt, output);
