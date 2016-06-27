@@ -1,123 +1,76 @@
-% ##############################################
-% ########        audio correlator      ########
-% ########        of stereo files       ########
-% ########      developed for the       ########
-% ########          Haupteseminar       ########
-% ########      Kommunikationssysteme   ########
-% ########          v 0.1               ########
-% ##############################################
-clear; clc;
-pkg load signal;
-pkg load optim;
-pkg load io;
-%-------------------------------------------------------------------------------
-%% INPUT
+function [correlation, param] = audiocorrelation(path, output, calc, priority, x_axes, Lcor, Ncor, t_start, t_end)
 
-% path of audiofile
-% works with wav, mp3, flac, aif, au, aifc, ogg
-path = 'WAVE/music.wav';
-
-% results (display/save)
-output = 'display';
-
-% calculate correlation with (xcorr/freqMult)
-calc = 'freqMult';
-
-% set priority (time/length)
-priority = 'length';
-
-% plot in (samples/seconds)
-x_axis = 'seconds';
-
-% length of correlation
-Lcor = 8192; 
-
-% amount of correlations 
-Ncor = 2;
-
-% start of correlation in audio file in seconds 
-t_start = 1;
-t_end = 1.1;
-
-%-------------------------------------------------------------------------------
-%% CODE
-if strcmp(priority, 'time')
-    Ncor = 1;
-end
-
-% load part of the signal from given path
-%  row --> channel
-[data, rate] = readAudio(path, t_start, t_end, Lcor, Ncor, priority); 
-
-%% devide into Ncor parts
-[channel_a, channel_b] = splitChannel(data, Lcor, Ncor, priority);
-
-% deleting last sample if amount odd
-len = length(channel_a(1,:));
-if mod(len,2) == 1
-  channel_a(:,length(channel_a)) = [];
-  channel_b(:,length(channel_b)) = [];
-end
-
-%% extracting name from path
-if strcmp(output, 'save')  
-  str1 = regexp(path, '\\' ,'split');
-  str2 = regexp(str1{length(str1)}, '\.' , 'split');
-end
-
-for i = 1:Ncor
-  % completing name
-  if strcmp(output, 'save')
-    name = strcat(str2{1}, '_res(', num2str(i), ')');
-    path_res = strcat('.\RESULTS\', name, '\', name, '_', num2str(length(channel_a)));
-    mkdir('.\RESULTS', name);
+  %-------------------------------------------------------------------------------
+  %% CODE
+  if strcmp(priority, 'time')
+      Ncor = 1;
   end
-  
-  if strcmp(calc, 'xcorr')
-    %% correlate  in time
-    [correlation(i,:), lags ] = xcorr(channel_a(i,:), channel_b(i,:),'coeff');
- 
-  else
-    % in frequency 
-    correlation(i,:) = freqMult(channel_a(i,:), channel_b(i,:), rate);
-    lags = (-length(correlation)/2:1:length(correlation)/2-1);
+
+  % load part of the signal from given path
+  %  row --> channel
+  [data, rate] = readAudio(path, t_start, t_end, Lcor, Ncor, priority); 
+
+  %% devide into Ncor parts
+  [channel_a, channel_b] = splitChannel(data, Lcor, Ncor, priority);
+
+  % deleting last sample if amount odd
+  len = length(channel_a(1,:));
+  if mod(len,2) == 1
+    channel_a(:,length(channel_a)) = [];
+    channel_b(:,length(channel_b)) = [];
   end
-  
-  %% calculate offset between channels
-  [~,I(i)] = max(abs(correlation(i,:)));
-  lagDiff(i) = lags(I(i));
-  timeDiff(i) = lagDiff(i)/rate;
 
-  %% calculate ripple factor
-  ripple(i) = calc_ripple(correlation(i,:));
-  
-  % create envelope by AM-Demodulation
-  [envelope(i,:), index_en(i)] = calc_envelope(correlation(i,:), length(channel_a), rate);
-  % fit a gaussian curve to envelope
-  [regression(i,:), sigma(i), ampl(i)] = calc_reg(envelope(i,:), rate, index_en(i));
+  %% extracting name from path
+  if strcmp(output, 'save')  
+    str1 = regexp(path, '\\' ,'split');
+    str2 = regexp(str1{length(str1)}, '\.' , 'split');
+  end
 
-  %% plot
-  % puts string together, that is shown in the plot
-  txt = build_txt(ripple(i), sigma(i), ampl(i), lagDiff(i), timeDiff(i), rate, x_axis);
-  
-  % shows the figure
-  fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), regression(i,:), x_axis, rate, txt, output);
-  
-  %% save results
-  if strcmp(output, 'save')
-    ack = save_data(fig, channel_a, channel_b, rate, path_res, i)    
+  for i = 1:Ncor
+    % completing name
+    if strcmp(output, 'save')
+      name = strcat(str2{1}, '_res(', num2str(i), ')');
+      path_res = strcat('.\RESULTS\', name, '\', name, '_', num2str(length(channel_a)));
+      mkdir('.\RESULTS', name);
+    end
+    
+    if strcmp(calc, 'xcorr')
+      %% correlate  in time
+      [correlation(i,:), lags ] = xcorr(channel_a(i,:), channel_b(i,:),'coeff');
+   
+    else
+      % in frequency 
+      correlation(i,:) = freqMult(channel_a(i,:), channel_b(i,:), rate);
+      lags = (-length(correlation)/2:1:length(correlation)/2-1);
+    end
+    
+    %% calculate offset between channels
+    [~,I(i)] = max(abs(correlation(i,:)));
+    lagDiff(i) = lags(I(i));
+    timeDiff(i) = lagDiff(i)/rate;
+
+    %% calculate ripple factor
+    ripple(i) = calc_ripple(correlation(i,:));
+    
+    % create envelope by AM-Demodulation
+    [envelope(i,:), index_en(i)] = calc_envelope(correlation(i,:), length(channel_a), rate);
+    % fit a gaussian curve to envelope
+    [regression(i,:), sigma(i), ampl(i)] = calc_reg(envelope(i,:), rate, index_en(i));
+
+    %% plot
+    % puts string together, that is shown in the plot
+    txt = build_txt(ripple(i), sigma(i), ampl(i), lagDiff(i), timeDiff(i), rate, x_axes);
+    
+    % shows the figure
+    fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), regression(i,:), x_axes, rate, txt, output);
+    
+    
+    param = [param; [ripple(i) sigma(i) ampl(i) timeDiff(i)]];
+    
+    %% save results
+    if strcmp(output, 'save')
+      ack = save_data(fig, channel_a, channel_b, rate, path_res, i)    
+    end
   end
 end
-%ripple
-%sigma
-%lagDiff
-%timeDiff
 
-%% delete unneeded variables
-%if strcmp(priority,'length') == 1
-%    clearvars t_end i
-%else
-%    clearvars i Lcor Ncor
-%end
-
-disp('finished');
