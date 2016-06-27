@@ -4,7 +4,6 @@ function [regression, param] = calc_reg(data, rate, I, type)
 stoI = 0.0001;
 niter = 60;
 x = 1:length(data);
-%data = zeros(1, length(data));
 ack = 0; 
 
 global verbose;
