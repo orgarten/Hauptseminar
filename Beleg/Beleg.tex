@@ -6,57 +6,59 @@
 \usepackage{color}
 \usepackage{graphicx}
 
-\lstdefinelanguage
-   [x64]{Assembler}     % add a "x64" dialect of Assembler
-   [x86masm]{Assembler} % based on the "x86masm" dialect
-   % with these extra keywords:
-   {morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
-                  POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
-                  rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
-                  r8,r8d,r8w,r8b,r9,r9d,r9w,r9b}} % etc.
-
-\lstset{ % General setup for the package
-	language=[x64]Assembler,
-	breaklines=true,
-	basicstyle=\small\sffamily,
-	numbers=left,
- 	numberstyle=\tiny,
-	frame=tb,
-	tabsize=4,
-	%columns=fixed,
-	showstringspaces=false,
-	showtabs=false,
-	keepspaces,
-	commentstyle=\color{black},
-	keywordstyle=\color{blue}
-}
-
-\title{Hauptseminar Kommunikationssysteme \newline Compressed Compute-and-Forward mit korrelierten Audiosignalen}
+\title{Hauptseminar Kommunikationssysteme \\ Compressed Compute-and-Forward mit korrelierten Audiosignalen}
 \date{13.07.2016}
 \author{Florian Roth, Raphael Hildebrand, Lucas Weber, Orell Garten}
 
 \begin{document}
 
 \pagenumbering{gobble}
+
 \maketitle
+\begin{abstract}
+abstract
+\end{abstract}
 \newpage
+
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
 
+
 \section{Aufgabenstellung}
-
+Es ist ein Programm zu entwerfen, welches Audiodateien einliest und nacheinander die beiden Stereo-Kanäle miteinander korreliert. Des weiteren sollen Parameter berechnet werden, welche die entstehende Korrelationsfunktion möglichst genau beschreiben. Dafür sind Audiosignale aufzunehmen, mit der geschriebenen Software zu verarbeiten und entsprechend ihrer Klassifzierung systematisch abzuspeichern.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
+Im Jahr 2022 werden 500 Milliarden internetfähige Geräte erwarten, die mit einander kommunizieren sollen. Das führt zu extrem hohen Datenmengen, die in kürzestmöglicher Zeit von A nach B transportiert werden müssen. Große Herausforderungen bestehen darin, dass man sehr kurze Verzögerungszeiten und eine hohe Widerstandsföhigkeit garantieren muss. Idealerweise benötigen die Geräte wenig Energie. Ein Ansatz zur Lösung dieses Problems ist die Netzwerkcodierung.\newline
+Ein Beispiel für eine zukünfitge Anwendung ist ein riesiges Sensornetzwerk. Es stellt sich dabei die Frage wie viele Sensoren man benötigt, um sinnvolle Aussagen treffen zu können. Netzwerkcodierung in Verbindung mit Compressed Sensing ermöglicht es hierbei die Datenmenge im Netzwerk mittels Korrelationsverfahren zu reduzieren und damit den Durchsatz zu erhöhen. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Theoretische Vorbetrachtung}
 \subsection{Korrelationsfunktion}
 \subsection{Parameter}
 \subsection{Gauß-Regression}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Verfügbare Technik}
+\subsection{Software}
+Softwareseitig haben wir Octave benutzt. Als freie Alternative zu Matlab vereint Octave gute Performance, syntaktische Gleichheit zu Matlab sowie kostenfreie Benutzung unter einem Dach. Im Vergleich mit Python haben wir festgestellt, dass die Geschwindigkeit aufwendiger Rechnungen, wie der Korrelation, bei Python schlechter ist. Somit haben wir uns für Ocatve entschieden. Um unseres selbstgeschriebenes Programm zu verifizieren haben wir eine Autokorrelation durchgeführt und diese mit der von Audactity berechneten AKF verglichen. Wir sind dabei zu dem Ergebnis gekommen, dass unser Programm funktioniert.
+\subsection{Hardware}
+Es wurden zwei hochwertige Kondensatormikrofone vom Telekom-Lehrstuhl der TU Dresden zur Verfügung gestellt. Außerdem konnten wir ein Stativ, eine Stereoschiene sowie eine USB-Soundkarte verwenden.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Programm}
 \subsection{Aufbau des Programms}
-\subsection{Probleme} 
-\subsection{Format der Lösung}
+Das Programm ist in 3 große Teile gegliedert. Dazu zählt das Einlesen der Audiodateien, die benötigte Signalverarbeitung inklusiver Berechnung der gewünschten Parameter und das Speichern der gewonnenen Werte in Form einer Excel-Datei.
+\paragraph{Einlesen der Audiodaten}
+Die Audiodateien liegen im WAV-Format als Stereoaufnahme vor. Zunächst wird eine Liste mit allen Dateien in einem bestimmten Ordner erstellt, damit die Dateien nacheinander eingelesen werden können. Im nächsten Schritt werden die beiden Kanäle voneinander getrennt, um diese dann in die Signalverarbeitung zu übergeben.
+\paragraph{Signalverarbeitung}
+Das Kernstück der Signalverarbeitung ist eine periodische Korrelationsfunktion, die den linken und rechten Kanal miteinander korreliert. Die dabei entstandene Korrelationsfunktion wird dann weiter untersucht. Als nächstes wird eine Art Einhüllende berechnet, die ein Maß für die Steilheit der Kurve ist. Wie bereits im Abschnitt "Gauß-Regression" beschrieben, wird dann mit Hilfe der Methode der kleinsten Quadrate eine Gauß-Glocke so angepasst, dass sie den Verlauf der Hüllkurve der KKF möglichst gut abbildet. Die Parameter ripple, $\sigma$, Gleichanteil und Zeitverschiebung des Maximums aus dem Ursprung werden danach an eine Funktion übergeben, die diese Daten in einer Excel-Tabelle speichert.
+\paragraph{Speicherung}
+Die Speicherung der Daten erfolgt in einer Excel-Datei. Dabei wird zu erst der Dateiname des Samples und alles dazugehörigen Werte gespeichert. Außerdem wird noch ein Link zum Graphen der Korrelationsfunktion angegeben, damit man sich diese bei der Auswahl der Test-Signale anschauen kann.
 
+\subsection{Probleme} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Signalauswahl}
 \subsection{Beispielsignal}
 

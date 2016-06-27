@@ -31,53 +31,37 @@
 	keywordstyle=\color{blue}
 }
 
-\title{Praktikumsbeleg - Mikrorechentechnik 1 \newline Versuch 2 - Assembler}
-\date{18.12.2014}
-\author{Sarah Stackebrandt, Jan Funke, Florian Roth, Orell Garten}
+\title{Hauptseminar Kommunikationssysteme \newline Compressed Compute-and-Forward mit korrelierten Audiosignalen}
+\date{13.07.2016}
+\author{Florian Roth, Raphael Hildebrand, Lucas Weber, Orell Garten}
 
 \begin{document}
 
 \pagenumbering{gobble}
 \maketitle
+\newpage
 \tableofcontents
 \newpage
 \pagenumbering{arabic}
 
 \section{Aufgabenstellung}
-Es ist x86-Assembler-Programm zu schreiben, dass einen Pfeil auf einem 64x24 Matrixdisplay darstellt. Der Pfeil soll in der mittleren Spalte von links nach rechts wandern und nach links zurückgesetzt werden, sobald die Spitze des Pfeils das Ende berührt. Beim Drücken der Interrupttaste am Display, soll der Pfeil unsichtbar weiterlaufen und erst beim zurücksetzen wieder angezeigt werden.
 
-\section{Vorbetrachtung}
-\subsection{Aufbau des Displays}
-Das Display ist aus drei 8 Bit großen und 64 Adressen langen Zeilen aufgebauten. Jede einzelne Spalte wird mit einer forlaufenden Adresse zwischen 0 und 191 angesprochen. Außerdem wird der Inhalt jeder Zeile mit einem Byte festgelegt. Im Zusammenspiel von Adresse und Daten können beliebige Daten angezeigt werden.
-\subsection{Ansteuerung des Matrixdisplays}
-\paragraph{Berechtigungen}
-Bevor das Display angesteuert werden kann, müssen unter Linux die entsprechenden Berechtigungen eingeholt werden, da man sonst keinen Zugriff auf die Adressen des Parallelports hat.
-\paragraph{Ports zur Steuerung des Displays}
-Insgesamt gibt es drei 8 Bit breite Ports, die die Steuerung des Displays übernehmen. Die Basisadresse des Parallelports ist 378h. Mit Hilfe eines Offsets werden alle drei Ports angesprochen. 
-\subparagraph{dport} Das Datenregister "dport" (Offset = 0) enthält die Daten die an das Display übergeben werden. 
-\subparagraph{saport} Das Statusregister "saport" (Offset = 1) enthält diverse Statusbits, wobei in diesem Versuch nur das 3 Bit von Interesse ist. Dieses ist 0 wenn die INT-Taste gedrückt ist, sonst immer 1. 
-\subparagraph{seport}Das Steuerregister "seport" (Offset = 2) steuert die Datenübergabe an das Display. Dabei ist vor allem das Bit 0 und das Bit 3 wichtig. Wenn Bit 3 (auch: SLCT IN) eine fallende Flanke aufweist, werden die Daten aus dport in den Adresszwischenspeicher des Display geladen. Weist es eine steigende Flanke auf, wird der Inhalt von dport in den Datenzwischenspeicher transportiert. Bei einer steigenden Flanke an Bit 0 (auch: CE-RAM) wird der Inhalt des Adress- und Datenzwischenspeichers in den Dualport-RAM des Displays geladen und damit auf dem Display angezeigt.
-\section{Lösung}
-\subsection{Algorithmus}
+\section{Motivation}
 
-\subsection{Spezielle Unterprogramme}
-\subsection{Probleme bei der Entwicklung}
-Während der Entwicklung zu Hause konnte das Programm nicht mit dem Display getestet werden. Dadurch war es schwierig Fehler zu suchen. Mit Hilfe des Assemblers war es möglich syntaktische Fehler zu beseitigen. Unter zuhilfenahme des Debuggers wäre es zwar auch möglich gewesen, andere Fehler zu finden, ist jedoch sehr aufwändig, wenn man nicht nach konkreten Fehlern sucht. Deswegen haben wir uns in der Entwicklungsphase vor allem damit beschäftigt, die logische Struktur unseres Programmes zu überprüfen. 
-\newline Fehler die beim Testen des Programmes mit Display aufgetreten sind:
-\begin{itemize}
-  \item Beim Testen ist uns aufgefallen, dass kein Pfeil sondern ein anderes Muster angezeigt wurde. Bei genauerer Betrachtung stellte sich heraus, dass jede Spalte genau eine Binärzahl größer war, als die vorhergehende. Dieses Problem entstand, weil wir beim Anzeigen des Pfeils nicht die Adresse sondern den Wert inkrementiert hatten. 
-  \item Die Methode zum Löschen des Displays war zuerst darauf beschränkt, die mittlere Zeile des Displays zu löschen, weil dies die einzige Zeile ist, in die unser Programm reinschreibt. Beim Anschalten des Displays ist dieser jedoch zufällig mit Daten gefüllt, so dass wir den gesamten Display löschen mussten. Dies war jedoch durch eine einfach Änderung der Anfangs- und Endadresse innerhalb des Unterprogramms möglich und dadurch einfach zu realisieren.
-  \item In einigen Unterprogrammen wurden nicht alle Register auf dem Stack gesichert, was teilweise zu Fehlern geführt hat.
-\end{itemize}
-Das schwerwiegendste Problem war nicht selbstverschuldet. An unserem Test-PC funktionierte der Parallelport nicht mehr richtig, so dass nicht reproduzierbare Fehler aufgetreten sind. Dieser Fehler hat den Großteil der Fehlersuche ausgemacht, uns aber dazu gezwungen das gesamte Programm ausführlich zu debuggen.
+\section{Theoretische Vorbetrachtung}
+\subsection{Korrelationsfunktion}
+\subsection{Parameter}
+\subsection{Gauß-Regression}
+\section{Programm}
+\subsection{Aufbau des Programms}
+\subsection{Probleme} 
+\subsection{Format der Lösung}
 
+\section{Signalauswahl}
+\subsection{Beispielsignal}
 
 \begin{appendix}
-  \section{Ausführlich kommentierter Quellcode}
-  \lstinputlisting{main_linux.asm}
 
-  \section{Programmablaufplan}
-  \includegraphics[width=\linewidth, height=\textheight]{pap.jpg}
 \end{appendix}
 
 \end{document}

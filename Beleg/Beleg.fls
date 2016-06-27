@@ -52,12 +52,6 @@ INPUT /usr/share/texmf-dist/tex/latex/graphics/trig.sty
 INPUT /usr/share/texmf-dist/tex/latex/graphics/trig.sty
 INPUT /usr/share/texmf-dist/tex/latex/latexconfig/graphics.cfg
 INPUT /usr/share/texmf-dist/tex/latex/latexconfig/graphics.cfg
-INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
-INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang2.sty
-INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang2.sty
-INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang3.sty
-INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang3.sty
 INPUT Beleg.aux
 INPUT Beleg.aux
 OUTPUT Beleg.aux
@@ -106,6 +100,8 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy6.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmex10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 OUTPUT Beleg.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
@@ -119,9 +115,11 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
 OUTPUT Beleg.toc
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT Beleg.aux
+INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb
