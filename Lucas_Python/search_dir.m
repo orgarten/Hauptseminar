@@ -13,7 +13,12 @@ leng = length(names(1,:));
 for i = 1:leng
   wav_pos = strfind(names{1,i}, '.wav');
   if (wav_pos != 0)
-    file_names{1,end+1} = strcat(start_path, '\\',names{1,i});
+    if ispc
+      file_names{1,end+1} = strcat(start_path, '\',names{1,i});
+    endif
+    if isunix
+      file_names{1,end+1} = strcat(start_path, '/',names{1,i});
+    endif
   endif
 endfor
 
