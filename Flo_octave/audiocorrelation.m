@@ -1,5 +1,5 @@
 function [correlation, param] = audiocorrelation(path, output, calc, priority, x_axes, Lcor, Ncor, t_start, t_end)
-
+  param = [];
   %-------------------------------------------------------------------------------
   %% CODE
   if strcmp(priority, 'time')
