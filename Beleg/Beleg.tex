@@ -54,7 +54,18 @@ Die Audiodateien liegen im WAV-Format als Stereoaufnahme vor. Zunächst wird ein
 Das Kernstück der Signalverarbeitung ist eine periodische Korrelationsfunktion, die den linken und rechten Kanal miteinander korreliert. Die dabei entstandene Korrelationsfunktion wird dann weiter untersucht. Als nächstes wird eine Art Einhüllende berechnet, die ein Maß für die Steilheit der Kurve ist. Wie bereits im Abschnitt "Gauß-Regression" beschrieben, wird dann mit Hilfe der Methode der kleinsten Quadrate eine Gauß-Glocke so angepasst, dass sie den Verlauf der Hüllkurve der KKF möglichst gut abbildet. Die Parameter ripple, $\sigma$, Gleichanteil und Zeitverschiebung des Maximums aus dem Ursprung werden danach an eine Funktion übergeben, die diese Daten in einer Excel-Tabelle speichert.
 \paragraph{Speicherung}
 Die Speicherung der Daten erfolgt in einer Excel-Datei. Dabei wird zu erst der Dateiname des Samples und alles dazugehörigen Werte gespeichert. Außerdem wird noch ein Link zum Graphen der Korrelationsfunktion angegeben, damit man sich diese bei der Auswahl der Test-Signale anschauen kann.
-
+\subsection{Mögliche Einstellungen}
+Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wunsch des Anwenders verändern:
+\begin{itemize} 
+\item $path$ - Pfad zur Sammlung der WAV-Dateien
+\item $excel\_path$ - Pfad unter dem Excel-Datei mit Lösungen gespeichert wird
+\item $output$ - Unterscheidung, ob Ergebnisse gespeichert oder angezeigt werden
+\item $priority$ - Unterscheidung, ob angegebene Blocklänge oder Zeitdauer priorisiert wird
+\item $x\_axes$ - Unterscheidung, ob Korrelation gegen Samples oder Zeit aufgetragen wird
+\item $Lcor$ - Blocklänge der Korrelation
+\item $Ncor$ - Anzahl verschiedener Blöcke pro Signal
+\item $t\_start$, $t\_end$ - Start- und Stopzeit
+\end{itemize}
 \subsection{Probleme} 
 
 
