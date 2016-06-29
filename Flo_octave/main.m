@@ -45,7 +45,9 @@ wav_files = search_dir(path);
 A = {};
 for i = 1:length(wav_files(1,:))
   [corr, param] = audiocorrelation(wav_files{1,i}, output, calc, priority, x_axes, Lcor, Ncor, t_start, t_end);
-  A = buildXLSMatrix(A, wav_files{1,i}, param(1), param(2), param(3), param(4));
+  for x = 1:Ncor
+    A = buildXLSMatrix(A, wav_files{1,i}, param(x,1), param(x,2), param(x,3), param(x,4));
+  end
 end
 %save to excel file
 writeEXCEL(excel_path, A);
