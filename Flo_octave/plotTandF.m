@@ -60,7 +60,7 @@ else
   text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/8, txt);
 end
 
-figure
-plot(shift_t, sorted, shift_t, reg_exp); 
+%figure
+%plot(shift_t, sorted, shift_t, reg_exp); 
 
 end

@@ -11,10 +11,11 @@ pkg load signal;
 pkg load optim;
 pkg load io;
 
+
 % path to folder with audiofiles
 % works with wav, mp3, flac, aif, au, aifc, ogg
 path = 'WAVE\';
-excel_path = 'data.xls';
+excel_path = 'data.xlsx';
 % results (display/save)
 output = 'display';
 
@@ -47,7 +48,7 @@ for i = 1:length(wav_files(1,:))
   A = buildXLSMatrix(A, wav_files{1,i}, param(1), param(2), param(3), param(4));
 end
 %save to excel file
-writeExcel(excel_path, A);
+writeEXCEL(excel_path, A);
 %----------------------------------------
 
 
