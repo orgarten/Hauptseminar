@@ -17,7 +17,7 @@ pkg load io;
 path = 'WAVE\';
 excel_path = 'RESULTS\data.xlsx';
 % results (display/save_param/save_all)
-output = 'save_param';
+output = 'display';
 
 % calculate correlation with (xcorr/freqMult)
 calc = 'freqMult';
@@ -37,7 +37,7 @@ Ncor = 2;
 % start of correlation in audio file in seconds
 % time -> and durations 
 t_start = 0;
-t_dur = [0.2 0.5 1 3];
+t_dur = [0.2 0.5 1];
 
 tic
 %----------------------------------------
@@ -55,7 +55,7 @@ for i = 1:length(wav_files(1,:))
     [corr, param] = audiocorrelation(wav_files{1,i}, output, calc, priority, x_axes, Lcor, Ncor, t_start, t_end);
     if strcmp(output, 'display') ~= 1
       for x = 1:Ncor
-        A = buildXLSMatrix(A, param.name{x}, param.duration, param.ripple(x), param.sigma(x), param.ex(x), param.t_diff(x));
+        A = buildXLSMatrix(A, param.name{x}, param.duration, param.rate, param.ripple(x), param.sigma(x), param.ex(x), param.t_diff(x));
       end
     end
   end

@@ -26,9 +26,9 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
   for i = 1:Ncor
     % completing name
     name = strcat(str2{1}, '_res(', num2str(i), ')');
-    path_res = strcat('.\RESULTS\', name, '\', name, '_', num2str(length(channel_a)/rate));
+    path_res = strcat('.\RESULTS\', name, '\', name, '_', num2str(length(channel_a)/rate),'s');
     mkdir('.\RESULTS', name);
-    param.name{i} = strcat(name, '_', num2str(length(channel_a)/rate));
+    param.name{i} = strcat(name, '_', num2str(length(channel_a)/rate), 's');
     
     
     if strcmp(calc, 'xcorr')
@@ -85,5 +85,7 @@ param.ripple = ripple;
 param.sigma = sigma;
 param.ex = ex;
 param.t_diff = timeDiff;
+param.rate = rate;
+
 end
 
