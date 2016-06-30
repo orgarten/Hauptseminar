@@ -17,7 +17,7 @@ pkg load io;
 path = 'WAVE\';
 excel_path = 'RESULTS\data.xlsx';
 % results (display/save_param/save_all)
-output = 'save_all';
+output = 'save_param';
 
 % calculate correlation with (xcorr/freqMult)
 calc = 'freqMult';
@@ -36,10 +36,10 @@ Ncor = 2;
 
 % start of correlation in audio file in seconds
 % time -> and durations 
-t_start = 1;
-t_dur = [0.2 ];
+t_start = 0;
+t_dur = [0.2 0.5 1 3];
 
-
+tic
 %----------------------------------------
 if strcmp(priority, 'time')
    Ncor = 1;
@@ -66,5 +66,5 @@ if strcmp(output, 'display') ~= 1
 end
 %----------------------------------------
 
-
+toc
 disp('finished');

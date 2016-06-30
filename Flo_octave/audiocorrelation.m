@@ -18,19 +18,18 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
   end
 
   %% extracting name from path
-  if strcmp(output, 'display') ~= 1 
-    str1 = regexp(path, '\\' ,'split');
-    str2 = regexp(str1{length(str1)}, '\.' , 'split');
-  end
+  
+  str1 = regexp(path, '\\' ,'split');
+  str2 = regexp(str1{length(str1)}, '\.' , 'split');
+  
 
   for i = 1:Ncor
     % completing name
-    if strcmp(output, 'display') ~= 1
-      name = strcat(str2{1}, '_res(', num2str(i), ')');
-      path_res = strcat('.\RESULTS\', name, '\', name, '_', num2str(length(channel_a)));
-      mkdir('.\RESULTS', name);
-      param.name{i} = strcat(name, '_', num2str(length(channel_a)));
-    end
+    name = strcat(str2{1}, '_res(', num2str(i), ')');
+    path_res = strcat('.\RESULTS\', name, '\', name, '_', num2str(length(channel_a)/rate));
+    mkdir('.\RESULTS', name);
+    param.name{i} = strcat(name, '_', num2str(length(channel_a)/rate));
+    
     
     if strcmp(calc, 'xcorr')
       %% correlate  in time
@@ -54,6 +53,7 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
     sorted(i,:) = sort(abs(correlation(i,:)), 'descend');
     % fit a exp curve to sorted correlation
     [reg_exp(i,:), ex(i)] = calc_reg(sorted(i,:), rate, 1, 1);
+    ex(i) = ex(i) * length(correlation(i,:));
     
     % create envelope by AM-Demodulation
     [envelope(i,:), index_en(i)] = calc_envelope(correlation(i,:), length(channel_a), rate);
@@ -69,7 +69,7 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
       txt = build_txt(ripple(i), sigma(i), ex(i), lagDiff(i), timeDiff(i), rate, x_axis);
     
       % shows the figure
-      fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), reg_gauss(i,:), sorted(i,:), reg_exp(i,:), x_axis, rate, txt, output);
+      fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), reg_gauss(i,:), sorted(i,:), reg_exp(i,:), x_axis, rate, txt, output, param.name{i});
     end 
    
     %% save figure

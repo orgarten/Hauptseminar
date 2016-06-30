@@ -1,4 +1,4 @@
-function [ FigHandle ] = plotTandF( channel_a, channel_b, correlation, envelope, regression, sorted, reg_exp, x_axis, rate, txt, output)
+function [ FigHandle ] = plotTandF( channel_a, channel_b, correlation, envelope, regression, sorted, reg_exp, x_axis, rate, txt, output, name)
 %PLOTTANDF Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -11,7 +11,7 @@ if strcmp(x_axis, 'seconds') == 1
   shift_t = shift_t .* scale;
 end
 
-FigHandle = figure;
+FigHandle = figure('Name', name);
 set(FigHandle, 'Position', [100, 100, 1366, 768]);
 %set(FigHandle,'PaperPositionMode','auto');
 if strcmp(output, 'save') == 1
@@ -60,7 +60,7 @@ else
   text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/8, txt);
 end
 
-%figure
+%figure('Name', name)
 %plot(shift_t, sorted, shift_t, reg_exp); 
 
 end
