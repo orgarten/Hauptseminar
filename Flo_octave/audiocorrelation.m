@@ -73,11 +73,9 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
     end 
    
     %% save figure
-    if strcmp(output, 'display') ~= 1
-      save_file(channel_a, channel_b, rate, path_res);   
-      if strcmp(output, 'save_all')
+    save_file(channel_a, channel_b, rate, path_res);   
+    if strcmp(output, 'save_all')
         save_figure(fig, path_res);    
-      end
     end
   end
   

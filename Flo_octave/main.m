@@ -28,16 +28,16 @@ x_axes = 'seconds';
 % set priority (time/length)
 priority = 'time';
 
-% time -> length of correlation
+% length -> length of correlation
 Lcor = 8192; 
 
-% time -> amount of correlations 
+% length -> amount of correlations 
 Ncor = 2;
 
 % start of correlation in audio file in seconds
 % time -> and durations 
-t_start = 0;
-t_dur = [0.2 0.5 1];
+t_start = 4;
+t_dur = [1];
 
 tic
 %----------------------------------------
