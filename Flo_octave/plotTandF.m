@@ -1,4 +1,4 @@
-function [ FigHandle ] = plotTandF( channel_a, channel_b, correlation, envelope, regression, sorted, reg_exp, x_axis, rate, txt1, txt2, output, name)
+function [ FigHandle ] = plotTandF( channel_a, channel_b, correlation, envelope, regression, sorted, reg_exp, x_axis, rate, txt, output, name)
 %PLOTTANDF Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -54,9 +54,9 @@ set(gca, 'XLim', [shift(1) shift(length(shift))]);
 limits_x = get(gca, 'XLim');
 limits_y = get(gca, 'YLim');
 if strcmp(output, 'save_all')
-  text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/12, txt1);
+  text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/12, txt);
 else
-  text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/8, txt1);
+  text(limits_x(1) * 7/8 , limits_y(1) + (limits_y(2)-limits_y(1))/8, txt);
 end
 
 %figure('Name', name)
@@ -64,13 +64,7 @@ ax4 = subplot(3, 2, [5,6]);
 plot(shift_t, sorted, shift_t, reg_exp); 
 title('sorted correlation with exp-fit');
 legend('sorted', 'fit');
-if strcmp(x_axis, 'seconds') == 1
-  xlabel(['time/s']);
-else
-  xlabel(['samples']);
-end
-limits_x2 = get(gca, 'XLim');
-text(limits_x2(2) * 3/4 , 3/4, txt2);
+xlabel(['time/s']);
 
 
 
