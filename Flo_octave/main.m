@@ -11,13 +11,14 @@ pkg load signal;
 pkg load optim;
 pkg load io;
 
-
-% path to folder with audiofiles
-% works with wav, mp3, flac, aif, au, aifc, ogg
-path = 'WAVE\';
+%work with entire folder or single audiofile (folder/file)
+%environment = 'folder';
+% path to folder with audiofiles or single file
+% works with wav
+path = 'RECORDS\hsz';
 excel_path = 'RESULTS\data.xlsx';
 % results (display/save_param/save_all)
-output = 'display';
+output = 'save_param';
 
 % calculate correlation with (xcorr/freqMult)
 calc = 'freqMult';
@@ -36,7 +37,7 @@ Ncor = 2;
 
 % start of correlation in audio file in seconds
 % time -> and durations 
-t_start = 4;
+t_start = 7;
 t_dur = [1];
 
 tic
@@ -45,8 +46,15 @@ if strcmp(priority, 'time')
    Ncor = 1;
 end
 
+%check whether path is folder or file
 %Read Files
-wav_files = search_dir(path);
+if exist(path, 'file') == 2
+  wav_files{1,1} = path;
+elseif exist(path, 'file') == 7
+  wav_files = search_dir(path);
+else
+  error('path is unvalid');
+end
 %correlate files
 A = {};
 for i = 1:length(wav_files(1,:))
@@ -55,7 +63,7 @@ for i = 1:length(wav_files(1,:))
     [corr, param] = audiocorrelation(wav_files{1,i}, output, calc, priority, x_axes, Lcor, Ncor, t_start, t_end);
     if strcmp(output, 'display') ~= 1
       for x = 1:Ncor
-        A = buildXLSMatrix(A, param.name{x}, param.duration, param.rate, param.ripple(x), param.sigma(x), param.ex(x), param.t_diff(x));
+        A = buildXLSMatrix(A, param.name{x}, param.duration, param.rate, param.ripple(x), param.sigma(x), param.ex(x), param.area(x), param.t_diff(x));
       end
     end
   end

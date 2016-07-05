@@ -1,3 +1,4 @@
+
 function [correlation, param] = audiocorrelation(path, output, calc, priority, x_axis, Lcor, Ncor, t_start, t_end)
   %-------------------------------------------------------------------------------
   %% CODE
@@ -25,10 +26,10 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
 
   for i = 1:Ncor
     % completing name
-    name = strcat(str2{1}, '_res(', num2str(i), ')');
-    path_res = strcat('.\RESULTS\', name, '\', name, '_', num2str(length(channel_a)/rate),'s');
+    name = strcat(str2{1}, '_(', num2str(t_start+(i-1)*length(channel_a)/rate), 's)');
+    path_res = strcat('.\RESULTS\', name, '\', name, '+', num2str(length(channel_a)/rate),'s');
     mkdir('.\RESULTS', name);
-    param.name{i} = strcat(name, '_', num2str(length(channel_a)/rate), 's');
+    param.name{i} = strcat(name, '+', num2str(length(channel_a)/rate), 's');
     
     
     if strcmp(calc, 'xcorr')
@@ -49,8 +50,9 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
     %% calculate ripple factor
     ripple(i) = calc_ripple(correlation(i,:));
     
-    % sort correlation
+    % sort correlation and calulate normalized area 
     sorted(i,:) = sort(abs(correlation(i,:)), 'descend');
+    area(i) = sum(sorted(i,:))/length(sorted(i,:));
     % fit a exp curve to sorted correlation
     [reg_exp(i,:), ex(i)] = calc_reg(sorted(i,:), rate, 1, 1);
     ex(i) = ex(i) * length(correlation(i,:));
@@ -66,10 +68,10 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
     %% plot
     if strcmp(output, 'save_param') ~= 1
       % puts string together, that is shown in the plot
-      txt = build_txt(ripple(i), sigma(i), ex(i), lagDiff(i), timeDiff(i), rate, x_axis);
+      [txt1, txt2] = build_txt(ripple(i), sigma(i), lagDiff(i), timeDiff(i), ex(i), area(i), rate, x_axis);
     
       % shows the figure
-      fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), reg_gauss(i,:), sorted(i,:), reg_exp(i,:), x_axis, rate, txt, output, param.name{i});
+      fig = plotTandF(channel_a(i,:), channel_b(i,:), correlation(i,:), envelope(i,:), reg_gauss(i,:), sorted(i,:), reg_exp(i,:), x_axis, rate, txt1, txt2, output, param.name{i});
     end 
    
     %% save figure
@@ -82,6 +84,7 @@ function [correlation, param] = audiocorrelation(path, output, calc, priority, x
 param.ripple = ripple;
 param.sigma = sigma;
 param.ex = ex;
+param.area = area;
 param.t_diff = timeDiff;
 param.rate = rate;
 
