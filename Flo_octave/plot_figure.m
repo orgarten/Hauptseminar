@@ -1,4 +1,4 @@
-function [ FigHandle ] = plotTandF( channel_a, channel_b, correlation, envelope, regression, sorted, reg_exp, x_axis, rate, txt1, txt2, output, name)
+function [ FigHandle ] = plot_figure( channel_a, channel_b, correlation, envelope, regression, sorted, reg_exp, x_axis, rate, txt1, txt2, output, name)
 %PLOTTANDF Summary of this function goes here
 %   Detailed explanation goes here
 

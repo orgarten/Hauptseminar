@@ -7,7 +7,7 @@ function [ data, rate ] = readAudio( filename, t_start, t_end, Lcor, Ncor, prior
 
 %% choose area
 if strcmp(priority,'time') == 1
-    range = [1+t_start*rate t_end*rate];
+    range = [1+t_start*rate t_start*rate+(t_end-t_start)*rate*Ncor];
 else
     range = [1+t_start*rate t_start*rate+Lcor*Ncor];
 end
