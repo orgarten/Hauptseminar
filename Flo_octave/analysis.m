@@ -1,4 +1,4 @@
-function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorted, reg_exp] = analysis(correlation, lags, rate, x_axis)
+function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorted, reg_exp] = analysis(correlation, lags, rate, x_axes)
  
   %% calculate offset between channels
   [~,I] = max(abs(correlation));
@@ -19,7 +19,7 @@ function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorte
   [envelope, index_en] = calc_envelope(correlation, length(correlation), rate);
   % fit a gaussian curve to envelope
   [reg_gauss, sigma] = calc_reg(envelope, rate, index_en, 0);
-  if strcmp(x_axis, 'seconds')
+  if strcmp(x_axes, 'seconds')
     sigma = sigma/rate;
   end
 end
