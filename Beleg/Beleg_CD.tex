@@ -3,7 +3,7 @@
 
 %\usepackage{selinput}
 \usepackage[utf8]{inputenc}
-\usepackage[USenglish]{babel}
+\usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{scrhack}
 \usepackage{tudscrsupervisor}
@@ -14,20 +14,22 @@
 \graphicspath{{img/}}
 \usepackage{wrapfig}
 \usepackage{csquotes}
-\usepackage[backend=biber,style=alphabetic]{biblatex}
+%\usepackage[backend=biber,style=alphabetic]{biblatex}
 
 % Literaturverzeichnis
-\addbibresource{bibHauptseminar.bib}
+%\addbibresource{bibHauptseminar.bib}
 
 \usepackage[linkcolor=black]{hyperref}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
 \begin{document}
 \faculty{Fakultät Elektrotechnik und Informationstechnik}
 \institute{Institut für Nachrichtentechnik}
 \chair{Deutsche Telekom Professur für Kommunikationsnetze}
-\date{\today}
+\date{13.07.2016}
 \title{Compressed Compute-and-Forward mit korrelierten Audiosignalen}
-\subject{}
 
 \author{%
 	Lucas Weber
@@ -52,27 +54,20 @@
 
 \maketitle
 
-\include{task}
-
-
-\TUDoption{abstract}{multiple,section}
-\begin{abstract}
- Dies ist der deutschsprachige Teil der Zusammenfassung, in dem die
- Motivation sowie der Inhalt der nachfolgenden wissenschaftlichen
- Abhandlung kurz dargestellt werden.
-\nextabstract[english]
- This is the english part of the summary, in which the motivation and
- the content of the following academic treatise are briefly presented.
-\end{abstract}
+% \TUDoption{abstract}{multiple,section}
+% \begin{abstract}
+%  Dies ist der deutschsprachige Teil der Zusammenfassung, in dem die
+%  Motivation sowie der Inhalt der nachfolgenden wissenschaftlichen
+%  Abhandlung kurz dargestellt werden.
+% \nextabstract[english]
+%  This is the english part of the summary, in which the motivation and
+%  the content of the following academic treatise are briefly presented.
+% \end{abstract}
 
 \confirmation
 
 \tableofcontents
 
-\listoffigures
-
-\include{Hauptteil}
-
-\printbibliography
+\include{hauptteil}
 
 \end{document}
