@@ -1,0 +1,78 @@
+\RequirePackage[ngerman=ngerman-x-latest]{hyphsubst}
+\documentclass[ngerman]{tudscrreprt}
+
+%\usepackage{selinput}
+\usepackage[utf8]{inputenc}
+\usepackage[USenglish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{scrhack}
+\usepackage{tudscrsupervisor}
+\usepackage{color}
+\usepackage{transparent}
+\usepackage{url}
+\usepackage{graphicx,subfig}
+\graphicspath{{img/}}
+\usepackage{wrapfig}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+
+% Literaturverzeichnis
+\addbibresource{bibHauptseminar.bib}
+
+\usepackage[linkcolor=black]{hyperref}
+
+\begin{document}
+\faculty{Fakultät Elektrotechnik und Informationstechnik}
+\institute{Institut für Nachrichtentechnik}
+\chair{Deutsche Telekom Professur für Kommunikationsnetze}
+\date{\today}
+\title{Compressed Compute-and-Forward mit korrelierten Audiosignalen}
+\subject{}
+
+\author{%
+	Lucas Weber
+	\matriculationnumber{xxxxx}
+	\dateofbirth{10.01.1995}
+	\and%
+	Raphael Hildebrand
+	\matriculationnumber{xxxxxx}
+	\dateofbirth{01.08.1994}
+	\and%
+	Florian Roth
+	\matriculationnumber{xxxxx}
+	\dateofbirth{13.01.1994}
+	\and%
+	Orell Garten
+	\matriculationnumber{3948375}
+	\dateofbirth{09.07.1993}
+}
+\matriculationyear{2013}
+\supervisor{Carsten Hermann}
+\professor{Dr.-Ing. Rico Radeke}
+
+\maketitle
+
+\include{task}
+
+
+\TUDoption{abstract}{multiple,section}
+\begin{abstract}
+ Dies ist der deutschsprachige Teil der Zusammenfassung, in dem die
+ Motivation sowie der Inhalt der nachfolgenden wissenschaftlichen
+ Abhandlung kurz dargestellt werden.
+\nextabstract[english]
+ This is the english part of the summary, in which the motivation and
+ the content of the following academic treatise are briefly presented.
+\end{abstract}
+
+\confirmation
+
+\tableofcontents
+
+\listoffigures
+
+\include{Hauptteil}
+
+\printbibliography
+
+\end{document}

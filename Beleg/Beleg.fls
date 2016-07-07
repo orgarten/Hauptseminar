@@ -1,0 +1,5 @@
+PWD /home/orell/ElektronikProgrammierung/UniProjekte/Hauptseminar/Beleg
+INPUT /usr/share/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT Beleg.tex
+OUTPUT Beleg.log

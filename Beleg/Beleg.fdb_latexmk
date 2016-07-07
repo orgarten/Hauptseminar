@@ -1,0 +1,12 @@
+# Fdb version 3
+["pdflatex"] 1467895772 "Beleg.tex" "Beleg.pdf" "Beleg" 1467895772
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1447534201 31669 df537245012f3e5f05bdc55644b7a3df ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1455289008 7214063 5e02984b18b341f2a9e7d1ed42c5b88b ""
+  "Beleg.aux" 1467895763 28 694cc4c1a7a42ae1756cc7893f6c4847 ""
+  "Beleg.tex" 1467895772 6999 5eaa1246bfde20945e4ec02defa485d4 ""
+  "article,plain.cls" 0 -1 0 ""
+  (generated)
+  "Beleg.pdf"
+  "Beleg.log"
+  "Beleg.aux"
+  "Beleg.toc"

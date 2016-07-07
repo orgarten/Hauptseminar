@@ -26,7 +26,7 @@ abstract
 
 
 \section{Aufgabenstellung}
-Es ist ein Programm zu entwerfen, welches Audiodateien einliest und nacheinander die beiden Stereo-Kanäle miteinander korreliert. Des weiteren sollen Parameter berechnet werden, welche die entstehende Korrelationsfunktion möglichst genau beschreiben. Dafür sind Audiosignale aufzunehmen, mit der geschriebenen Software zu verarbeiten und entsprechend ihrer Klassifzierung systematisch abzuspeichern.
+Es ist ein Programm zu entwerfen, welches Audiodateien einliest und dateiweise die beiden Stereo-Kanäle miteinander korreliert. Des weiteren sollen Parameter berechnet werden, welche die entstehende Korrelationsfunktion möglichst genau beschreiben. Dafür sind Audiosignale aufzunehmen, mit der geschriebenen Software zu verarbeiten und entsprechend ihrer Klassifzierung systematisch abzuspeichern.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
 Im Jahr 2022 werden 500 Milliarden internetfähige Geräte erwartet, die mit einander kommunizieren sollen. Das führt zu extrem hohen Datenmengen, die in kürzestmöglicher Zeit von A nach B transportiert werden müssen. Große Herausforderungen bestehen darin, dass man sehr kurze Verzögerungszeiten und eine hohe Widerstandsföhigkeit garantieren muss. Idealerweise benötigen die Geräte wenig Energie. Ein Ansatz zur Lösung dieses Problems ist die Netzwerkcodierung.\newline
@@ -71,8 +71,9 @@ Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wu
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Signalauswahl}
+Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht, um ein möglichst breites Spektrum an Raum-Effekten zu erhalten. Aufnahmeorte waren beispielsweise der Platz vor dem HSZ, die Wiese zwischen Physik- und Mathematikgebäude, sowie der Trefftzbau. Außerdem wurde in einer Wohnung gemessen, um Effekte von schallabsorbierenden Stoffen wie Teppich oder Bett zu erhalten. Soweit mgölich, haben wir die natürliche Geräuschkulisse am jeweiligen Ort eingefangen. Zusätzlich dazu wurde ein definiertes Signal mittels eines Lautsprechers erzeugt, um Direktschall zu nutzen. Bei diesen Aufnahmen sollten die Effekte des Raumes am deutlichsten hervortreten.
 \subsection{Beispielsignal}
-
+\subsection{Probleme bei der Signalauswahl}
 \begin{appendix}
 
 \end{appendix}

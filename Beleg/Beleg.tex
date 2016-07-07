@@ -1,4 +1,6 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -6,31 +8,31 @@
 \usepackage{color}
 \usepackage{graphicx}
 
-\title{Hauptseminar Kommunikationssysteme \\ Compressed Compute-and-Forward mit korrelierten Audiosignalen}
-\date{13.07.2016}
-\author{Florian Roth, Raphael Hildebrand, Lucas Weber, Orell Garten}
 
 \begin{document}
+
+\title{Hauptseminar Kommunikationssysteme \\ Compressed Compute-and-Forward mit korrelierten Audiosignalen}
+\date{13.07.2016}
+\author{Lucas Weber, Raphael Hildebrand, Florian Roth, Orell Garten}
+
 
 \pagenumbering{gobble}
 
 \maketitle
-\begin{abstract}
-abstract
-\end{abstract}
 \newpage
 
 \tableofcontents
 \newpage
+
 \pagenumbering{arabic}
 
 
 \section{Aufgabenstellung}
-Es ist ein Programm zu entwerfen, welches Audiodateien einliest und dateiweise die beiden Stereo-Kanäle miteinander korreliert. Des weiteren sollen Parameter berechnet werden, welche die entstehende Korrelationsfunktion möglichst genau beschreiben. Dafür sind Audiosignale aufzunehmen, mit der geschriebenen Software zu verarbeiten und entsprechend ihrer Klassifzierung systematisch abzuspeichern.
+Es ist ein Programm zu entwerfen, welches Audiodateien einliest und dateiweise die beiden Stereo-Kanäle miteinander korreliert. Es sollen Maßzahlen entworfen und berechnet werden, die wesentliche charakteristische Eigenschaften der Korrelationsfunktion, insbesondere den Anteil dominanter Komponenten und deren Abklingverhalten, widerspiegeln. Dafür sind Audiosignale aufzunehmen, bezüglich der verwendeten Maße zu klassifizieren und entsprechend ihrer Klassifzierung systematisch abzuspeichern.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
-Im Jahr 2022 werden 500 Milliarden internetfähige Geräte erwartet, die mit einander kommunizieren sollen. Das führt zu extrem hohen Datenmengen, die in kürzestmöglicher Zeit von A nach B transportiert werden müssen. Große Herausforderungen bestehen darin, dass man sehr kurze Verzögerungszeiten und eine hohe Widerstandsföhigkeit garantieren muss. Idealerweise benötigen die Geräte wenig Energie. Ein Ansatz zur Lösung dieses Problems ist die Netzwerkcodierung.\newline
-Ein Beispiel für eine zukünfitge Anwendung ist ein riesiges Sensornetzwerk. Es stellt sich dabei die Frage wie viele Sensoren man benötigt, um sinnvolle Aussagen treffen zu können. Netzwerkcodierung in Verbindung mit Compressed Sensing ermöglicht es hierbei die Datenmenge im Netzwerk mittels Korrelationsverfahren zu reduzieren und damit den Durchsatz zu erhöhen. 
+Im Jahr 2022 werden 500 Milliarden internetfähige Geräte erwartet, die mit einander kommunizieren sollen. Das führt zu extrem hohen Datenmengen, die in kürzestmöglicher Zeit von A nach B transportiert werden müssen. Große Herausforderungen bestehen darin, dass man sehr kurze Verzögerungszeiten und eine hohe Widerstandsfähigkeit garantieren muss. Idealerweise benötigen die Geräte wenig Energie. Ein Ansatz zur Lösung dieses Problems ist die Netzwerkcodierung.\newline
+In bestimmten Szenarien ist eine große Anzahl an Geräten mit Sensorik zu Erfassung der Umgebung mit hohen Anforderungen an die Netzwerkkapazität zur Übertragung der erfassten Daten verbunden. Es stellt sich die Frage, wie viele Sensoren für eine ausreichend genaue Abbildung benötigt werden. Da die Quellen teilweise korrelierte Datenströme erzeugen, lässt sich die zu übertragende Gesamtdatenmenge reduzieren, was durch eine geeignete Kombination von Netzwerkcodierung mit Methoden des Compressed Sensing erreicht werden soll.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Theoretische Vorbetrachtung}
@@ -41,7 +43,7 @@ Ein Beispiel für eine zukünfitge Anwendung ist ein riesiges Sensornetzwerk. Es
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Verfügbare Technik}
 \subsection{Software}
-Softwareseitig haben wir Octave benutzt. Als freie Alternative zu Matlab vereint Octave gute Performance, syntaktische Gleichheit zu Matlab sowie kostenfreie Benutzung unter einem Dach. Im Vergleich mit Python haben wir festgestellt, dass die Geschwindigkeit aufwendiger Rechnungen, wie der Korrelation, bei Python schlechter ist. Somit haben wir uns für Ocatve entschieden. Um unseres selbstgeschriebenes Programm zu verifizieren haben wir eine Autokorrelation durchgeführt und diese mit der von Audactity berechneten AKF verglichen. Wir sind dabei zu dem Ergebnis gekommen, dass unser Programm funktioniert.
+Softwareseitig haben wir Octave benutzt. Als freie Alternative zu Matlab vereint Octave gute Performance, syntaktische Gleichheit zu Matlab, sowie kostenfreie Benutzung unter einem Dach. Im Vergleich mit Python haben wir festgestellt, dass die Geschwindigkeit aufwendiger Rechnungen, wie der Korrelation, bei Python schlechter ist. Somit haben wir uns für Ocatve entschieden. Um unseres selbstgeschriebenes Programm zu verifizieren haben wir eine Autokorrelation durchgeführt und diese mit der von Audactity berechneten AKF verglichen. Wir sind dabei zu dem Ergebnis gekommen, dass unser Programm funktioniert.
 \subsection{Hardware}
 Es wurden zwei hochwertige Kondensatormikrofone vom Telekom-Lehrstuhl der TU Dresden zur Verfügung gestellt. Außerdem konnten wir ein Stativ, eine Stereoschiene sowie eine USB-Soundkarte verwenden.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,16 +57,18 @@ Das Kernstück der Signalverarbeitung ist eine periodische Korrelationsfunktion,
 \paragraph{Speicherung}
 Die Speicherung der Daten erfolgt in einer Excel-Datei. Dabei wird zu erst der Dateiname des Samples und alles dazugehörigen Werte gespeichert. Außerdem wird noch ein Link zum Graphen der Korrelationsfunktion angegeben, damit man sich diese bei der Auswahl der Test-Signale anschauen kann.
 \subsection{Mögliche Einstellungen}
-Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wunsch des Anwenders verändern:
+Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wunsch des Anwenders verändern. Diese sind am Beginn der main.m-Datei festgelegt und werden im folgenden beschrieben:
 \begin{itemize} 
 \item $path$ - Pfad zur Sammlung der WAV-Dateien
 \item $excel\_path$ - Pfad unter dem Excel-Datei mit Lösungen gespeichert wird
 \item $output$ - Unterscheidung, ob Ergebnisse gespeichert oder angezeigt werden
-\item $priority$ - Unterscheidung, ob angegebene Blocklänge oder Zeitdauer priorisiert wird
+\item $calc$ - Wechsel zwischen Berechnung im Zeit- und Frequenzbereich möglich.
 \item $x\_axes$ - Unterscheidung, ob Korrelation gegen Samples oder Zeit aufgetragen wird
+\item $priority$ - Unterscheidung, ob angegebene Blocklänge oder Zeitdauer priorisiert wird
+\item $t\_start$ - Startzeitpunkt der Korrelation
+\item $t\_dur$ - Array $A1$ mit Menge an Zeitdauern die korrelierten werden sollen, Korrelation beginnt immer bei $t\_start$
+\item $Ncor\_init$ - Array, mit identischer Länge zu $A1$. Gibt an wie oft korrespondierender Eintrag in $A1$ hintereinander korreliert wird. 
 \item $Lcor$ - Blocklänge der Korrelation
-\item $Ncor$ - Anzahl verschiedener Blöcke pro Signal
-\item $t\_start$, $t\_end$ - Start- und Stopzeit
 \end{itemize}
 \subsection{Probleme} 
 
@@ -74,6 +78,8 @@ Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wu
 Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht, um ein möglichst breites Spektrum an Raum-Effekten zu erhalten. Aufnahmeorte waren beispielsweise der Platz vor dem HSZ, die Wiese zwischen Physik- und Mathematikgebäude, sowie der Trefftzbau. Außerdem wurde in einer Wohnung gemessen, um Effekte von schallabsorbierenden Stoffen wie Teppich oder Bett zu erhalten. Soweit mgölich, haben wir die natürliche Geräuschkulisse am jeweiligen Ort eingefangen. Zusätzlich dazu wurde ein definiertes Signal mittels eines Lautsprechers erzeugt, um Direktschall zu nutzen. Bei diesen Aufnahmen sollten die Effekte des Raumes am deutlichsten hervortreten.
 \subsection{Beispielsignal}
 \subsection{Probleme bei der Signalauswahl}
+
+\subsection{Zusammenfassung}
 \begin{appendix}
 
 \end{appendix}

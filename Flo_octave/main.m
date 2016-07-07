@@ -24,7 +24,7 @@ output = 'display';
 calc = 'freqMult';
 
 % plot in (samples/seconds)
-x_axis = 'seconds';
+x_axes = 'seconds';
 
 % set priority (time/length)
 priority = 'time';
@@ -80,15 +80,15 @@ for i = 1:length(wav_files(1,:))
       [correlation, lags] = audiocorrelation(calc, rate, channel_a(n,:), channel_b(n,:));
       
       % all the analysis happens here
-      [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorted, reg_exp] = analysis(correlation, lags, rate, x_axis);
+      [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorted, reg_exp] = analysis(correlation, lags, rate, x_axes);
       
       % if desired, plot is shown or 
       if strcmp(output, 'save_param') == 0
         % puts string together, that is shown in the plot
-        [txt1, txt2] = build_txt(ripple, sigma, lagDiff, timeDiff, ex, area, rate, x_axis);
+        [txt1, txt2] = build_txt(ripple, sigma, lagDiff, timeDiff, ex, area, rate, x_axes);
     
         % shows the figure
-        fig = plot_figure(channel_a(n,:), channel_b(n,:), correlation, envelope, reg_gauss, sorted, reg_exp, x_axis, rate, txt1, txt2, output, name);
+        fig = plot_figure(channel_a(n,:), channel_b(n,:), correlation, envelope, reg_gauss, sorted, reg_exp, x_axes, rate, txt1, txt2, output, name);
       end 
       
       % save figure
