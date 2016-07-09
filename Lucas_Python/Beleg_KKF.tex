@@ -10,9 +10,9 @@
 \author{Lucas Weber}
 \title{KKF Beleg}
 \begin{document}
-\section*{Kreuzkorrellationsfunktion}
+\section*{Kreuzkorrelationsfunktion}
 \subsection*{Berechnungsvorschrift}
-Die Kreuzkorrellationsfunktion (KKF) ist als aus zwei verschiedenen Funktionen gebildeter Erwartungswert definiert. Hier werden die Formeln f"ur die Korrellation der Prozesse \textbf{X} und eines Prozesses \textbf{Y} angegeben. 
+Die Kreuzkorrelationsfunktion (KKF) ist als aus zwei verschiedenen Funktionen gebildeter Erwartungswert definiert. Hier werden die Formeln f"ur die Korrelation der Prozesse \textbf{X} und eines Prozesses \textbf{Y} angegeben. 
 
 \begin{align}
 \psi_{\textbf XY}(t_1, t_2) = E\lbrace\textbf{X}(t_1)\cdot\textbf{Y}(t_2)\rbrace
@@ -24,25 +24,25 @@ Da sie rein reell sind gilt die Beziehung:
 Signalenergie := \int_{-\infty}^{\infty} s^2(t) \,dt < \infty
 \end{align}
 
-\noindent Da die aufgenommenen Audiosignale zeitdiskrete Energiesignale sind wird hier auch nur die zeitdiskrete Kreuzkorrellation beschrieben. F"ur zeitdiskrete Energiesignale ergibt sich die folgende Berechnungsvorschrift, wobei x(n) und y(n) Realisierungen der Prozesse \textbf{X} und \textbf{Y} sind.
+\noindent Da die aufgenommenen Audiosignale zeit-diskrete Energiesignale sind wird hier auch nur die zeit-diskrete Kreuzkorrelation beschrieben. F"ur zeit-diskrete Energiesignale ergibt sich die folgende Berechnungsvorschrift, wobei x(n) und y(n) Realisierungen der Prozesse \textbf{X} und \textbf{Y} sind.
 
 \begin{align}
 \boxed{\psi_{\textbf {XY}}^E(k) = \sum_{n = -\infty}^{\infty} x(n) \cdot y(n+k)}
 \end{align}
 vgl. [ISV] S. 84 folgende
 
-\subsection*{Kreuzkorrellation im Frequenzbereich und Faltungssatz}
-Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrellation besch"aftigt. Da die Bildung der Summe der Multiplikation von x(n) und y(n+k) sehr rechenaufw"andig ist, haben wir nach schnelleren M"oglichkeiten gesucht die KKF der beiden Signale zu berechnen. F"ur die Berechnung der KKF im Frequenbereich macht man sich die "Ahnlichkeit der KKF zur Faltung und den Faltungssatz zunutze.
+\subsection*{Kreuzkorrelation im Frequenzbereich und Faltungssatz}
+Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrelation besch"aftigt. Da die Bildung der Summe der Multiplikation von x(n) und y(n+k) sehr rechenaufw"andig ist, haben wir nach schnelleren M"oglichkeiten gesucht die KKF der beiden Signale zu berechnen. F"ur die Berechnung der KKF im Frequenzbereich macht man sich die "Ahnlichkeit der KKF zur Faltung und den Faltungssatz zunutze.
 
 \subsubsection*{KKF als Faltung}
 
 %hier herrscht noch unsicherheit vor, ich habe nur die Formel für den kont. Fall
-\paragraph{Zeitkontinuierlicher Fall:}
+\paragraph{Zeit-kontinuierlicher Fall:}
 \begin{align}
 \psi_{\textbf {XY}}^E(\tau) = x(-\tau) * y(\tau)
 \end{align}
 
-\paragraph*{Zeitdiskreter Fall:}
+\paragraph*{Zeit-diskreter Fall:}
 \begin{align}
 \psi_{\textbf {XY}}^E(k) = x(-k) * y(k)
 \end{align}
@@ -57,7 +57,7 @@ Wir schreiben zuerst die die KKF als Faltung.
 \underline \Psi(\omega) &=\int_{-\infty}^{\infty} x(-t) * y(t) \cdot e^{-j\omega t} \,dt\\&=\int_{-\infty}^{\infty} \left[ \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau \right] \cdot e^{-j\omega (t - \tau + \tau)} \,dt\\&=\int_{-\infty}^{\infty} x(-\tau) \cdot e^j\omega(-\tau) \underbrace{ \left[ \int_{-\infty}^{\infty} y(t-\tau) e^{-j\omega (t - \tau)} \,dt \right]}_* \,d\tau
 \end{align*}
 
-Durch Substitution von $(t-\tau)$ durch $t'$ ergibt sich * zur Fouriertransformierten $ \underline{Y}(\omega)$ von y(t). Der restliche Ausdruck wird durch das positive positive Vorzeichen in der e-Funktion zur komplex konjugierten Transfomierten $ \underline{X}^*(\omega)$ der Funktion x(t).
+Durch Substitution von $(t-\tau)$ durch $t'$ ergibt sich * zur Fourier-transformierten $ \underline{Y}(\omega)$ von y(t). Der restliche Ausdruck wird durch das positive positive Vorzeichen in der e-Funktion zur komplex konjugierten Transformierten $ \underline{X}^*(\omega)$ der Funktion x(t).
 \\\\
 Die KKF l"asst sich im Frequenzbereich also als
 
@@ -71,7 +71,7 @@ Wenn man nun die KKF im Frequenzbereich zeitsparend durchf"uhren will, muss man 
 \\vgl. [ISV] S.135
 
 \begin{thebibliography}{}
-\bibitem[ISV]{bezug} R"udiger Hoffmann, Matthias Wolff: {I}ntelligente {S}ignalverarbeitung 1. Springer Verlag Berlin Heidelberg 2014
+\bibitem[ISV]{bezug} R"udiger Hoffmann, Matthias Wolff: Intelligente Signalverarbeitung 1. Springer Verlag Berlin Heidelberg 2014
 \end{thebibliography}
 
 
