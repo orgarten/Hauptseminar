@@ -1,0 +1,78 @@
+\documentclass[12pt,a4paper]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage[left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry}
+\author{Lucas Weber}
+\title{KKF Beleg}
+\begin{document}
+\section*{Kreuzkorrellationsfunktion}
+\subsection*{Berechnungsvorschrift}
+Die Kreuzkorrellationsfunktion (KKF) ist als aus zwei verschiedenen Funktionen gebildeter Erwartungswert definiert. Hier werden die Formeln f"ur die Korrellation der Prozesse \textbf{X} und eines Prozesses \textbf{Y} angegeben. 
+
+\begin{align}
+\psi_{\textbf XY}(t_1, t_2) = E\lbrace\textbf{X}(t_1)\cdot\textbf{Y}(t_2)\rbrace
+\end{align}
+Reale aufgenommene Audiosignale s(t), die hier mit durch die KKF verrechnet werden, sind in jedem Fall Energiesignale, da sie einen begrenzten Wertebereich haben und nach einer bestimmten Zeit enden.
+Da sie rein reell sind gilt die Beziehung:
+
+\begin{align}
+Signalenergie := \int_{-\infty}^{\infty} s^2(t) \,dt < \infty
+\end{align}
+
+\noindent Da die aufgenommenen Audiosignale zeitdiskrete Energiesignale sind wird hier auch nur die zeitdiskrete Kreuzkorrellation beschrieben. F"ur zeitdiskrete Energiesignale ergibt sich die folgende Berechnungsvorschrift, wobei x(n) und y(n) Realisierungen der Prozesse \textbf{X} und \textbf{Y} sind.
+
+\begin{align}
+\boxed{\psi_{\textbf {XY}}^E(k) = \sum_{n = -\infty}^{\infty} x(n) \cdot y(n+k)}
+\end{align}
+vgl. [ISV] S. 84 folgende
+
+\subsection*{Kreuzkorrellation im Frequenzbereich und Faltungssatz}
+Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrellation besch"aftigt. Da die Bildung der Summe der Multiplikation von x(n) und y(n+k) sehr rechenaufw"andig ist, haben wir nach schnelleren M"oglichkeiten gesucht die KKF der beiden Signale zu berechnen. F"ur die Berechnung der KKF im Frequenbereich macht man sich die "Ahnlichkeit der KKF zur Faltung und den Faltungssatz zunutze.
+
+\subsubsection*{KKF als Faltung}
+
+%hier herrscht noch unsicherheit vor, ich habe nur die Formel für den kont. Fall
+\paragraph{Zeitkontinuierlicher Fall:}
+\begin{align}
+\psi_{\textbf {XY}}^E(\tau) = x(-\tau) * y(\tau)
+\end{align}
+
+\paragraph*{Zeitdiskreter Fall:}
+\begin{align}
+\psi_{\textbf {XY}}^E(k) = x(-k) * y(k)
+\end{align}
+[ISV] Formel (2.217) S.89
+
+\subsubsection*{Faltungssatz in Verbindung mit KKF}
+
+Wir schreiben zuerst die die KKF als Faltung.
+
+\begin{align*}
+\psi(t) \  \; &= x(-t) * y(t) = \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau\\\\
+\underline \Psi(\omega) &=\int_{-\infty}^{\infty} x(-t) * y(t) \cdot e^{-j\omega t} \,dt\\&=\int_{-\infty}^{\infty} \left[ \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau \right] \cdot e^{-j\omega (t - \tau + \tau)} \,dt\\&=\int_{-\infty}^{\infty} x(-\tau) \cdot e^j\omega(-\tau) \underbrace{ \left[ \int_{-\infty}^{\infty} y(t-\tau) e^{-j\omega (t - \tau)} \,dt \right]}_* \,d\tau
+\end{align*}
+
+Durch Substitution von $(t-\tau)$ durch $t'$ ergibt sich * zur Fouriertransformierten $ \underline{Y}(\omega)$ von y(t). Der restliche Ausdruck wird durch das positive positive Vorzeichen in der e-Funktion zur komplex konjugierten Transfomierten $ \underline{X}^*(\omega)$ der Funktion x(t).
+\\\\
+Die KKF l"asst sich im Frequenzbereich also als
+
+\begin{align}
+\boxed{\underline \Psi(\omega) = \underline{X}^*(\omega) \cdot \underline{Y}(\omega)}
+\end{align}
+schreiben.
+\\vgl. [ISV] S.180
+\\\\
+Wenn man nun die KKF im Frequenzbereich zeitsparend durchf"uhren will, muss man die FFT f"ur x(k) und y(k) (dabei $k \in \mathbb{N}^+_0$) der L"ange N durchf"uhren. Dabei muss man beachten, dass bei der FFT ein Linienspektrum ergibt. Die FFT beruht vor allem auch auf der Annahme, dass sich die N diskreten Werte periodisch wiederholen. Durch die IFFT von $ \underline \Psi(\omega)$ ergibt sich also die periodische KKF $\underline{\tilde{\Psi}}(\omega)$.
+\\vgl. [ISV] S.135
+
+\begin{thebibliography}{}
+\bibitem[ISV]{bezug} R"udiger Hoffmann, Matthias Wolff: {I}ntelligente {S}ignalverarbeitung 1. Springer Verlag Berlin Heidelberg 2014
+\end{thebibliography}
+
+
+\end{document}
