@@ -44,9 +44,10 @@ tic
 %----------------------------------------
 if strcmp(priority, 'length')
   t_dur = [1];
-  Ncor = Ncor_init(1);
-elseif size(t_dur) ~= size(Ncor_init)
-  Ncor = Ncor_init(1);
+  Ncor_init(2:length(Ncor_init)) = [];
+elseif length(t_dur) ~= length(Ncor_init)
+  Ncor_init(1:length(t_dur)) = Ncor_init(1);
+  Ncor_init(length(t_dur)+1:length(Ncor_init)) = [];
 end
 
 %check whether path is folder or file
