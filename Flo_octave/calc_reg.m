@@ -13,7 +13,7 @@ if type == 0
   init = [data(I); I; length(data)/3; 0];
   name = 'gaussEqn';
 else
-  init = [1; 0];
+  init = [1];
   name = 'expEqn';
 end
 

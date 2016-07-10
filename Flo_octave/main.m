@@ -32,10 +32,10 @@ priority = 'time';
 % start of correlation in audio file in seconds
 % time -> and durations 
 t_start = 8;
-t_dur = [0.5 2];
+t_dur = [0.5];
 
 % amount of correlations 
-Ncor_init = [4 1];
+Ncor_init = [1];
 
 % length -> length of correlation in samples
 Lcor = 8192; 
