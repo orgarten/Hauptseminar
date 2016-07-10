@@ -1,4 +1,4 @@
-function [interpolation, param] = calc_inter(data, rate, I, type)
+function [regression, param] = calc_reg(data, rate, I, type)
 % tries to fit a gaussian curve (type=0) or a exp function (type=1) to the envelope
 
 stoI = 0.0001;
@@ -25,5 +25,5 @@ else
   param = p(1);
 end
 
-interpolation = f';
+regression = f';
 end

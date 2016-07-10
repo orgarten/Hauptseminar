@@ -1,7 +1,7 @@
 % do all the analysis!
 % This function calclates all the paramteres and fits that we figured out
 
-function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, inter_gauss, sorted, inter_exp] = analysis(correlation, lags, rate, x_axes)
+function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorted, reg_exp] = analysis(correlation, lags, rate, x_axes)
  
   %% calculate offset between channels
   [~,I] = max(abs(correlation));
@@ -15,13 +15,13 @@ function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, inter_gauss, sor
   sorted = sort(abs(correlation), 'descend');
   area = sum(sorted)/length(sorted);
   % fit a exp curve to sorted correlation
-  [inter_exp, ex] = calc_inter(sorted, rate, 1, 1);
+  [reg_exp, ex] = calc_reg(sorted, rate, 1, 1);
   ex = ex * length(correlation);
   
   % create envelope by AM-Demodulation
   [envelope, index_en] = calc_envelope(correlation, length(correlation), rate);
   % fit a gaussian curve to envelope
-  [inter_gauss, sigma] = calc_inter(envelope, rate, index_en, 0);
+  [reg_gauss, sigma] = calc_reg(envelope, rate, index_en, 0);
   if strcmp(x_axes, 'seconds')
     sigma = sigma/rate;
   end

@@ -81,7 +81,7 @@ for i = 1:length(wav_files(1,:))
       [correlation, lags] = audiocorrelation(calc, rate, channel_a(n,:), channel_b(n,:));
       
       % all the analysis happens here
-      [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, inter_gauss, sorted, inter_exp] = analysis(correlation, lags, rate, x_axes);
+      [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorted, reg_exp] = analysis(correlation, lags, rate, x_axes);
       
       % if desired, plot is shown or 
       if strcmp(output, 'save_param') == 0
@@ -89,7 +89,7 @@ for i = 1:length(wav_files(1,:))
         [txt1, txt2] = build_txt(ripple, sigma, lagDiff, timeDiff, ex, area, rate, x_axes);
     
         % shows the figure
-        fig = plot_figure(channel_a(n,:), channel_b(n,:), correlation, envelope, inter_gauss, sorted, inter_exp, x_axes, rate, txt1, txt2, output, name);
+        fig = plot_figure(channel_a(n,:), channel_b(n,:), correlation, envelope, reg_gauss, sorted, reg_exp, x_axes, rate, txt1, txt2, output, name);
       end 
       
       % save figure
