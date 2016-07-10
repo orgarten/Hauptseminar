@@ -67,7 +67,8 @@
 \confirmation
 
 \tableofcontents
+\newpage
 
-\include{hauptteil}
+\input{hauptteil}
 
 \end{document}

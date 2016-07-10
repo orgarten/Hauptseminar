@@ -30,7 +30,6 @@ Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrelation b
 \begin{align}
 \psi_{\textbf {XY}}^E(\tau) = x(-\tau) * y(\tau)
 \end{align}
-
 \textbf{Zeit-diskreter Fall:}
 \begin{align}
 \psi_{\textbf {XY}}^E(k) = x(-k) * y(k)
@@ -45,7 +44,7 @@ Wir schreiben zuerst die die KKF als Faltung. Danach transformieren wir die Falt
 \psi(t) \  \; &= x(-t) * y(t) = \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau\\\\
 \underline \Psi(\omega) &=\int_{-\infty}^{\infty} x(-t) * y(t) \cdot e^{-j\omega t} \,dt\\&=\int_{-\infty}^{\infty} \left[ \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau \right] \cdot e^{-j\omega (t - \tau + \tau)} \,dt\\&=\int_{-\infty}^{\infty} x(-\tau) \cdot e^{j\omega(-\tau)} \underbrace{ \left[ \int_{-\infty}^{\infty} y(t-\tau) e^{-j\omega (t - \tau)} \,dt \right]}_* \,d\tau
 \end{align}
-Durch Substitution von $(t-\tau)$ durch $t'$ ergibt sich * zur Fourier-transformierten $ \underline{Y}(\omega)$ von y(t). Der restliche Ausdruck wird durch das positive positive Vorzeichen in der e-Funktion zur komplex konjugierten Transformierten $ \underline{X}^*(\omega)$ der Funktion x(t).
+Durch Substitution von $(t-\tau)$ durch $t'$ ergibt sich * zur Fourier-transformierten $ \underline{Y}(\omega)$ von y(t). Der restliche Ausdruck wird durch das positive Vorzeichen in der e-Funktion zur komplex konjugierten Transformierten $ \underline{X}^*(\omega)$ der Funktion x(t).
 \\\\
 Die KKF l"asst sich im Frequenzbereich also als
 
