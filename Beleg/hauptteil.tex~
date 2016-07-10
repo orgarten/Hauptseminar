@@ -4,59 +4,26 @@ Es ist ein Programm zu entwerfen, welches Audiodateien einliest und dateiweise d
 \section{Motivation}
 Im Jahr 2022 werden 500 Milliarden internetfähige Geräte erwartet, die mit einander kommunizieren sollen. Das führt zu extrem hohen Datenmengen, die in kürzestmöglicher Zeit von A nach B transportiert werden müssen. Große Herausforderungen bestehen darin, dass man sehr kurze Verzögerungszeiten und eine hohe Widerstandsfähigkeit garantieren muss. Idealerweise benötigen die Geräte wenig Energie. Ein Ansatz zur Lösung dieses Problems ist die Netzwerkcodierung.\newline
 In bestimmten Szenarien ist eine große Anzahl an Geräten mit Sensorik zu Erfassung der Umgebung mit hohen Anforderungen an die Netzwerkkapazität zur Übertragung der erfassten Daten verbunden. Es stellt sich die Frage, wie viele Sensoren für eine ausreichend genaue Abbildung benötigt werden. Da die Quellen teilweise korrelierte Datenströme erzeugen, lässt sich die zu übertragende Gesamtdatenmenge reduzieren, was durch eine geeignete Kombination von Netzwerkcodierung mit Methoden des Compressed Sensing erreicht werden soll.
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Theoretische Vorbetrachtung}
-\subsection{Korrelationsfunktion}
-\subsection{Parameter}
+\input{KKF}
+\input{Masszahlen}
 \subsection{Gauß-Regression}
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Verfügbare Technik}
-\subsection{Software}
-Softwareseitig haben wir Octave benutzt. Als freie Alternative zu Matlab vereint Octave gute Performance, syntaktische Gleichheit zu Matlab, sowie kostenfreie Benutzung unter einem Dach. Im Vergleich mit Python haben wir festgestellt, dass die Geschwindigkeit aufwendiger Rechnungen, wie der Korrelation, bei Python schlechter ist. Somit haben wir uns für Ocatve entschieden. Um unseres selbstgeschriebenes Programm zu verifizieren haben wir eine Autokorrelation durchgeführt und diese mit der von Audactity berechneten AKF verglichen. Wir sind dabei zu dem Ergebnis gekommen, dass unser Programm funktioniert.
-\subsection{Hardware}
-Es wurden zwei hochwertige Kondensatormikrofone vom Telekom-Lehrstuhl der TU Dresden zur Verfügung gestellt. Außerdem konnten wir ein Stativ, eine Stereoschiene sowie eine USB-Soundkarte verwenden.
+\input{technik}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Programm}
-\subsection{Aufbau des Programms}
-Das Programm ist in 3 große Teile gegliedert. Dazu zählt das Einlesen der Audiodateien, die benötigte Signalverarbeitung inklusiver Berechnung der gewünschten Parameter und das Speichern der gewonnenen Werte in Form einer Excel-Datei.
-\paragraph{Einlesen der Audiodaten}
-Die Audiodateien liegen im WAV-Format als Stereoaufnahme vor. Zunächst wird eine Liste mit allen Dateien in einem bestimmten Ordner erstellt, damit die Dateien nacheinander eingelesen werden können. Im nächsten Schritt werden die beiden Kanäle voneinander getrennt, um diese dann in die Signalverarbeitung zu übergeben.
-\paragraph{Signalverarbeitung}
-Das Kernstück der Signalverarbeitung ist eine periodische Korrelationsfunktion, die den linken und rechten Kanal miteinander korreliert. Die dabei entstandene Korrelationsfunktion wird dann weiter untersucht. Als nächstes wird eine Art Einhüllende berechnet, die ein Maß für die Steilheit der Kurve ist. Wie bereits im Abschnitt "Gauß-Regression" beschrieben, wird dann mit Hilfe der Methode der kleinsten Quadrate eine Gauß-Glocke so angepasst, dass sie den Verlauf der Hüllkurve der KKF möglichst gut abbildet. Die Parameter ripple, $\sigma$, Gleichanteil und Zeitverschiebung des Maximums aus dem Ursprung werden danach an eine Funktion übergeben, die diese Daten in einer Excel-Tabelle speichert.
-\paragraph{Speicherung}
-Die Speicherung der Daten erfolgt in einer Excel-Datei. Dabei wird zu erst der Dateiname des Samples und alles dazugehörigen Werte gespeichert. Außerdem wird noch ein Link zum Graphen der Korrelationsfunktion angegeben, damit man sich diese bei der Auswahl der Test-Signale anschauen kann.
-
-\subsubsection{Programmablaufplan}
-\begin{figure}[ht!]
-\centering
-\includegraphics[scale=0.6]{img/pap}
-\caption{Programmablaufplan}
-\label{figure1}
-\end{figure}
-
-\subsection{Mögliche Einstellungen}
-Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wunsch des Anwenders verändern. Diese sind am Beginn der main.m-Datei festgelegt und werden im folgenden beschrieben:
-\begin{itemize} 
-\item $path$ - Pfad zur Sammlung der WAV-Dateien
-\item $excel\_path$ - Pfad unter dem Excel-Datei mit Lösungen gespeichert wird
-\item $output$ - Unterscheidung, ob Ergebnisse gespeichert oder angezeigt werden
-\item $calc$ - Wechsel zwischen Berechnung im Zeit- und Frequenzbereich möglich.
-\item $x\_axes$ - Unterscheidung, ob Korrelation gegen Samples oder Zeit aufgetragen wird
-\item $priority$ - Unterscheidung, ob angegebene Blocklänge oder Zeitdauer priorisiert wird
-\item $t\_start$ - Startzeitpunkt der Korrelation
-\item $t\_dur$ - Array $A1$ mit Menge an Zeitdauern die korrelierten werden sollen, Korrelation beginnt immer bei $t\_start$
-\item $Ncor\_init$ - Array, mit identischer Länge zu $A1$. Gibt an wie oft korrespondierender Eintrag in $A1$ hintereinander korreliert wird. 
-\item $Lcor$ - Blocklänge der Korrelation
-\end{itemize}
-\subsection{Probleme} 
-
-
+\input{programm}
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Signalauswahl}
-Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht, um ein möglichst breites Spektrum an Raum-Effekten zu erhalten. Aufnahmeorte waren beispielsweise der Platz vor dem HSZ, die Wiese zwischen Physik- und Mathematikgebäude, sowie der Trefftzbau. Außerdem wurde in einer Wohnung gemessen, um Effekte von schallabsorbierenden Stoffen wie Teppich oder Bett zu erhalten. Soweit mgölich, haben wir die natürliche Geräuschkulisse am jeweiligen Ort eingefangen. Zusätzlich dazu wurde ein definiertes Signal mittels eines Lautsprechers erzeugt, um Direktschall zu nutzen. Bei diesen Aufnahmen sollten die Effekte des Raumes am deutlichsten hervortreten.
-\subsection{Beispielsignal}
-\subsection{Probleme bei der Signalauswahl}
-
+\input{signale}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Zusammenfassung}
+Es wurde ein Ocatve-Skript entwickelt mit welchem sich die Kreuzkorrelationsfunktion der beiden Stereo-Kanäle einer Audioaufnahme berechnen lässt. Auf Basis der KKF wurden einige einfache Maßzahlen zur Charakterisierung der Aufnahmen entwickelt. Damit lassen sich für bestimmte Anwendungen Signale zu Testzwecken auswählen.
+In Zukunft kann die Software auf bestimmte Anwendungsfälle angepasst werden, in dem neue Regressionsmodelle implementiert werden, die der gewünschen Nutzung der Signale besser gerecht werden.

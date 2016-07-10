@@ -2,7 +2,7 @@ Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht
 \subsection{Beispielsignale}
 \subsubsection{Signal 1 - trefftz$\_$wiese$\_$m}
 \paragraph{Aufnahmesituation} Dieses Signal wurde auf der Wiese zwischen dem Gebäude der Mathematik- und Physikfakultät aufgenommen. Das heißt, es ist eine relativ große Freifläche mit wenigen Hindernissen mit ungehinderter Schallausbreitung. Es wurde keine zusätzliche Primärschallquelle genutzt.
-\paragraph{Signalbeschreibung} Wie in Abbildung 2 zu sehen ist, ändern sich beide Kanäle relativ langsam. Sowohl Kanal A als auch Kanal B sind klar definiert und im Vergleich zum Rauschen relativ groß. Man erkennt jedoch bereits beim einfachen Betrachten, dass sich beide Seiten nur sehr geringfügig ähnlich sehen.
+\paragraph{Signalbeschreibung} Wie in Abbildung \ref{figure2} zu sehen ist, ändern sich beide Kanäle relativ langsam. Sowohl Kanal A als auch Kanal B sind klar definiert und im Vergleich zum Rauschen relativ groß. Man erkennt jedoch bereits beim einfachen Betrachten, dass sich beide Seiten nur sehr geringfügig ähnlich sehen.
 \begin{figure}[ht!]
 \centering
 \includegraphics[scale=0.64]{img/trefftz_wiese_m}
@@ -15,7 +15,7 @@ Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht
 \subsubsection{Signal 2 $-$ trefftz$\_$fahrstuhl$\_$m}
 \paragraph{Aufnahemsituation} Diese Aufnahme fand im Fahrstuhl des Trefftzbaus statt. Das heißt, der Raum war relativ klein und ist mit schallharten Begrenzungen versehen. Um ein Signal zu erhalten wurde eine Primärschallquelle in Form eines hochwertigen Lautsprechers genutzt.
 \paragraph{Signalbeschreibung}
-In Abbildung 3 erkennt man sehr gut, dass sich beide Kanäle sehr schnell ändern und einen ähnlichen Verlauf haben. Lediglich die Stärke des Signals ist unterschiedliche. Das stört jedoch nicht für die Berechnung der Maßzahlen. 
+In Abbildung \ref{figure3}  erkennt man sehr gut, dass sich beide Kanäle sehr schnell ändern und einen ähnlichen Verlauf haben. Lediglich die Stärke des Signals ist unterschiedliche. Das stört jedoch nicht für die Berechnung der Maßzahlen. 
 \begin{figure}[ht!]
 \centering
 \includegraphics[scale=0.64]{img/trefftz_fahrstuhl_m}
@@ -31,3 +31,5 @@ Bei der Signalauswahl ergab sich das Problem, dass man möglichst viele verschie
 In den meisten Situationen war der Lautstärkepegel im Raum zu gering um 20s aufzunehmen, ohne das der Großteil der Aufnahme einfach Rauschen war. Aus diesem Grund haben wir ein zusätzliches Signal erzeugt. Dadurch gibt es jedoch in den meisten Aufnahmen eine Primärquelle, die das Spektrum 
 
 \subsection{Fazit}
+Abschließend lässt sich feststellen, dass der Gauß-Fit erst aber einem ripple-Faktor von 0.3 sinnvolle Ergebnisse liefert. Bei Werten kleiner 0.3 ist die Hüllkurve einer Gauß-Kurve zu unähnlich. Es ist jedoch festzustellen, dass die Regression der Exponentialfunktion mit kleiner werdendem ripple besser über der nach Größe sortierten Amplituden liegt.
+Es ist empfehlenswert, Signale in Räumen aufzunehmen, die ausreichend klein sind, damit die Raumeffekte Auswirkungen auf das Signal haben. Sonst nimmt man größtenteils rauschen auf, welches sehr geringe Aussagen zulässt.
