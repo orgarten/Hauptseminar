@@ -7,7 +7,11 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{graphicx}
-
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage[left = 2cm, right = 2cm, top = 2cm, bottom = 2cm]{geometry}
 
 \begin{document}
 
@@ -27,6 +31,8 @@
 \pagenumbering{arabic}
 
 \input{hauptteil}
+\newpage
+\input{literatur}
 \begin{appendix}
 
 \end{appendix}
