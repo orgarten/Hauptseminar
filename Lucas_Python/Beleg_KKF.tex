@@ -10,11 +10,11 @@
 \author{Lucas Weber}
 \title{KKF Beleg}
 \begin{document}
-\section*{Kreuzkorrelationsfunktion}
+\subsection*{Kreuzkorrelationsfunktion}
 Die Basis f"ur die Bemessung der aufgenommenen Audiosignale bildet die sogenannte Kreuzkorrelationsfunktion (KKF). Wie in der Aufgabenstellung schon beschrieben werden an ihr die Bemessungsparameter festgelegt. Aufgrund der verschiedenen Blockl"angen und der Masse an Daten, die korreliert werden sollen muss die Berechnung der KKF effizient und zeitsparend implementiert werden. Im Folgenden Abschnitt wird die KKF kurz theoretisch eingef"uhrt und das das mathematische Konzept erkl"art, auf dem die effiziente Berechnung der KKF beruht.
 \\\\
 Zuerst haben wir f"ur die KKF eine Funktion genutzt, die zur Berechnung Summen verwendete. Dabei ergab sich, dass die Berechnung zu langsam war. In der nun vorliegenden Octave-Version wird die KKF im Frequenzbereich berechnet.
-\subsection*{Berechnungsvorschrift}
+\subsubsection*{Berechnungsvorschrift}
 Die KKF ist als aus zwei verschiedenen Funktionen gebildeter Erwartungswert definiert. Hier werden die Formeln allgemein f"ur die Korrelation der Prozesse \textbf{X} und \textbf{Y} angegeben. 
 
 \begin{align}
@@ -33,24 +33,23 @@ Signalenergie := \int_{-\infty}^{\infty} s^2(t) \,dt < \infty
 \end{align}
 vgl. [ISV] S. 84 folgende
 
-\subsection*{Kreuzkorrelation im Frequenzbereich und Faltungssatz}
+\subsubsection*{Kreuzkorrelation im Frequenzbereich und Faltungssatz}
 Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrelation besch"aftigt. Da die Bildung der Summe der Multiplikation von x(n) und y(n+k) sehr rechenaufw"andig ist, haben wir nach schnelleren M"oglichkeiten gesucht die KKF der beiden Signale zu berechnen. Eine geeignet M"oglichkeit ist die Berechnung der KKF im Frequenzbereich. F"ur die Berechnung der KKF im Frequenzbereich macht man sich die "Ahnlichkeit der KKF zur Faltung und den Faltungssatz zunutze.
 
-\subsubsection*{KKF als Faltung}
-
+\paragraph*{KKF als Faltung}
 %hier herrscht noch unsicherheit vor, ich habe nur die Formel für den kont. Fall
-\paragraph{Zeit-kontinuierlicher Fall:}
+\textbf{\\\\Zeit-kontinuierlicher Fall:}
 \begin{align}
 \psi_{\textbf {XY}}^E(\tau) = x(-\tau) * y(\tau)
 \end{align}
 
-\paragraph*{Zeit-diskreter Fall:}
+\textbf{Zeit-diskreter Fall:}
 \begin{align}
 \psi_{\textbf {XY}}^E(k) = x(-k) * y(k)
 \end{align}
 [ISV] Formel (2.217) S.89
 
-\subsubsection*{Faltungssatz in Verbindung mit KKF}
+\paragraph*{Faltungssatz in Verbindung mit KKF}
 
 Wir schreiben zuerst die die KKF als Faltung.
 
