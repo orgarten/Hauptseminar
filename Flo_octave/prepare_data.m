@@ -1,3 +1,7 @@
+% Gets the Data from the .wav files. First it reads the correct part of the
+% audio-file. It then splits the stereo-data into two mono-data-samples.
+% Also it ensures that the sample-amount is even for the FFT.
+% At the End it calculates the length of the mono-data in time.
 function [rate, duration, Lcor, channel_a, channel_b] = prepare_data(path, t_start, t_end, Lcor, Ncor, priority)
 
   % load part of the signal from given path

@@ -1,3 +1,7 @@
+% a function that splits the path name to get the specific filename
+% that will be put in the XLS-table
+% then it creates the name of the table entry out of the given parameters
+% it also returns the path where the results will be saved
 function [name, path_res] = build_name(path, t_start, duration, i)
     
   % extracting name from path

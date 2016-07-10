@@ -1,3 +1,6 @@
+% do all the analysis!
+% This function calclates all the paramteres and fits that we figured out
+
 function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorted, reg_exp] = analysis(correlation, lags, rate, x_axes)
  
   %% calculate offset between channels
@@ -8,7 +11,7 @@ function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, sorte
   % calculate ripple factor
   ripple = calc_ripple(correlation);
   
-  % sort correlation and calulate normalized area 
+  % sort correlation and calculate normalized area 
   sorted = sort(abs(correlation), 'descend');
   area = sum(sorted)/length(sorted);
   % fit a exp curve to sorted correlation

@@ -1,3 +1,5 @@
+% This function only decides for the given paramter in which way the correlation
+% is computed
 function [correlation, lags] = audiocorrelation(calc, rate, channel_a, channel_b)
   
   if strcmp(calc, 'xcorr')
