@@ -262,6 +262,14 @@ INPUT ./img/pap.jpg
 INPUT ./img/pap.jpg
 INPUT signale.tex
 INPUT signale.tex
+INPUT img/trefftz_wiese_m.PNG
+INPUT ./img/trefftz_wiese_m.PNG
+INPUT ./img/trefftz_wiese_m.PNG
+INPUT img/trefftz_fahrstuhl_m.PNG
+INPUT ./img/trefftz_fahrstuhl_m.PNG
+INPUT ./img/trefftz_fahrstuhl_m.PNG
+INPUT literatur.tex
+INPUT literatur.tex
 INPUT Beleg_CD.aux
 INPUT ./Beleg_CD.out
 INPUT ./Beleg_CD.out
