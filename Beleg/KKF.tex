@@ -1,0 +1,60 @@
+\subsection{Kreuzkorrelationsfunktion}
+Die Basis f"ur die Bemessung der aufgenommenen Audiosignale bildet die sogenannte Kreuzkorrelationsfunktion (KKF). Wie in der Aufgabenstellung schon beschrieben werden an ihr die Bemessungsparameter festgelegt. Aufgrund der verschiedenen Blockl"angen und der Masse an Daten, die korreliert werden sollen muss die Berechnung der KKF effizient und zeitsparend implementiert werden. Im Folgenden Abschnitt wird die KKF kurz theoretisch eingef"uhrt und das das mathematische Konzept erkl"art, auf dem die effiziente Berechnung der KKF beruht.
+\\\\
+Zuerst haben wir f"ur die KKF eine Funktion genutzt, die zur Berechnung Summen verwendete. Dabei ergab sich, dass die Berechnung zu langsam war. In der nun vorliegenden Octave-Version wird die KKF im Frequenzbereich berechnet.
+\subsubsection{Berechnungsvorschrift}
+Die KKF ist als aus zwei verschiedenen Funktionen gebildeter Erwartungswert definiert. Hier werden die Formeln allgemein f"ur die Korrelation der Prozesse \textbf{X} und \textbf{Y} angegeben. 
+
+\begin{align}
+\psi_{\textbf XY}(t_1, t_2) = E\lbrace\textbf{X}(t_1)\cdot\textbf{Y}(t_2)\rbrace
+\end{align}
+Reale aufgenommene Audiosignale s(t), die hier mit durch die KKF verrechnet werden, sind in jedem Fall Energiesignale, da sie rein reell sind, einen begrenzten Wertebereich haben und nach einer bestimmten Zeit enden.
+
+\begin{align}
+Signalenergie := \int_{-\infty}^{\infty} s^2(t) \,dt < \infty
+\end{align}
+
+\noindent Da die aufgenommenen Audiosignale zeit-diskrete Energiesignale sind wird hier auch nur die zeit-diskrete Kreuzkorrelation beschrieben. F"ur zeit-diskrete Energiesignale ergibt sich die folgende Berechnungsvorschrift, wobei x(n) und y(n) Realisierungen der Prozesse \textbf{X} und \textbf{Y} sind.
+
+\begin{align}
+\boxed{\psi_{\textbf {XY}}^E(k) = \sum_{n = -\infty}^{\infty} x(n) \cdot y(n+k)}
+\end{align}
+vgl. [ISV] S. 84 folgende
+
+\subsubsection{Kreuzkorrelation im Frequenzbereich und Faltungssatz}
+Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrelation besch"aftigt. Da die Bildung der Summe der Multiplikation von x(n) und y(n+k) sehr rechenaufw"andig ist, haben wir nach schnelleren M"oglichkeiten gesucht die KKF der beiden Signale zu berechnen. Eine geeignet M"oglichkeit ist die Berechnung der KKF im Frequenzbereich. F"ur die Berechnung der KKF im Frequenzbereich macht man sich die "Ahnlichkeit der KKF zur Faltung und den Faltungssatz zunutze.
+
+\paragraph{KKF als Faltung}
+%hier herrscht noch unsicherheit vor, ich habe nur die Formel für den kont. Fall
+\textbf{Zeit-kontinuierlicher Fall:}
+\begin{align}
+\psi_{\textbf {XY}}^E(\tau) = x(-\tau) * y(\tau)
+\end{align}
+
+\textbf{Zeit-diskreter Fall:}
+\begin{align}
+\psi_{\textbf {XY}}^E(k) = x(-k) * y(k)
+\end{align}
+[ISV] Formel (2.217) S.89
+
+\paragraph{Faltungssatz in Verbindung mit KKF}
+
+Wir schreiben zuerst die die KKF als Faltung.
+
+\begin{align}
+\psi(t) \  \; &= x(-t) * y(t) = \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau\\\\
+\underline \Psi(\omega) &=\int_{-\infty}^{\infty} x(-t) * y(t) \cdot e^{-j\omega t} \,dt\\&=\int_{-\infty}^{\infty} \left[ \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau \right] \cdot e^{-j\omega (t - \tau + \tau)} \,dt\\&=\int_{-\infty}^{\infty} x(-\tau) \cdot e^{j\omega(-\tau)} \underbrace{ \left[ \int_{-\infty}^{\infty} y(t-\tau) e^{-j\omega (t - \tau)} \,dt \right]}_* \,d\tau
+\end{align}
+
+Durch Substitution von $(t-\tau)$ durch $t'$ ergibt sich * zur Fourier-transformierten $ \underline{Y}(\omega)$ von y(t). Der restliche Ausdruck wird durch das positive positive Vorzeichen in der e-Funktion zur komplex konjugierten Transformierten $ \underline{X}^*(\omega)$ der Funktion x(t).
+\\\\
+Die KKF l"asst sich im Frequenzbereich also als
+
+\begin{align}
+\boxed{\underline \Psi(\omega) = \underline{X}^*(\omega) \cdot \underline{Y}(\omega)}
+\end{align}
+schreiben.
+\\vgl. [ISV] S.180
+\\\\
+Wenn man nun die KKF im Frequenzbereich zeitsparend durchf"uhren will, muss man die FFT f"ur x(k) und y(k) (dabei $k \in \mathbb{N}^+_0$) der L"ange N durchf"uhren. Dabei muss man beachten, dass bei der FFT ein Linienspektrum ergibt. Die FFT beruht vor allem auch auf der Annahme, dass sich die N diskreten Werte periodisch wiederholen. Durch die IFFT von $ \underline \Psi(\omega)$ ergibt sich also die periodische KKF $\tilde{\psi}(t)$.
+\\vgl. [ISV] S.135

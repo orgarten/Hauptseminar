@@ -26,7 +26,7 @@
 
 \pagenumbering{arabic}
 
-\include{hauptteil}
+\input{hauptteil}
 \begin{appendix}
 
 \end{appendix}
