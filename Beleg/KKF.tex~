@@ -53,11 +53,11 @@ schreiben.
 \\\\
 Wenn man nun die KKF im Frequenzbereich zeitsparend durchf"uhren will, muss man die FFT f"ur x(k) und y(k) (dabei $k \in \mathbb{N}^+_0$) der L"ange N durchf"uhren. Dabei muss man beachten, dass bei der FFT ein Linienspektrum ergibt. Die FFT beruht vor allem auch auf der Annahme, dass sich die N diskreten Werte periodisch wiederholen. Durch die IFFT von $ \underline \Psi(\omega)$ ergibt sich also die periodische KKF $\tilde{\psi}(t)$.\\vgl. [ISV] S.135
 \subsubsection{Zero Padding}
-Die periodische KKF $\tilde{\psi}(t)$ ist in unserem Projekt zudem die bessere Wahl. Berechnet man die KKF im Frequenzbereich wird durch die implementierten Funktionen von Octave, so wie von Python, sogenanntes Zero-Padding durchgeführt. Vorstellen kann man sich das als auffüllen der Daten mit N Werten $=0$ an jeweils den Rändern einer der beiden Funktionen, da durch die Verschiebung über den Rand der anderen hinausragt.
+Die periodische KKF $\tilde{\psi}(t)$ ist in unserem Projekt zudem die bessere Wahl. Berechnet man die KKF im Frequenzbereich wird durch die implementierten Funktionen von Octave, so wie von Python, sogenanntes Zero-Padding durchgeführt. Vorstellen kann man sich das als auffüllen der Daten mit N Werten $=0$ an jeweils den Rändern einer der beiden Funktionen, da durch die Verschiebung eine der Funktionen über den Rand der anderen hinausragt.
 
 \begin{figure}[ht!] 
   \centering
-     \includegraphics[width=0.4\textwidth]{Faltung}
+     \includegraphics[width=0.4\textwidth]{img/Faltung}
   \caption{Anschauliches Beispiel zur Faltung}
   \label{fig:Bild1}
 \end{figure}

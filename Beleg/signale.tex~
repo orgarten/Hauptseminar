@@ -12,7 +12,7 @@ Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht
 \paragraph{Beschreibung der KKF} Die Kreuzkorrelationsfunktion schwankt sehr stark über den gesamtem Zeitbereich. Deswegen ist auch die Hüllkurve stark schwankend. Da die Regression über die Hüllkurve berechnet wird, wird diese dem Signal auch nicht gerecht.
 \paragraph{Auswertung der Maßzahlen}
 
-\subsubsection{Signal 2 $-$ trefftz$\_$fahrstuhl$\_$m}
+\subsubsection{Signal 2 - trefftz$\_$fahrstuhl$\_$m}
 \paragraph{Aufnahemsituation} Diese Aufnahme fand im Fahrstuhl des Trefftzbaus statt. Das heißt, der Raum war relativ klein und ist mit schallharten Begrenzungen versehen. Um ein Signal zu erhalten wurde eine Primärschallquelle in Form eines hochwertigen Lautsprechers genutzt.
 \paragraph{Signalbeschreibung}
 In Abbildung \ref{figure3}  erkennt man sehr gut, dass sich beide Kanäle sehr schnell ändern und einen ähnlichen Verlauf haben. Lediglich die Stärke des Signals ist unterschiedliche. Das stört jedoch nicht für die Berechnung der Maßzahlen. 
