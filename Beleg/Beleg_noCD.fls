@@ -173,6 +173,8 @@ INPUT /usr/share/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omslmr.fd
 INPUT signale.tex
 INPUT signale.tex
+INPUT literatur.tex
+INPUT literatur.tex
 INPUT Beleg_noCD.aux
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
