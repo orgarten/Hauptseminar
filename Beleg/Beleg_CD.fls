@@ -251,6 +251,9 @@ INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecss0800.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecsx0800.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecss0600.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecsx0600.tfm
+INPUT Faltung.JPG
+INPUT ./Faltung.JPG
+INPUT ./Faltung.JPG
 INPUT Masszahlen.tex
 INPUT Masszahlen.tex
 INPUT technik.tex
