@@ -54,5 +54,13 @@ Die KKF l"asst sich im Frequenzbereich also als
 schreiben.
 \\vgl. [ISV] S.180
 \\\\
-Wenn man nun die KKF im Frequenzbereich zeitsparend durchf"uhren will, muss man die FFT f"ur x(k) und y(k) (dabei $k \in \mathbb{N}^+_0$) der L"ange N durchf"uhren. Dabei muss man beachten, dass bei der FFT ein Linienspektrum ergibt. Die FFT beruht vor allem auch auf der Annahme, dass sich die N diskreten Werte periodisch wiederholen. Durch die IFFT von $ \underline \Psi(\omega)$ ergibt sich also die periodische KKF $\tilde{\psi}(t)$.
-\\vgl. [ISV] S.135
+Wenn man nun die KKF im Frequenzbereich zeitsparend durchf"uhren will, muss man die FFT f"ur x(k) und y(k) (dabei $k \in \mathbb{N}^+_0$) der L"ange N durchf"uhren. Dabei muss man beachten, dass bei der FFT ein Linienspektrum ergibt. Die FFT beruht vor allem auch auf der Annahme, dass sich die N diskreten Werte periodisch wiederholen. Durch die IFFT von $ \underline \Psi(\omega)$ ergibt sich also die periodische KKF $\tilde{\psi}(t)$.\\vgl. [ISV] S.135\\\\Die periodische KKF $\tilde{\psi}(t)$ ist in unserem Projekt zudem die bessere Wahl. Berechnet man die KKF im Frequenzbereich wird durch die implementierten Funktionen von Octave, so wie von Python, sogenanntes "Zero-Padding" durchgeführt. Vorstellen kann man sich das als auffüllen der Daten mit N Werten $=0$ an jeweils den Rändern einer der beiden Funktionen, da durch die Verschiebung über den Rand der anderen hinausragt.
+
+\begin{figure}[h] 
+  \centering
+     \includegraphics[width=0.7\textwidth]{Faltung.jpg}
+  \caption{Anschauliches Beispiel zur Faltung}
+  \label{fig:Bild1}
+\end{figure}
+vgl. [NT] Seite 28\\
+Wie man auf dem Bild erkennen kann ist die Funktion $x_2$ soweit verschoben, dass sie über den rechten Rand der Funktion $x_1$ hinausragt. Wenn man die beiden Rechtecksignale als Bereiche sieht in denen echte Funktionswerte liegen, würde nun auf der positiven x-Achse ab $T/2$ mit Nullen aufgefüllt werden. Dadurch bekommt die KKF automatisch ein Abklingverhalten an ihren Rändern, das nur durch die begrenzte Anzahl an Werten verursacht wird. Die Korrelation nimmt an den Rändern nicht zwingend ab. Durch dieses Abklingverhalten würden unsere Ergebnisse also abgefälscht werden. Die periodische KKF ist also aussagekräftiger, da unser reales Signal in jedem Fall an den Rändern der korrelierten Blöcke nicht auf Null abklingt.Wenn man die periodische KKF im Zeitbereich berechnen möchte, müsste man an den Rändern der Funktionen nochmal die Funktion $x_1$ anhängen.
