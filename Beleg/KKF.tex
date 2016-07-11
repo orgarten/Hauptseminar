@@ -38,19 +38,16 @@ Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrelation b
 \psi(t) \  \; &= x(-t) * y(t) = \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau\\\\
 \underline \Psi(\omega) &=\int_{-\infty}^{\infty} x(-t) * y(t) \cdot e^{-j\omega t} \,dt\\&=\int_{-\infty}^{\infty} \left[ \int_{-\infty}^{\infty} x(-\tau) \cdot y(t-\tau)\,d\tau \right] \cdot e^{-j\omega (t - \tau + \tau)} \,dt\\&=\int_{-\infty}^{\infty} x(-\tau) \cdot e^{-j\omega(\tau)} \underbrace{ \left[ \int_{-\infty}^{\infty} y(t-\tau) e^{-j\omega (t - \tau)} \,dt \right]}_* \,d\tau
 \end{align}
-Durch Substitution von $(t-\tau)$ durch $t'$ ergibt sich * zur Fourier-transformierten $ \underline{Y}(\omega)$ von y(t). Der restliche Ausdruck wird wegen der folgenden Beziehung zur Transformierten $ \underline{X}^*(\omega)$ der Funktion x(t).
+Durch Substitution von $(t-\tau)$ durch $t'$ ergibt sich * zur Fourier-transformierten $ \underline{Y}(\omega)$ von y(t). Der restliche Ausdruck wird wegen der folgenden Beziehung zur Transformierten $ \underline{X}^*(\omega)$ der Funktion x(-t). [NT, S. 103 A1]
 \begin{align}
-s^*(-t) = S^*(f)\text{[NT, S. 103 Korrespondenztabelle]}
+s^*(-t) = S^*(f)
 \end{align}
 $s(t)$ ist unserem Fall rein reell ist, wodurch sich der Ausdruck deswegen zu
 \begin{align}
 s^*(-t) = s(-t) = S^*(f)
 \end{align}
-vereinfacht.
-
-\\\\
+vereinfacht.\\\\
 Die KKF l"asst sich im Frequenzbereich also als
-
 \begin{align}
 \boxed{\underline \Psi(\omega) = \underline{X}^*(\omega) \cdot \underline{Y}(\omega)}
 \end{align}

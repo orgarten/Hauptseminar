@@ -1,9 +1,0 @@
-# Fdb version 3
-["pdflatex"] 1468259950 "programm.tex" "programm.pdf" "programm" 1468259950
-  "/usr/share/texmf-dist/web2c/texmf.cnf" 1447534201 31669 df537245012f3e5f05bdc55644b7a3df ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1455289008 7214063 5e02984b18b341f2a9e7d1ed42c5b88b ""
-  "programm.aux" 1468259950 8 a94a2480d3289e625eea47cd1b285758 ""
-  "programm.tex" 1468259949 8072 32c065d9a295ccc295f1842da0985234 ""
-  (generated)
-  "programm.pdf"
-  "programm.log"
