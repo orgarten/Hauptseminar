@@ -1,0 +1,9 @@
+# Fdb version 3
+["pdflatex"] 1468242579 "signale.tex" "signale.pdf" "signale" 1468242579
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1447534201 31669 df537245012f3e5f05bdc55644b7a3df ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1455289008 7214063 5e02984b18b341f2a9e7d1ed42c5b88b ""
+  "signale.aux" 1468242579 8 a94a2480d3289e625eea47cd1b285758 ""
+  "signale.tex" 1468242578 5682 767514658801079141b7f0ad02d82372 ""
+  (generated)
+  "signale.pdf"
+  "signale.log"
