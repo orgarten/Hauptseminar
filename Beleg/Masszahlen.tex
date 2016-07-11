@@ -19,7 +19,7 @@ envelope = IDFT\lbrace DFT\lbrace|\psi_{\text{XY}}(n)|\rbrace\cdot\text{H}_{\tex
 \end{align*}
 Für die Hüllkurve \textit{envelope} wird nun mittels Methode der kleinsten Quadrate eine Regressionsrechnung auf die vermutete Glockenkurvenfunktion vorgenommen. Die Funktionsvorschrift lautet dabei
 \begin{align*}
-y = a\cdot e^{-(\frac{x-\mu}{\sigma})^2+b}
+y = a\cdot e^{-\frac{(x-\mu)^2}{2\sigma}^2+b}
 \end{align*}
 Mit den zu bestimmenden Konstanten $a$, $b$, $\mu$ und $\sigma$. Mit dem erhaltenen Wert für $\sigma$ lässt sich keine Aussage über den Anteil der Fläche der Hüllkurve in den Grenzen $\mu-\sigma$ bis $\mu+\sigma$ treffen. Das liegt an dem Gleichanteil und keiner Verknüpfung mit der Amplitude $a$ wie bei der Gauss'schen Glockenkurve. Sehr wohl stellt $\sigma$ allerdings ein Maß für die Breite des peaks rund um den Nullpunkt der Korrelation dar. Die Angabe erfolgt in Sekunden. 
 \subsubsection{timeDiff}
@@ -35,7 +35,7 @@ y = e^{-c \cdot x}
 wobei der ausgegebene Parameter \textit{exp} der ermittelten Konstante $c$ entspricht, normiert auf die Länge des Signals. Bei Vergleich der Regressionskurve mit der ursprünglichen Funktion fällt auf, dass diese nur schlecht angenähert wird. Auf ein modifizieren der Funktion, beispielsweise durch Addition eines Gleichanteils, wird jedoch verzichtet, da die Verrechnung der zusätzlichen Parameter zu einer aussagekräftigen Maßzahl nicht glückte. Ein Maß für den geforderten Abfall stellt auch die einfache e-Funktion dar. 
 \\Um einen alternativen Parameter zu bestimmen wird die Fläche unter der Kurve berechnet und auf die Länge des Signals normiert. 
 \begin{align*}
-area = \frac{1}{N_{\text{samples}}} sum_{n=1}^{N_{\text{samples}}} |\psi_{\text{XY}}(n)|
+area = \frac{1}{N_{\text{samples}}} \sum_{n=1}^{N_{\text{samples}}} |\psi_{\text{XY}}(n)|
 \end{align*}
 Eine Normierung auf den Maximalwert erfolgt schon beim Berechnen der Kreuzkorrelation. Dadurch kann \textit{area} nur Werte zwischen $0$ und $1$ annehmen. Je kleiner \textit{area}, desto steiler fallen die Amplituden ab. 
 \\Trotz der erfolgreich ermittelten Maßzahl \textit{area}, berechnet das Programm weiterhin den Parameter \textit{exp}, denn dieser lässt sich leicht modifizieren und kann somit noch an Aussagekraft hinzu gewinnen. 
