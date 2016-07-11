@@ -1,7 +1,7 @@
-Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht, um ein möglichst breites Spektrum an Raum-Effekten zu erhalten. Aufnahmeorte waren beispielsweise der Platz vor dem HSZ, die Wiese zwischen Physik- und Mathematikgebäude, sowie der Trefftzbau. Außerdem wurde in einer Wohnung gemessen, um Effekte von schallabsorbierenden Stoffen wie Teppich oder Bett zu erhalten. Soweit mgölich, haben wir die natürliche Geräuschkulisse am jeweiligen Ort eingefangen. Zusätzlich dazu wurde ein definiertes Signal mittels eines Lautsprechers erzeugt, um Direktschall zu nutzen. Bei diesen Aufnahmen sollten die Effekte des Raumes am deutlichsten hervortreten.
+Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht, um ein möglichst breites Spektrum an Raum-Effekten zu erhalten. Aufnahmeorte waren beispielsweise der Platz vor dem HSZ, die Wiese zwischen Physik- und Mathematikgebäude, sowie der Trefftzbau. Außerdem wurde in einer Wohnung gemessen, um Effekte von schallabsorbierenden Stoffen wie Teppich oder Bett zu erhalten. Soweit möglich, haben wir die natürliche Geräuschkulisse am jeweiligen Ort eingefangen. Zusätzlich dazu wurde ein definiertes Signal mittels eines Lautsprechers erzeugt, um Direktschall zu nutzen. Bei diesen Aufnahmen sollten die Effekte des Raumes am deutlichsten hervortreten.
 \subsection{Beispielsignale}
 \subsubsection{Signal 1 - trefftz$\_$wiese$\_$m}
-\paragraph{Aufnahmesituation} Dieses Signal wurde auf der Wiese zwischen dem Gebäude der Mathematik- und Physikfakultät aufgenommen. Das heißt, es ist eine relativ große Freifläche mit wenigen Hindernissen mit ungehinderter Schallausbreitung. Es wurde eine zusätzliche Primärschallquelle genutzt.
+\paragraph{Aufnahmesituation} Dieses Signal wurde auf der Wiese zwischen dem Gebäude der Mathematik- und Physikfakultät aufgenommen. Dies stellt eine relativ große Freifläche mit wenigen Hindernissen mit ungehinderter Schallausbreitung dar, wobei jedoch auch die umliegenden Gebude einen Einfluss auf das Ausbreitungsverhalten haben können. Es wurde eine zusätzliche Primärschallquelle genutzt.
 \paragraph{Signalbeschreibung} Wie in Abbildung \ref{figure2} zu sehen ist, ändern sich beide Kanäle relativ langsam. Sowohl Kanal A als auch Kanal B sind klar definiert und im Vergleich zum Rauschen relativ groß. Man erkennt jedoch bereits beim einfachen Betrachten, dass sich beide Seiten nur sehr geringfügig ähnlich sehen.
 \begin{figure}[ht!]
   \centering
@@ -21,9 +21,9 @@ Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht
 \paragraph{Auswertung der Maßzahlen}
 Der ripple-Faktor von Signal 1 ist mit 0.2 vergleichsweise niedrig. Dass nur ein geringer Anteil der Energie des Signals in den obersten 5 Prozent der Werte vorhanden ist, lässt sich auch gut an der KKF erkennen. Es gibt nur sehr wenige Peaks. Die Aussagekräftigkeit von $\sigma$ ist hier sehr gering. Wie gut zu erkennen ist, hat die Kurve keine Ähnlichkeit zu einer Gauß-Glocke. Auch die anderen Werte sind für dieses Signal schwierig zu bewerten, da die Ähnlichkeit generell sehr klein ist.
 \subsubsection{Signal 2 - trefftz$\_$fahrstuhl$\_$m}
-\paragraph{Aufnahemsituation} Diese Aufnahme fand im Fahrstuhl des Trefftzbaus statt. Das heißt, der Raum war relativ klein und ist mit schallharten Begrenzungen versehen. Um ein Signal zu erhalten wurde eine Primärschallquelle in Form eines hochwertigen Lautsprechers genutzt.
+\paragraph{Aufnahemsituation} Diese Aufnahme fand im Fahrstuhl des Trefftzbaus statt. Das heißt, der Raum war relativ klein und ist mit dicken Glaswänden versehen. Um ein Signal zu erhalten wurde eine Primärschallquelle in Form eines hochwertigen Lautsprechers genutzt über den ein Beispielsignal wiedergegeben wurde.
 \paragraph{Signalbeschreibung}
-In Abbildung \ref{figure3}  erkennt man sehr gut, dass sich beide Kanäle sehr schnell ändern und einen ähnlichen Verlauf haben. Lediglich die Stärke des Signals ist unterschiedliche. Das stört jedoch nicht für die Berechnung der Maßzahlen. 
+In Abbildung \ref{figure3}  erkennt man sehr gut, dass sich beide Kanäle sehr schnell ändern und einen ähnlichen Verlauf haben. Lediglich die Lautstärke des Signals ist unterschiedlich. Das stört jedoch nicht für die Berechnung der Maßzahlen, da diese nicht von der Amplitude  abhängig sind. 
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.64]{img/trefftz_fahrstuhl_m}
@@ -34,19 +34,19 @@ In Abbildung \ref{figure3}  erkennt man sehr gut, dass sich beide Kanäle sehr s
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.4\textwidth]{img/fahrstuhl}
-  \caption{Aufnahmesituation im Fahrstuhl es Trefftzbaus}
+  \caption{Aufnahmesituation im Fahrstuhl des Trefftzbaus}
   \label{figure4}
 \end{figure}
 
 \paragraph{Beschreibung der KKF}
-Für dieses Signal ist auch an der Kreuzkorrelationsfunktion klar zu sehen, dass es ein Maximum in der Mitte gibt. Das heißt, die Signale sind sich sehr ähnlich. Zu den Seiten nimmt die KKF langsam ab. Für solch einen Verlauf ist die Aussage der Hüllkurve und der Regression sehr gut, da dieses Kreuzkorrelation gut mit einer Gauß-Kurve approxmiert werden kann.
+Für dieses Signal ist auch an der Kreuzkorrelationsfunktion klar zu sehen, dass es ein Maximum in der Mitte gibt. Das heißt, die Signale sind sich sehr ähnlich. Zu den Seiten nimmt die KKF langsam ab. Für solch einen Verlauf ist die Aussage der Hüllkurve und der Regression sehr gut, da diese Kreuzkorrelation gut mit einer Gauß-Kurve approxmiert werden kann.
 \paragraph{Auswertung der Maßzahlen}
 Der ripple-Faktor liegt mit 0.43 recht hoch, das heißt ein großer Teil der Signal-Energie liegt innerhalb des fünften Percentils. Die Aussage des Gauß-Fits ist hier wesentlich besser als bei Signal 1. Dies kann man gut in der Abbildung \ref{figure3} erkennen, denn der Verlauf der Hüllkurve kommt der Form einer Gauß-Glocke recht nah. Die Zeitverschiebung des Maximums der KKF ist minimal. Daran ist zu erkennen, dass das Signal an beiden Mikrofonen nur mit sehr kleiner Verzögerung angekommen ist, was im begrenzen Raum des Fahrstuhl auch Sinn ergibt.
 
 \subsection{Probleme bei der Signalauswahl}
-Bei der Signalauswahl ergab sich das Problem, dass man möglichst viele verschiedene Raumsituationen erfassen musste, um möglichst viele verschiedene Daten zu bekommen. Dabei war es jedoch nur schwer möglich vor Ort zu entscheiden, ob die entsprechende Aufnahme sinnvolle Ergebnisse liefert.
-In den meisten Situationen war der Lautstärkepegel im Raum zu gering um 20s aufzunehmen, ohne das der Großteil der Aufnahme einfach Rauschen war. Aus diesem Grund haben wir ein zusätzliches Signal erzeugt. Dadurch gibt es jedoch in den meisten Aufnahmen eine Primärquelle, die das Spektrum 
+Bei der Signalauswahl ergab sich das Problem, dass man möglichst viele verschiedene Raumsituationen erfassen musste, um eine große Menge verschiedener Daten zu bekommen. Dabei war es jedoch nur schwer möglich vor Ort zu entscheiden, ob die entsprechende Aufnahme sinnvolle Ergebnisse liefert.
+In den meisten Situationen war der Lautstärkepegel im Raum zu gering um 20s aufzunehmen, ohne das der Großteil der Aufnahme aus Rauschen bestand. Aus diesem Grund haben wir ein zusätzliches Signal erzeugt. Dadurch gibt es jedoch in den meisten Aufnahmen eine Primärquelle, die das Spektrum maßgeblich bestimmt.
 
 \subsection{Fazit}
-Abschließend lässt sich feststellen, dass der Gauß-Fit erst aber einem ripple-Faktor von 0.3 sinnvolle Ergebnisse liefert. Bei Werten kleiner 0.3 ist die Hüllkurve einer Gauß-Kurve zu unähnlich. Es ist jedoch festzustellen, dass die Regression der Exponentialfunktion mit kleiner werdendem ripple besser über der nach Größe sortierten Amplituden liegt.
+Abschließend lässt sich feststellen, dass der Gauß-Fit erst ab einem ripple-Faktor von 0.3 sinnvolle Ergebnisse liefert. Bei Werten die kleiner als 0.3 sind, ist die Hüllkurve einer Gauß-Kurve zu unähnlich. Es ist jedoch festzustellen, dass die Regression der Exponentialfunktion mit kleiner werdendem ripple besser über der nach Größe sortierten Amplituden liegt.
 Es ist empfehlenswert, Signale in Räumen aufzunehmen, die ausreichend klein sind, damit die Raumeffekte Auswirkungen auf das Signal haben. Sonst nimmt man größtenteils rauschen auf, welches sehr geringe Aussagen zulässt.

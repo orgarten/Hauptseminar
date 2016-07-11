@@ -180,6 +180,9 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT technik.tex
 INPUT technik.tex
+INPUT img/Equipment.jpg
+INPUT ./img/Equipment.jpg
+INPUT ./img/Equipment.jpg
 INPUT programm.tex
 INPUT programm.tex
 INPUT img/pap.jpg

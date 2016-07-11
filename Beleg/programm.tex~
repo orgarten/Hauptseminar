@@ -15,19 +15,58 @@ Die Speicherung der Daten erfolgt in einer Excel-Datei. Nach jedem Korrelationsd
   \label{figure1}
 \end{figure}
 
-\subsection{Mögliche Einstellungen}
-Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wunsch des Anwenders verändern. Diese sind am Beginn der main.m-Datei festgelegt und werden im folgenden beschrieben:
-\begin{itemize} 
-\item $path$ - Pfad zur Sammlung der WAV-Dateien
-\item $excel\_path$ - Pfad unter dem Excel-Datei mit Lösungen gespeichert wird
-\item $output$ - Unterscheidung, ob Ergebnisse gespeichert oder angezeigt werden
-\item $calc$ - Wechsel zwischen Berechnung im Zeit- und Frequenzbereich möglich.
-\item $x\_axes$ - Unterscheidung, ob Korrelation gegen Samples oder Zeit aufgetragen wird
-\item $priority$ - Unterscheidung, ob angegebene Blocklänge oder Zeitdauer priorisiert wird
-\item $t\_start$ - Startzeitpunkt der Korrelation
-\item $t\_dur$ - Array $A1$ mit Menge an Zeitdauern die korrelierten werden sollen, Korrelation beginnt immer bei $t\_start$
-\item $Ncor\_init$ - Array, mit identischer Länge zu $A1$. Gibt an wie oft korrespondierender Eintrag in $A1$ hintereinander korreliert wird. 
-\item $Lcor$ - Blocklänge der Korrelation
-\end{itemize}
+% \subsection{Mögliche Einstellungen}
+% Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wunsch des Anwenders verändern. Diese sind am Beginn der main.m-Datei festgelegt und werden im folgenden beschrieben:
+% \begin{itemize} 
+% \item $path$ - Pfad zur Sammlung der WAV-Dateien
+% \item $excel\_path$ - Pfad unter dem Excel-Datei mit Lösungen gespeichert wird
+% \item $output$ - Unterscheidung, ob Ergebnisse gespeichert oder angezeigt werden
+% \item $calc$ - Wechsel zwischen Berechnung im Zeit- und Frequenzbereich möglich.
+% \item $x\_axes$ - Unterscheidung, ob Korrelation gegen Samples oder Zeit aufgetragen wird
+% \item $priority$ - Unterscheidung, ob angegebene Blocklänge oder Zeitdauer priorisiert wird
+% \item $t\_start$ - Startzeitpunkt der Korrelation
+% \item $t\_dur$ - Array $A1$ mit Menge an Zeitdauern die korrelierten werden sollen, Korrelation beginnt immer bei $t\_start$
+% \item $Ncor\_init$ - Array, mit identischer Länge zu $A1$. Gibt an wie oft korrespondierender Eintrag in $A1$ hintereinander korreliert wird. 
+% \item $Lcor$ - Blocklänge der Korrelation
+% \end{itemize}
+
+\subsection{Beispielparameter}
+Im Folgenden betrachten wir einige Zeilen Code, die verdeutlichen sollen, welche Möglichkeiten man zur Einstellung hat.
+\begin{lstlisting}
+path = 'RECORDS\lucas';
+excel_path = 'RESULTS\data.xlsx';
+% results (display/save_param/save_all)
+output = 'display';
+
+% calculate correlation with (xcorr/freqMult)
+calc = 'freqMult';
+
+% plot in (samples/seconds)
+x_axes = 'seconds';
+
+% set priority (time/length)
+priority = 'time';
+
+% start of correlation in audio file in seconds
+% time -> and durations 
+t_start = 8;
+t_dur = [0.5 2];
+
+% amount of correlations 
+Ncor_init = [4 1];
+
+% length -> length of correlation in samples
+Lcor = 8192; 
+\end{lstlisting}
+In \textbf{Zeile 1 und Zeile 2} werden die Ein und Ausgabepfade definiert. Dabei spielt es für die Variable $path$ keine Rolle, ob es sich um einen Ordner oder eine Datei handelt. Dies wird automatisch erkannt und im Programm entsprechend berücksichtigt.\newline
+In \textbf{Zeile 4} kann man einstellen, wie die Ergebnisse präsentiert werden. Die Option \textit{display} zeigt die enstehenden Graphen auf dem Bildschirm an. Nur bei geringer Anzahl an Korrelationen zu empfehlen, da der Rechenaufwand sehr groß ist. \textit{save$\_$param} sorgt dafür, dass alle Parameter in einer Excel-Tabelle gespeichert werden, ohne dass man die Möglichkeit hat, sich die Graphen dazu anzuschauen. Die letzte Möglichkeit ist die Option \textit{save$\_$all}, welche dazu dient, die Diagramme zusätzlich zu der Exceldatei abzuspeichern.\newline
+In \textbf{Zeile 7} wird angegeben, welche Methode zur Berechnung verwendet wird. \textit{xcorr} ist hierbei die Korrelation im Zeitbereich und benutzt die Octave-Funtkion xcorr, welche zero padding betreibt. Nutzt man die Option \textit{freqMult} wird das Ergebnis im Frequenzbereich berechnet, ohne dass es zu zero padding kommt. Die Berechnung im Frequenzbereich ist bei großen Blocklängen zu empfehlen, da es wesentlich schneller ist.\newline
+In \textbf{Zeile 10} kann eingestellt werden, ob die x-Achse der Diagramme in Sekunden oder Samples skaliert wird. Je nach Anwendungsfall zu entscheiden.\newline
+\textbf{Zeile 13} gibt an, ob die folgenden Zeiteinstellungen oder die angegebene Blocklänge zu korrelieren ist. \textit{time} ist hierbei offensichtlich die Priorisierung der Zeitangaben, während \textit{length} die Blocklänge bevorzugt.\newline
+\textbf{Zeile 17} gibt an ab wann die Verarbeitung starten soll. Im Beispiel wird alles was vor Sekunde 8 kommt, vernachlässigt. \newline
+In \textbf{Zeile 18} wird ein Array deklariert, welches Zeitdauern enthält. In diesem Beispiel werden Zeitdauern von 0.5 und 2 Sekunden benutzt. \newline
+\textbf{Zeile 21} gibt nun in Verbindung mit \textbf{Zeile 18} an, wie oft die jeweilige Zeitdauer nacheinander korreliert werden soll. In unserem Beispiel heißt das, dass 4 hintereinanderliegende Blöcke mit einer Länge von 0.5 Sekunden verarbeitet werden und danach ein Block mit einer Länge von 2 Sekunden. Das Array welches durch N$\_$cor definiert wird, muss immer genauso groß sein, wie das Array t$\_$dur.\newline
+\textbf{Zeile 24} gibt an wie lang die Blocklänge für die Korrelation sein soll. Wird nur mit der Option \textit{length} der priority-Einstellung verwendet. Wird die Berechnung im Frequenzbereich durchgeführt, ist es sinnvoll, 2-er Potenzen zu benutzen, da die FFT nur mit Blocklängen umgehen kann, die eine Potenz von 2 sind. Ist dies nicht der Fall, wird der Rest der Werte mit 0 aufgefüllt.\newline
+
 \subsection{Probleme} 
 Zu Beginn unserer Arbeit wurde die Korrelation zuerst in Python implementiert. Allerdings nahm die Berchnungsdauer mit zunehmende Blocklänge stark zu. Da die .wav Dateien mit 44100Hz abgetastet werden werden die zu berechnenden Summen schnell sehr groß. Wie in der Theorie und im Abschnitt zur Software schon erklärt, wird nun Octave und die Fouriertransformation genutzt. \\\\Darauf aufbauend war noch die Problemstellung der Bemessung der korrelierten Signale zu lösen. Dabei mussten Maßzahlen entstehen, die viele verschiedene Faktoren beachteten und möglichst gute Aussagen über ,,Peakyness'' und Streuung der KKF trafen. Die Idee war einen Fit mit einer Funktion wie der Gauß-Kurve, die als Parameter schon eine Verteilung beinhaltet. Allerdings ist die KKF nach der Berechnung sehr,,eckig'' und weißt viele Nullstellen auf. Um den Fit nicht durch diese Eigenschaften verzerren zu lassen, wird die KKF durch einen Tiefpass gefiltert. Auf die geglättete Kurve angewendet, ist die angewendete Regression aussagekräftiger.
