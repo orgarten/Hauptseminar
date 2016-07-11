@@ -42,11 +42,11 @@
 	\dateofbirth{10.01.1995}
 	\and%
 	Raphael Hildebrand
-	\matriculationnumber{xxxxxx}
+	\matriculationnumber{3948419}
 	\dateofbirth{01.08.1994}
 	\and%
 	Florian Roth
-	\matriculationnumber{xxxxx}
+	\matriculationnumber{3966248}
 	\dateofbirth{13.01.1994}
 	\and%
 	Orell Garten
@@ -54,8 +54,8 @@
 	\dateofbirth{09.07.1993}
 }
 \matriculationyear{2013}
-\supervisor{Carsten Hermann}
-\professor{Dr.-Ing. Rico Radeke}
+\supervisor{Dipl.-Ing. Carsten Hermann}
+\professor{Prof. Dr.-Ing. Dr. h.c. Frank H. P. Fitzek}
 
 \maketitle
 
