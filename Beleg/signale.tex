@@ -1,9 +1,9 @@
-Wir haben für die Aufnahme der Signale viel verschiedene Situationen ausgesucht, um ein möglichst breites Spektrum an Raum-Effekten zu erhalten. Aufnahmeorte waren beispielsweise der Platz vor dem HSZ, die Wiese zwischen Physik- und Mathematikgebäude, sowie der Trefftzbau. Außerdem wurde in einer Wohnung gemessen, um Effekte von schallabsorbierenden Stoffen wie Teppich oder Bett zu erhalten. Soweit möglich, haben wir die natürliche Geräuschkulisse am jeweiligen Ort eingefangen. Zusätzlich dazu wurde ein definiertes Signal mittels eines Lautsprechers erzeugt, um Direktschall zu nutzen. Bei diesen Aufnahmen sollten die Effekte des Raumes am deutlichsten hervortreten.
+Wir haben für die Aufnahme der Signale viele verschiedene Situationen ausgesucht, um ein möglichst breites Spektrum an Raum-Effekten zu erhalten. Aufnahmeorte waren beispielsweise der Platz vor dem HSZ, die Wiese zwischen Physik- und Mathematikgebäude, sowie der Trefftzbau. Außerdem wurde in einer Wohnung gemessen, um Effekte von schallabsorbierenden Stoffen wie Teppich oder Bett zu erhalten. Soweit möglich, haben wir die natürliche Geräuschkulisse am jeweiligen Ort eingefangen. Zusätzlich dazu wurde ein definiertes Signal mittels eines Lautsprechers erzeugt, um Direktschall zu nutzen. Bei diesen Aufnahmen sollten die Effekte des Raumes am deutlichsten hervortreten.
 \subsection{Beispielsignale}
 \subsubsection{Signal 1 - trefftz$\_$wiese$\_$m}
 \begin{figure}[ht!]
   \centering
-  \includegraphics[scale=0.64]{img/trefftz_wiese_m}
+  \includegraphics[scale=0.6]{img/trefftz_wiese_m}
   \caption{Signal 1}
   \label{figure2}
 \end{figure}
@@ -22,7 +22,7 @@ Der ripple-Faktor von Signal 1 ist mit einem Wert von 0.2 vergleichsweise niedri
 \subsubsection{Signal 2 - trefftz$\_$fahrstuhl$\_$m}
 \begin{figure}[ht!]
   \centering
-  \includegraphics[scale=0.64]{img/trefftz_fahrstuhl_m}
+  \includegraphics[scale=0.6]{img/trefftz_fahrstuhl_m}
   \caption{Signal 2}
   \label{figure3}
 \end{figure}
@@ -45,6 +45,9 @@ Der ripple-Faktor liegt mit 0.43 recht hoch, das heißt ein großer Teil der Sig
 Bei der Signalauswahl ergab sich das Problem, dass man möglichst viele verschiedene Raumsituationen erfassen musste, um eine große Menge verschiedener Daten zu bekommen. Dabei war es jedoch nur schwer möglich vor Ort zu entscheiden, ob die entsprechende Aufnahme sinnvolle Ergebnisse liefert.
 In den meisten Situationen war der Lautstärkepegel im Raum zu gering um 20s aufzunehmen, ohne das der Großteil der Aufnahme aus Rauschen bestand. Aus diesem Grund haben wir ein zusätzliches Signal erzeugt. Dadurch gibt es jedoch in den meisten Aufnahmen eine Primärquelle, die das Spektrum maßgeblich bestimmt.
 
-\subsection{Fazit}
+\subsection{Fazit und Ausblick}
+\subsubsection{Fazit}
 Abschließend lässt sich feststellen, dass der Gauß-Fit erst ab einem ripple-Faktor von 0.3 sinnvolle Ergebnisse liefert. Bei Werten die kleiner als 0.3 sind, ist die Hüllkurve einer Gauß-Kurve zu unähnlich. Es ist jedoch festzustellen, dass die Regression der Exponentialfunktion mit kleiner werdendem ripple besser über der nach Größe sortierten Amplituden liegt.
 Es ist empfehlenswert, Signale in Räumen aufzunehmen, die ausreichend klein sind, damit die Raumeffekte Auswirkungen auf das Signal haben. Sonst nimmt man größtenteils rauschen auf, welches sehr geringe Aussagen zulässt.
+\subsubsection{Ausblick}
+Das Ergebnis unserer Arbeit ist eine Datenbank aus aufgenommenen Audiosignalen, aber auch ein Tool zur Bewertung und Kategorisierung von Audiosignalen. Der modularisierte Code und die Einführung einiger Parameter soll eine erweiterbare Basisplattform für die Forschung am Lehrstuhl sein. Die aufgenommenen Signale sind in ihrer Diversität der Aufnahmesituationen hoffentlich von Nutzen. Wir als Gruppe haben im Rahmen dieser Projektarbeit viel im Thema Signalverarbeitung und besonders zur Implementierung von Signalverarbeitung gelernt.  

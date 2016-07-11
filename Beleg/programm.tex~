@@ -3,7 +3,7 @@ Das Programm ist in 3 funktionale Teile gegliedert. Dazu zählt das Einlesen der
 \paragraph{Einlesen der Audiodaten}
 Die Audiodateien liegen im WAV-Format als Stereoaufnahme vor. Zunächst wird eine Liste mit allen Dateien in einem bestimmten Ordner erstellt, damit die Dateien nacheinander eingelesen werden können. Im nächsten Schritt werden die beiden Kanäle voneinander getrennt, um diese dann in die Signalverarbeitung zu übergeben.
 \paragraph{Signalverarbeitung}
-Das Kernstück der Signalverarbeitung ist eine periodische Korrelationsfunktion, die den linken und rechten Kanal miteinander korreliert. Die dabei entstandene Korrelationsfunktion wird dann weiter untersucht. Als nächstes wird eine Art Einhüllende berechnet, die ein Maß für die Steilheit der Kurve ist. Wie bereits im Abschnitt 3.2 beschrieben, wird dann mit Hilfe der Methode der kleinsten Quadrate eine Gauß-Glocke so angepasst, dass sie den Verlauf der Hüllkurve der KKF möglichst gut abbildet. Die Parameter ripple, $\sigma$, Gleichanteil und Zeitverschiebung des Maximums aus dem Ursprung werden danach an eine Funktion übergeben, die diese Daten in einer Excel-Tabelle speichert.
+Das Kernstück der Signalverarbeitung ist eine periodische Korrelationsfunktion, die den linken und rechten Kanal miteinander korreliert. Die dabei entstandene Korrelationsfunktion wird dann weiter untersucht. Als nächstes wird eine Art Einhüllende berechnet, die ein Maß für die Steilheit der Kurve ist. Wie bereits im Abschnitt 3.2 beschrieben, wird dann mit Hilfe der Methode der kleinsten Quadrate eine Glockenkurve so angepasst, dass sie den Verlauf der Hüllkurve der KKF möglichst gut abbildet. Die Parameter ripple, $\sigma$, Gleichanteil und Zeitverschiebung des Maximums aus dem Ursprung werden danach an eine Funktion übergeben, die diese Daten in einer Excel-Tabelle speichert.
 Der Signalverarbeitungsteil hat auch die Möglichkeit aus einer Datei verschieden viele Abschnitte mit unterschiedlichen Längen zu korrelieren. Damit kann man aus relativ wenigen aufgenommen Signalen relativ viele Signal-Abschnitte gewinnen, die der Korrelation zugeführt werden.
 \paragraph{Speicherung}
 Die Speicherung der Daten erfolgt in einer Excel-Datei. Nach jedem Korrelationsdurchgang werden die berechneten Werte einer Matrix hinzugefügt. Dabei wird zu erst der Dateiname des Samples und alles dazugehörigen Werte gespeichert. Desweiteren wird die Zeitdauer des Ausschnitts, sowie die Sampling-Rate gespeichert.
@@ -14,21 +14,6 @@ Die Speicherung der Daten erfolgt in einer Excel-Datei. Nach jedem Korrelationsd
   \caption{Programmablaufplan}
   \label{figure1}
 \end{figure}
-
-% \subsection{Mögliche Einstellungen}
-% Im Code gibt es diverse Eintellungen, die das Verhalten des Programms je nach Wunsch des Anwenders verändern. Diese sind am Beginn der main.m-Datei festgelegt und werden im folgenden beschrieben:
-% \begin{itemize} 
-% \item $path$ - Pfad zur Sammlung der WAV-Dateien
-% \item $excel\_path$ - Pfad unter dem Excel-Datei mit Lösungen gespeichert wird
-% \item $output$ - Unterscheidung, ob Ergebnisse gespeichert oder angezeigt werden
-% \item $calc$ - Wechsel zwischen Berechnung im Zeit- und Frequenzbereich möglich.
-% \item $x\_axes$ - Unterscheidung, ob Korrelation gegen Samples oder Zeit aufgetragen wird
-% \item $priority$ - Unterscheidung, ob angegebene Blocklänge oder Zeitdauer priorisiert wird
-% \item $t\_start$ - Startzeitpunkt der Korrelation
-% \item $t\_dur$ - Array $A1$ mit Menge an Zeitdauern die korrelierten werden sollen, Korrelation beginnt immer bei $t\_start$
-% \item $Ncor\_init$ - Array, mit identischer Länge zu $A1$. Gibt an wie oft korrespondierender Eintrag in $A1$ hintereinander korreliert wird. 
-% \item $Lcor$ - Blocklänge der Korrelation
-% \end{itemize}
 
 \subsection{Beispielparameter}
 Im Folgenden betrachten wir einige Zeilen Code, die verdeutlichen sollen, welche Möglichkeiten man zur Einstellung hat.
@@ -68,5 +53,13 @@ In \textbf{Zeile 18} wird ein Array deklariert, welches Zeitdauern enthält. In 
 \textbf{Zeile 21} gibt nun in Verbindung mit \textbf{Zeile 18} an, wie oft die jeweilige Zeitdauer nacheinander korreliert werden soll. In unserem Beispiel heißt das, dass 4 hintereinanderliegende Blöcke mit einer Länge von 0.5 Sekunden verarbeitet werden und danach ein Block mit einer Länge von 2 Sekunden. Das Array welches durch N$\_$cor definiert wird, muss immer genauso groß sein, wie das Array t$\_$dur.\newline
 \textbf{Zeile 24} gibt an wie lang die Blocklänge für die Korrelation sein soll. Wird nur mit der Option \textit{length} der priority-Einstellung verwendet. Wird die Berechnung im Frequenzbereich durchgeführt, ist es sinnvoll, 2-er Potenzen zu benutzen, da die FFT nur mit Blocklängen umgehen kann, die eine Potenz von 2 sind. Ist dies nicht der Fall, wird der Rest der Werte mit 0 aufgefüllt.\newline
 
+\subsection{Erweiterung der Analysemöglichkeiten}
+Um das Octave-Script um weitere Analysemethoden zu erweitern, ist vor allem die Funktion $analysis$ interessant, die die folgende Signatur hat:
+\begin{lstlisting}
+function [ripple, sigma, ex, area, lagDiff, timeDiff, envelope, reg_gauss, 
+                sorted, reg_exp] = analysis(correlation, lags, rate, x_axes)
+\end{lstlisting}
+Es gibt 4 Eingabeparameter. \textbf{correlation} ist ein Zeilenvektor, welcher die Werte der diskreten Korrelation enthält. \textbf{x_axes} ist ein String und die restlichen Parameter sind normale Zahlenwerte. Alle zu berechnenden Maßzahlen werden dem Aufrufer der Funktion zurückgegeben. Um sinnvolle Plots erstellen zu können, werden unter anderem die Hüllkurve und die sortierten Werte zurückgegeben.  
+Innerhalb der Funktion $analysis$ werden nun einige Funktionen zur eigentlichen Analyse der Daten aufgerufen. Dazu zählen die Funktionen $calc\_ripple$, $calc\_reg$ und $calc\_envelope$. Sollen weitere Maßzahlen berechnet werden, müssen hier neue Funktionen hinzugefügt werden. Außerdem müssen die Funktionen $buildXLSMatrix$ und $writeExcel$ erweitert werden, damit die entsprechenden Kennwerte auch entsprechend abgespeichert werden.
 \subsection{Probleme} 
-Zu Beginn unserer Arbeit wurde die Korrelation zuerst in Python implementiert. Allerdings nahm die Berchnungsdauer mit zunehmende Blocklänge stark zu. Da die .wav Dateien mit 44100Hz abgetastet werden werden die zu berechnenden Summen schnell sehr groß. Wie in der Theorie und im Abschnitt zur Software schon erklärt, wird nun Octave und die Fouriertransformation genutzt. \\\\Darauf aufbauend war noch die Problemstellung der Bemessung der korrelierten Signale zu lösen. Dabei mussten Maßzahlen entstehen, die viele verschiedene Faktoren beachteten und möglichst gute Aussagen über ,,Peakyness'' und Streuung der KKF trafen. Die Idee war einen Fit mit einer Funktion wie der Gauß-Kurve, die als Parameter schon eine Verteilung beinhaltet. Allerdings ist die KKF nach der Berechnung sehr,,eckig'' und weißt viele Nullstellen auf. Um den Fit nicht durch diese Eigenschaften verzerren zu lassen, wird die KKF durch einen Tiefpass gefiltert. Auf die geglättete Kurve angewendet, ist die angewendete Regression aussagekräftiger.
+Zu Beginn unserer Arbeit wurde die Korrelation zuerst in Python implementiert. Allerdings nahm die Berechnungsdauer mit zunehmende Blocklänge stark zu. Da die .wav Dateien mit 44100Hz abgetastet werden werden die zu berechnenden Summen schnell sehr groß. Wie in der Theorie und im Abschnitt zur Software schon erklärt, wird nun Octave und die Fouriertransformation genutzt. \\\\Darauf aufbauend war noch die Problemstellung der Bemessung der korrelierten Signale zu lösen. Dabei mussten Maßzahlen entstehen, die viele verschiedene Faktoren beachteten und möglichst gute Aussagen über ,,Peakyness'' und Streuung der KKF trafen. Die Idee war einen Fit mit einer Funktion wie der Gauß-Kurve, die als Parameter schon eine Verteilung beinhaltet. Allerdings ist die KKF nach der Berechnung sehr ,,eckig'' und weißt viele Nullstellen auf. Um den Fit nicht durch diese Eigenschaften verzerren zu lassen, wird die KKF durch einen Tiefpass gefiltert. Auf die geglättete Kurve angewendet, ist die angewendete Regression aussagekräftiger.

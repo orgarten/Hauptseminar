@@ -26,7 +26,7 @@ y = a\cdot e^{-\frac{(x-\mu)^2}{2\sigma^2}}+b
 Mit den zu bestimmenden Konstanten $a$, $b$, $\mu$ und $\sigma$. Mit dem erhaltenen Wert für $\sigma$ lässt sich keine Aussage über den Anteil der Fläche der Hüllkurve in den Grenzen $\mu-\sigma$ bis $\mu+\sigma$ treffen. Das liegt an dem Gleichanteil und keiner Verknüpfung mit der Amplitude $a$ wie bei der Gauss'schen Glockenkurve. Sehr wohl stellt $\sigma$ allerdings ein Maß für die Breite des peaks rund um den Nullpunkt der Korrelation dar. Die Angabe erfolgt in Sekunden. 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=10cm, keepaspectratio=true]{img/lucas_von_flur_in_bad_m_(4s)+1s.png}
+\includegraphics[width=\textwidth, keepaspectratio=true]{img/lucas_von_flur_in_bad_m_(4s)+1s}
 \caption{Kreuzkorrelation mit Amplituden-Demodulation und Regression}
 \label{AM-Demodulation}
 \end{figure}
@@ -48,8 +48,8 @@ area = \frac{1}{N_{\text{samples}}} \sum_{n=1}^{N_{\text{samples}}} |\psi_{\text
 Da die Normierung auf den Maximalwert schon beim Berechnen der Kreuzkorrelation erfolgt kann \textit{area} nur Werte zwischen $0$ und $1$ annehmen. Je kleiner \textit{area}, desto steiler fallen die Amplituden ab. 
 \\Trotz der erfolgreich ermittelten Maßzahl \textit{area}, berechnet das Programm weiterhin den Parameter \textit{exp}, denn dieser lässt sich leicht modifizieren und kann somit noch an Aussagekraft hinzu gewinnen. 
 \begin{figure}[ht!]
-\centering
-\includegraphics[width=10cm, keepaspectratio=true]{img/trefftz_wiese_m_8(s)+1s_exp.PNG}
-\caption{sortierte Kreuzkorrelation mit Regression}
+  \centering
+  \includegraphics[width=\textwidth, keepaspectratio=true]{img/trefftz_wiese_m_8(s)+1s_exp}
+  \caption{sortierte Kreuzkorrelation mit Regression}
 \label{exp-Regression}
 \end{figure}
