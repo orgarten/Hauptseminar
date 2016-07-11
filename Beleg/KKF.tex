@@ -15,7 +15,7 @@ Dadurch dass sich der Raum, das Wiedergabemedium und die Aufnahmeart während de
 Signalenergie := \int_{-\infty}^{\infty} s^2(t) \,dt < \infty
 \end{align}
 
-\noindent Da die aufgenommenen Audiosignale zeit-diskrete Energiesignale sind wird hier auch nur die zeit-diskrete Kreuzkorrelation beschrieben. F"ur zeit-diskrete Energiesignale ergibt sich die folgende Berechnungsvorschrift, wobei x(n) und y(n) diskrete Realisierungen der Prozesse \textbf{X} und \textbf{Y} sind.[vgl. ISV, S. 88 f]
+\noindent Da die aufgenommenen Audiosignale zeit-diskrete Energiesignale sind wird hier auch nur die zeit-diskrete Kreuzkorrelation beschrieben. F"ur zeit-diskrete Energiesignale ergibt sich die folgende Berechnungsvorschrift, wobei x(n) und y(n) diskrete Realisierungen der Prozesse \textbf{X} und \textbf{Y} sind.[ISV, S. 88 f]
 
 \begin{align}
 \boxed{\psi_{\textbf {XY}}^E(k) = \sum_{n = -\infty}^{\infty} x(n) \cdot y(n+k)}\\\text{[ISV, S. 89 Formel 2.218]}
@@ -45,8 +45,7 @@ Die KKF l"asst sich im Frequenzbereich also als
 \begin{align}
 \boxed{\underline \Psi(\omega) = \underline{X}^*(\omega) \cdot \underline{Y}(\omega)}
 \end{align}
-schreiben.
-\\[vgl. ISV, S.180]
+schreiben. [ISV, S.180]
 \\\\
 Wenn man nun die KKF im Frequenzbereich zeitsparend durchf"uhren will, muss man die FFT f"ur x(k) und y(k) (dabei $k \in \mathbb{N}^+_0$) der L"ange N durchf"uhren. Dabei muss man beachten, dass bei der FFT ein Linienspektrum ergibt. Die FFT beruht vor allem auch auf der Annahme, dass sich die N diskreten Werte periodisch wiederholen [ISV, S.135]. Durch die IFFT von $ \underline \Psi(\omega)$ ergibt sich also die periodische KKF $\tilde{\psi}(t)$.
 \subsubsection{Zero Padding}
@@ -55,7 +54,7 @@ Die periodische KKF $\tilde{\psi}(t)$ ist in unserem Projekt zudem die bessere W
 \begin{figure}[ht!] 
   \centering
      \includegraphics[width=0.4\textwidth]{img/Faltung}
-  \caption{Anschauliches Beispiel zur Faltung vgl. [NT, Seite 28]}
+  \caption{Anschauliches Beispiel zur Faltung [NT, S. 28]}
   \label{fig:Bild1}
 \end{figure}
 Wie man in Abbildung \ref{fig:Bild1} erkennen kann ist die Funktion $x_2$ soweit verschoben, dass sie über den rechten Rand der Funktion $x_1$ hinausragt. Wenn man die beiden Rechtecksignale als Bereiche sieht in denen echte Funktionswerte liegen, würde nun auf der positiven x-Achse ab $T/2$ mit Nullen aufgefüllt werden. Dadurch bekommt die KKF automatisch ein Abklingverhalten an ihren Rändern, das nur durch die begrenzte Anzahl an Werten verursacht wird. Die Korrelation nimmt an den Rändern nicht zwingend ab. Durch dieses Abklingverhalten würden unsere Ergebnisse also abgefälscht werden. Die periodische KKF ist also aussagekräftiger, da unser reales Signal in jedem Fall an den Rändern der korrelierten Blöcke nicht auf Null abklingt.Wenn man die periodische KKF im Zeitbereich berechnen möchte, müsste man an den Rändern der Funktionen nochmal die Funktion $x_1$ anhängen.

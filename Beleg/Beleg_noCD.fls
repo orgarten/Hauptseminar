@@ -168,6 +168,7 @@ INPUT hauptteil.tex
 INPUT KKF.tex
 INPUT KKF.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmbx6.tfm
 INPUT img/Faltung.JPG
@@ -175,7 +176,6 @@ INPUT ./img/Faltung.JPG
 INPUT ./img/Faltung.JPG
 INPUT Masszahlen.tex
 INPUT Masszahlen.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT technik.tex
 INPUT technik.tex
 INPUT programm.tex
