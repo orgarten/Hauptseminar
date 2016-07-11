@@ -19,7 +19,7 @@ envelope = IDFT\lbrace DFT\lbrace|\psi_{\text{XY}}(n)|\rbrace\cdot\text{H}_{\tex
 \end{align*}
 Für die Hüllkurve \textit{envelope} wird nun mittels Methode der kleinsten Quadrate eine Regressionsrechnung auf die vermutete Glockenkurvenfunktion vorgenommen. Die Funktionsvorschrift lautet dabei
 \begin{align*}
-y = a\cdot e^{-\frac{(x-\mu)^2}{2\sigma}^2+b}
+y = a\cdot e^{-\frac{(x-\mu)^2}{2\sigma^2}+b}
 \end{align*}
 Mit den zu bestimmenden Konstanten $a$, $b$, $\mu$ und $\sigma$. Mit dem erhaltenen Wert für $\sigma$ lässt sich keine Aussage über den Anteil der Fläche der Hüllkurve in den Grenzen $\mu-\sigma$ bis $\mu+\sigma$ treffen. Das liegt an dem Gleichanteil und keiner Verknüpfung mit der Amplitude $a$ wie bei der Gauss'schen Glockenkurve. Sehr wohl stellt $\sigma$ allerdings ein Maß für die Breite des peaks rund um den Nullpunkt der Korrelation dar. Die Angabe erfolgt in Sekunden. 
 \subsubsection{timeDiff}
