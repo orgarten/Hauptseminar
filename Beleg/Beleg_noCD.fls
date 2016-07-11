@@ -176,6 +176,8 @@ INPUT ./img/Faltung.JPG
 INPUT ./img/Faltung.JPG
 INPUT Masszahlen.tex
 INPUT Masszahlen.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT technik.tex
 INPUT technik.tex
 INPUT programm.tex
