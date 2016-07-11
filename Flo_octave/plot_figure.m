@@ -11,11 +11,13 @@ if strcmp(x_axes, 'seconds') == 1
   shift_t = shift_t .* scale;
 end
 
+position = [100, 100, 1000, 800];
 FigHandle = figure('Name', name);
-set(FigHandle, 'Position', [100, 100, 1000, 800]);
-if strcmp(output, 'save_all') == 1
+if strcmp(output, 'save_all')
   set(FigHandle, 'Visible', 'off');
+  position = [-1100, 100, 1000, 800];
 end
+set(FigHandle, 'Position', position);
 
 ax1 = subplot(3, 2,1);
 plot(shift_t, channel_a);
