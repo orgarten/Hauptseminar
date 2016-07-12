@@ -25,5 +25,9 @@ else
   param = p(1);
 end
 
+if cvg == 0
+  param = NaN;
+end
+
 regression = f';
 end

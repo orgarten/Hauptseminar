@@ -1,7 +1,7 @@
 function [ ans ] = writeEXCEL(filename, content)
 %WRITEEXCEL writes matrix to excel sheet
 if exist(filename, 'file') == 0
-  content = [{'File' 'duration' 'rate' 'ripple' 'sigma' 'exp' 'area' 't_diff'}; content];
+  content = [{'File' 'duration/s' 'rate/Hz' 'ripple' 'sigma/s' 'exp' 'area' 't_diff'}; content];
   xlswrite(filename,content);
 else
   old_content = xlsread(filename);
