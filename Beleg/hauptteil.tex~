@@ -23,6 +23,7 @@ In bestimmten Szenarien ist eine große Anzahl an Geräten mit Sensorik zu Erfas
 \input{signale}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Zusammenfassung}
+\section{Zusammenfassung und Ausblick}
 Es wurde ein Ocatve-Skript entwickelt mit welchem sich die Kreuzkorrelationsfunktion der beiden Stereo-Kanäle einer Audioaufnahme berechnen lässt. Auf Basis der KKF wurden einige einfache Maßzahlen zur Charakterisierung der Aufnahmen entwickelt. Damit lassen sich für bestimmte Anwendungen Signale zu Testzwecken auswählen.
-In Zukunft kann die Software auf bestimmte Anwendungsfälle angepasst werden, in dem neue Regressionsmodelle implementiert werden, die der gewünschen Nutzung der Signale besser gerecht werden.
+In Zukunft kann die Software auf bestimmte Anwendungsfälle angepasst werden, in dem neue Regressionsmodelle implementiert werden, die der gewünschen Nutzung der Signale besser gerecht werden.\\\\
+Das Ergebnis unserer Arbeit ist eine Datenbank aus aufgenommenen Audiosignalen, aber auch ein Tool zur Bewertung und Kategorisierung von Audiosignalen. Der modularisierte Code und die Einführung einiger Parameter soll eine erweiterbare Basisplattform für die Forschung am Lehrstuhl sein. Die aufgenommenen Signale sind in ihrer Diversität der Aufnahmesituationen hoffentlich von Nutzen. Wir als Gruppe haben im Rahmen dieser Projektarbeit viel im Thema Signalverarbeitung und besonders zur Implementierung von Signalverarbeitung gelernt. 
