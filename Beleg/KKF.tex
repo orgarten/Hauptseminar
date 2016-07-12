@@ -1,10 +1,10 @@
 \subsection{Kreuzkorrelationsfunktion}
 \textit{verfasst von Lucas Weber\\}
-Die Basis f"ur die Bemessung der aufgenommenen Audiosignale bildet die sogenannte Kreuzkorrelationsfunktion (KKF). Wie in der Aufgabenstellung schon beschrieben werden an ihr die Bemessungsparameter festgelegt. Aufgrund der verschiedenen Blockl"angen und der Masse an Daten, die korreliert werden sollen, muss die Berechnung der KKF effizient und zeitsparend implementiert werden. Im folgenden Abschnitt wird die KKF kurz theoretisch eingef"uhrt und das das mathematische Konzept erkl"art, auf dem die effiziente Berechnung der KKF beruht.
+Die Basis f"ur die Bemessung der aufgenommenen Audiosignale bildet die sogenannte Kreuzkorrelationsfunktion (KKF). Wie in der Aufgabenstellung schon beschrieben, werden an ihr die Bemessungsparameter festgelegt. Aufgrund der verschiedenen Blockl"angen und der Masse an Daten, die korreliert werden sollen, muss die Berechnung der KKF effizient und zeitsparend implementiert werden. Im folgenden Abschnitt wird die KKF kurz theoretisch eingef"uhrt und das mathematische Konzept erkl"art, auf dem die effiziente Berechnung der KKF beruht.
 \\\\
 Zuerst haben wir f"ur die KKF eine Funktion genutzt, die zur Berechnung Summen verwendete. Dabei ergab sich, dass die Berechnung zu langsam war. In der nun vorliegenden Octave-Version wird die KKF im Frequenzbereich berechnet.
 \subsubsection{Berechnungsvorschrift}
-Die KKF ist als aus zwei verschiedenen Funktionen gebildeter Erwartungswert definiert. Hier werden die Formeln allgemein f"ur die Korrelation der Prozesse \textbf{X} und \textbf{Y} angegeben.[ISV, S. 84] 
+Die KKF ist als, aus zwei verschiedenen Funktionen gebildeter Erwartungswert definiert. Hier werden die Formeln allgemein f"ur die Korrelation der Prozesse \textbf{X} und \textbf{Y} angegeben.[ISV, S. 84] 
 
 \begin{align}
 \psi_{\textbf XY}(t_1, t_2) = E\lbrace\textbf{X}(t_1)\cdot\textbf{Y}(t_2)\rbrace\\\text{[ISV, S. 84 Formel 2.200]}
@@ -22,7 +22,7 @@ Signalenergie := \int_{-\infty}^{\infty} s^2(t) \,dt < \infty
 \end{align}
 
 \subsubsection{Kreuzkorrelation im Frequenzbereich und Faltungssatz}
-Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrelation besch"aftigt. Da die Bildung der Summe der Multiplikation von x(n) und y(n+k) sehr rechenaufwendig ist, haben wir nach schnelleren M"oglichkeiten gesucht, die KKF der beiden Signale zu berechnen. Eine geeignete M"oglichkeit ist die Berechnung der KKF im Frequenzbereich. F"ur die Berechnung der KKF im Frequenzbereich macht man sich die "Ahnlichkeit der KKF zur Faltung und den Faltungssatz zunutze.
+Am Anfang unserer Arbeit haben wir uns mit der Berechnung der Kreuzkorrelation besch"aftigt. Da die Bildung der Summe über den Multiplikationen von x(n) und y(n+k) sehr rechenaufwendig ist, haben wir nach schnelleren M"oglichkeiten gesucht, die KKF der beiden Signale zu berechnen. Eine geeignete M"oglichkeit ist die Berechnung der KKF im Frequenzbereich. F"ur die Berechnung der Korrelation im Frequenzbereich macht man sich die "Ahnlichkeit der KKF zur Faltung und den Faltungssatz zunutze.
 
 \paragraph{KKF als Faltung}\textbf{\\\\Zeit-kontinuierlicher Fall:}
 \begin{align}
@@ -55,7 +55,7 @@ schreiben. [ISV, S.180]
 \\\\
 Wenn man nun die KKF im Frequenzbereich zeitsparend durchf"uhren will, muss man die FFT f"ur x(k) und y(k) (dabei $k \in \mathbb{N}^+_0$) der L"ange N durchf"uhren. Dabei muss man beachten, dass bei der FFT ein Linienspektrum ergibt. Die FFT beruht vor allem auch auf der Annahme, dass sich die N diskreten Werte periodisch wiederholen [ISV, S.135]. Durch die IFFT von $ \underline \Psi(\omega)$ ergibt sich also die periodische KKF $\tilde{\psi}(t)$.
 \subsubsection{Zero Padding}
-Die periodische KKF $\tilde{\psi}(t)$ ist in unserem Projekt zudem die bessere Wahl. Berechnet man die KKF im Zeitbereich, wird durch die implementierten Funktionen von Octave, so wie von Python, sogenanntes Zero-Padding durchgeführt. Vorstellen kann man sich das als auffüllen der Daten mit N Werten $=0$ an jeweils den Rändern einer der beiden Funktionen, da durch die Verschiebung eine der Funktionen über den Rand der anderen hinausragt.
+Die periodische KKF $\tilde{\psi}(t)$ ist in unserem Projekt zudem die bessere Wahl. Berechnet man die KKF im Zeitbereich, wird durch die implementierten Funktionen von Octave, so wie von Python, sogenanntes Zero-Padding durchgeführt. Vorstellen kann man sich das als Auffüllen der Daten mit N Werten $=0$ an jeweils den Rändern einer der beiden Funktionen, da durch die Verschiebung eine der Funktionen über den Rand der anderen hinausragt.
 \begin{figure}[ht!] 
   \centering
      \includegraphics[width=0.4\textwidth]{img/Faltung}
