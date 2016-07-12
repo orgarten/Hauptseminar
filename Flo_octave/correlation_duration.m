@@ -3,8 +3,8 @@
 pkg load signal
 
 
-end_sample = 1764000;
-schritte = 10000;
+end_sample = 900000;
+schritte = 5000;
 
 times_xcorr = [2:schritte:end_sample];
 times_xcorr(:) = 0;
@@ -19,11 +19,16 @@ x_achsis = [2:schritte:end_sample];
 %length(x_achsis)
 
 % prepare_data(path, t_start, t_end, Lcor, Ncor, priority)
+[a, fs] = audioread("C:\\Users\\Lucas\\Desktop\\Bullet Train.wav");
 i = 1;
 for samp = 2:schritte:end_sample
   [rate, duration, Lcor, channel_a, channel_b] = prepare_data("C:\\Users\\Lucas\\Desktop\\Bullet Train.wav",0,0,samp,1,"samples");
+  if i == 1
+    length([channel_a channel_a])
+    length(channel_a)
+  endif
   begin1 = tic;
-  c = cconv(channel_a, channel_b, length(channel_a));
+  xcorr([channel_a channel_a], channel_b,'none');
   dur = toc(begin1); 
   times_xcorr(i) = dur;
   begin2 = tic;
