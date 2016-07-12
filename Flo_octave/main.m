@@ -2,9 +2,13 @@
 % ########        audio correlator      ########
 % ########        of stereo files       ########
 % ########      developed for the       ########
-% ########          Haupteseminar       ########
+% ########          Hauptseminar        ########
 % ########      Kommunikationssysteme   ########
-% ########          v 1.0               ########
+% ########          v 1.1               ########
+% ########  authors: Orell Garten       ########
+% ########           Lucas Weber        ########
+% ########           Raphael Hildebrand ########
+% ########           Florian Roth       ########
 % ##############################################
 clear; clc;
 pkg load signal;
@@ -15,7 +19,7 @@ pkg load io;
 %environment = 'folder';
 % path to folder with audiofiles or single file
 % works with wav
-path = 'RECORDS\lucas';
+path = 'RECORDS\lucas\lucas_bad_m_1.wav';
 excel_path = 'RESULTS\data.xlsx';
 % results (display/save_param/save_all)
 output = 'display';
@@ -31,11 +35,11 @@ priority = 'time';
 
 % start of correlation in audio file in seconds
 % time -> and durations 
-t_start = 8;
-t_dur = [0.5];
+t_start = 3;
+t_dur = [0.5 1];
 
 % amount of correlations 
-Ncor_init = [1];
+Ncor_init = [2 1];
 
 % length -> length of correlation in samples
 Lcor = 8192; 
