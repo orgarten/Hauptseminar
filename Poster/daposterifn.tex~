@@ -1,5 +1,5 @@
 %-------------------------------------------------
-\documentclass[tnt,diplom]{daposterifn}
+\documentclass[tk,diplom]{daposterifn}
 %-------------------------------------------------
 %* options:
 %* tnt, hf, tk, mns /default: -none-
@@ -11,13 +11,13 @@
 % BITTE HIER PARAMETER SETZEN!
 %-------------------------------------------------
 
-\setDAParameter[\LARGE]{Thema}{Statistische Analyse von Ultra-Breitband-Übertragungskanälen}
+\setDAParameter[\LARGE]{Thema}{Compressed Compute-and-Forward mit korrelierten Audiosignalen}
 \setDAParameter{Student}{Florian Roth, Raphael Hildebrand, Lucas Weber, Orell Garten}
-\setDAParameter{BetreuerTUD}{Carsten Hermann}
+\setDAParameter{BetreuerTUD}{Carsten Herrmann}
 %\setDAParameter{BetreuerExternName}{}
 %\setDAParameter{BetreuerExternFirma}{}
 \setDAParameter{Hochschullehrer}{Prof. Dr.-Ing. Frank Fitzek}
-\setDAParameter{VerteidigungDatum}{27.11.2010}
+\setDAParameter{VerteidigungDatum}{11.08.2016}
 
 %-------------------------------------------------
 
@@ -71,14 +71,14 @@ Blakflsajg öfjg fdöj g däfgjkdfljgsdf ögsdfg
 
 
 %-------------------------------------------------
-\section*{Hauptteil}
+\section*{Vorbetrachtung}
 %-------------------------------------------------
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
 
 
 %-------------------------------------------------
-\subsection*{Unterüberschrift Ebene 2}
+\subsection*{Beschreibende Parameter}
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam $c = \sqrt{a^2 + b^2}$, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
 \begin{alignat*}{1}
@@ -90,15 +90,13 @@ Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lo
 
 
 %-------------------------------------------------
-\subsubsection*{Unterüberschrift Ebene 3}
+\section*{Matlab-Programm}
+%-------------------------------------------------
 
-\blindtext[1]
-
-\blindtext[1]
-
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
 
 %-------------------------------------------------
-\subsubsection*{Unterüberschrift Ebene 3}
+\subsection*{Ablaufplan}
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 
@@ -130,11 +128,11 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh 
 
 \blindtext[1]
 
-
 %-------------------------------------------------
-\subsection*{Unterüberschrift Ebene 2}
+\section*{Signalauswahl}
+%-------------------------------------------------
 
-\blindtext[1]
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
 
 Donec fringilla rhoncus dolor et pretium. Donec non neque eget mi imperdiet porttitor. Nulla facilisi. Ut porta justo nec tortor sollicitudin in elementum sem lobortis. Sed non cursus nunc. Morbi ac felis mollis dolor pulvinar ullamcorper id nec dui. Sed id nibh magna, sit amet laoreet elit.
 \begin{enumerate}
@@ -148,6 +146,8 @@ Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel
 
 \blindtext[1]
 
+\subsection*{Beispielsignal}
+Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel gravida at, eleifend eget tortor. Phasellus blandit nisi vel leo euismod a vestibulum est vestibulum. Duis convallis dignissim turpis. Nam ullamcorper molestie urna et iaculis.
 
 %-------------------------------------------------
 \section*{Zusammenfassung}
@@ -155,8 +155,6 @@ Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel
 
 Aenean ac nulla ipsum. Sed nulla dui, consectetur sit amet ultrices eget, semper nec ipsum. Pellentesque lacinia ornare sapien, ac accumsan nulla congue eget. Aliquam gravida nulla id justo egestas accumsan.
 Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel gravida at, eleifend eget tortor. Phasellus blandit nisi vel leo euismod a vestibulum est vestibulum. Duis convallis dignissim turpis. Nam ullamcorper molestie urna et iaculis.
-
-\blindtext[1]
 
 \blindtext[1]
 

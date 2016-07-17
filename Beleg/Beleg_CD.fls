@@ -148,6 +148,8 @@ INPUT /usr/share/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texmf-dist/tex/latex/koma-script/float.hak
 INPUT /usr/share/texmf-dist/tex/latex/koma-script/float.hak
+INPUT /usr/share/texmf-dist/tex/latex/trfsigns/trfsigns.sty
+INPUT /usr/share/texmf-dist/tex/latex/trfsigns/trfsigns.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
@@ -352,6 +354,7 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1000.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1095.pfb

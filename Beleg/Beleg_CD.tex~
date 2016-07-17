@@ -19,6 +19,8 @@
 \usepackage{amssymb}
 \usepackage{makeidx}
 \usepackage{mcode}
+\usepackage{float}
+\usepackage{trfsigns}
 %\usepackage[backend=biber,style=alphabetic]{biblatex}
 
 % Literaturverzeichnis
@@ -58,7 +60,7 @@
 \professor{Prof. Dr.-Ing. Dr. h.c. Frank H. P. Fitzek}
 
 \maketitle
-
+ 
 % \TUDoption{abstract}{multiple,section}
 % \begin{abstract}
 %  Dies ist der deutschsprachige Teil der Zusammenfassung, in dem die
@@ -67,8 +69,8 @@
 % \nextabstract[english]
 %  This is the english part of the summary, in which the motivation and
 %  the content of the following academic treatise are briefly presented.
-% \end{abstract}
-
+% \end{abstract} 
+ 
 \confirmation
 
 \tableofcontents
