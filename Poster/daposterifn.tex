@@ -71,10 +71,20 @@ Im Jahr 2022 werden über 500 Millionen im Internet aktive Geräte erwartet. Diese
 %-------------------------------------------------
 \section*{Theoretische Vorbetrachtung}
 %-------------------------------------------------
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-
-
+\subsection*{Die Kreuzkorrelation}
+Die Basis f"ur die Bemessung der aufgenommenen Audiosignale bildet die sogenannte Kreuzkorrelationsfunktion (KKF). Anhand ihres Verlaufes werden die Bemessungsparameter festgelegt. Aufgrund der verschiedenen Blockl"angen und der Masse an Daten, die korreliert werden sollen, findet die Berechnung der KKF im Frequenzbereich statt. Hier wird die KKF eines zeitkontinuierlichen Signals betrachtet, wobei die Analogie zum zeitdiskreten Fall über Riemann-Integrale besteht.
+\subsubsection*{Berechnungsvorschrift}
+Die KKF ist als, aus zwei verschiedenen Funktionen gebildeter Erwartungswert definiert. Hier werden die Formeln allgemein f"ur die Korrelation der Prozesse \textbf{X} und \textbf{Y} angegeben.[ISV, S. 84] 
+\begin{align*}
+\psi_{\textbf XY}(\tau) = E\lbrace\textbf{X}(t)\cdot\textbf{Y}(t+\tau)\rbrace\\\text{[ISV, S. 84 Formel 2.200]}
+\end{align*}
+Damit diese Formel interpretierbare Ergebnisse liefert muss der Prozess schwach stationär, ergodisch und die Realisierung ein Energiesignal sein. Was in diesem Fall für reale Audiosignale zutrifft.[vgl. ISV, S. 85 f]
+\subsubsection*{Kreuzkorrelation im Frequenzbereich}
+Durch die Ähnlichkeit der Korrelation zur Faltung, kann man die KKF im Frequenzbereich berechnen:
+\begin{align*}
+\boxed{\underline \Psi(\omega) = \underline{X}^*(\omega) \cdot \underline{Y}(\omega)}
+\end{align*}
+Dabei muss man beachten, dass sich bei der FFT ein Linienspektrum ergibt. Die FFT beruht vor allem auch auf der Annahme, dass sich die N diskreten Werte periodisch wiederholen [ISV, S.135]. Durch die IFFT von $ \underline \Psi(\omega)$ ergibt sich also die periodische KKF $\tilde{\psi}(t)$.
 %-------------------------------------------------
 \subsection*{Kennwerte}
 
