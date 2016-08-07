@@ -81,10 +81,6 @@
 \DeclareOption{diplom}{
 	\renewcommand{\daposterContentThesisType}{Diplomarbeit}
 }
-%* hauptseminar **************************************************************
-\DeclareOption{hauptseminar}{
-	\renewcommand{\daposterContentThesisType}{Hauptseminar}
-}
 %* master thesis ***************************************************************
 \DeclareOption{master}{
 	\renewcommand{\daposterContentThesisType}{Masterarbeit}
@@ -329,7 +325,7 @@
 \newcommand{\daposterContentDAHochschullehrer}{Name des Hochschullehrers}
 \newcommand{\daposterContentDAVerteidigungDatum}{Datum der Verteidigung}
 \newcommand{\daposterContentStudentPassbildPfad}{./figures/passbild}
- \newcommand{\daposterContentStudentWerdegang}{%
+\newcommand{\daposterContentStudentWerdegang}{%
 	mm/jjjj - mm/jjjj\newline
 	erklärender Text zu diesem Zeitraum
 	
@@ -337,8 +333,8 @@
 	Text zu einem anderen Zeitraum
 	
 	mm/jjjj - mm/jjjj\newline
- 	eine riesige Menge Text, damit man auch mal sieht, dass das Passbild wirklich vom Text umflossen wird
- }
+	eine riesige Menge Text, damit man auch mal sieht, dass das Passbild wirklich vom Text umflossen wird
+}
 %-------------------------------------------------------------------------------
 %- process student and thesis parameters ---------------------------------------
 %-------------------------------------------------------------------------------
@@ -452,7 +448,7 @@
 %\fbox{%
 \begin{minipage}[b][\daposterLayoutHoeheDetails][b]{\daposterLayoutBreiteDetailsStudent}
 	{\centering\daposterLayoutFontSizeDADetails
-%	Werdegang
+	Werdegang
 	
 	\vfill}
 	
@@ -471,7 +467,7 @@
 		\daposterContentStudentWerdegang
 		
 		\daposterContentDAVerteidigungDatum\newline
-		Verteidigung des \daposterContentThesisType
+		Verteidigung der \daposterContentThesisType
 	\end{minipage}%}%
 \end{minipage}%}%
 \\% 

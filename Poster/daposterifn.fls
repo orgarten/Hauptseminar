@@ -153,6 +153,10 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmex10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT ./img/pap.jpg
 INPUT ./img/pap.jpg
 INPUT ./img/pap.jpg
@@ -168,6 +172,14 @@ INPUT ./figures/logos/Logo-TK.pdf
 INPUT ./figures/logos/Logo-TK.pdf
 INPUT ./figures/logos/Logo-TK.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT ./figures/logos/Logo-TU_weiss.pdf
+INPUT ./figures/logos/Logo-TU_weiss.pdf
+INPUT ./figures/logos/Logo-TU_weiss.pdf
+INPUT ./figures/logos/Logo-TU_weiss.pdf
+INPUT ./figures/logos/Logo-ET_weiss.pdf
+INPUT ./figures/logos/Logo-ET_weiss.pdf
+INPUT ./figures/logos/Logo-TK.pdf
+INPUT ./figures/logos/Logo-TK.pdf
 INPUT daposterifn.aux
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
