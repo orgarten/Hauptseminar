@@ -162,6 +162,12 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmsso17.tfm
 INPUT ./img/lucas_von_flur_in_bad_m_(4s)+1s.PNG
 INPUT ./img/lucas_von_flur_in_bad_m_(4s)+1s.PNG
 INPUT ./img/lucas_von_flur_in_bad_m_(4s)+1s.PNG
+INPUT ./img/wiese_zuschnitt.jpg
+INPUT ./img/wiese_zuschnitt.jpg
+INPUT ./img/wiese_zuschnitt.jpg
+INPUT ./img/signal_beispiel.jpg
+INPUT ./img/signal_beispiel.jpg
+INPUT ./img/signal_beispiel.jpg
 INPUT ./figures/logos/Logo-TU_weiss.pdf
 INPUT ./figures/logos/Logo-TU_weiss.pdf
 INPUT ./figures/logos/Logo-TU_weiss.pdf
