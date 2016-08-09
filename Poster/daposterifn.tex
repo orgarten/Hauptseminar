@@ -88,7 +88,7 @@ Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lo
 \section*{Octave-Programm}
 %-------------------------------------------------
 
-Die im vorherigen Abschnitt vorgestellen Maßzahlen wurden im nächsten Schritt in einem Octave-Skript implementiert. Das Programm besteht aus 3 funktionalen Einheiten: Automatisches Einlesen der Audiodateien, Berechnung der Korrelation und der Kennwerte und dem Speichern der errechneten Werte in einer Exceldatei. Im Quellcode selbst können bestimmte Parameter eingestellt werden, die die Berechnung auf verschiedenste Weise beeinflussen. Besonders zu bemerken ist, dass man beliebige Abschnitte des Signals systematisch korrelieren kann, so dass man aus wenigen Signalen bereits sehr viele Werte bekommen kann. Die genutzen Abschnitte werden wiederum als extra .wav-Datei gespeichert.\\ Das Skript ist modular aufgebaut, so dass es vergleichsweise einfach möglich weitere Analysemethoden zu entwickeln und zu implementieren. Zukünftig wäre es außerdem sinnvoll die Berechnung der Korrelationen zu parallelisieren und so die Ausführung des Programms wesentlich zu beschleunigen. 
+Die im vorherigen Abschnitt vorgestellen Maßzahlen wurden im nächsten Schritt in einem Octave-Skript implementiert. Das Programm besteht aus 3 funktionalen Einheiten: Automatisches Einlesen der Audiodateien, Berechnung der Korrelation und der Kennwerte und dem Speichern der errechneten Werte in einer Exceldatei. Ein etwas detailierterer Programmablaufplan ist in Abbildung \ref{fig:Programmablauf} zu sehen. Im Quellcode selbst können bestimmte Parameter eingestellt werden, die die Berechnung auf verschiedenste Weise beeinflussen. Besonders zu bemerken ist, dass man beliebige Abschnitte des Signals systematisch korrelieren kann, so dass man aus wenigen Signalen bereits sehr viele Werte bekommen kann. Die genutzen Abschnitte werden wiederum als extra .wav-Datei gespeichert.\\ Das Skript ist modular aufgebaut, so dass es vergleichsweise einfach möglich ist weitere Analysemethoden zu entwickeln und zu implementieren. Zukünftig wäre es außerdem sinnvoll die Berechnung der Korrelationen zu parallelisieren und so die Ausführung des Programms wesentlich zu beschleunigen. 
 
 %-------------------------------------------------
 \subsection*{Ablaufplan}
@@ -97,7 +97,8 @@ Prinzipskizze des Programmablaufs
 
 \begin{center}
 	\includegraphics[width=\linewidth]{./img/pap}
-	\captionof{figure}{Programmablaufplan\label{fig:Programmablauf}}
+	\captionof{figure}{Programmablaufplan}
+	\label{fig:Programmablauf}
 \end{center}
 
 

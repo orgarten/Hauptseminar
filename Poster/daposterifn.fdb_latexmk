@@ -72,9 +72,9 @@
   "img/pap" 0 -1 0 ""
   (generated)
   "daposterifn.log"
-  "daposterifn.dvi"
   "daposterifn.aux"
-["pdflatex"] 1470595652 "daposterifn.tex" "daposterifn.pdf" "daposterifn" 1470595654
+  "daposterifn.dvi"
+["pdflatex"] 1470729809 "daposterifn.tex" "daposterifn.pdf" "daposterifn" 1470729809
   "./figures/logos/Logo-ET_weiss.pdf" 1120753800 5391 170af5c8b6b9b6554dbeaf62968ae236 ""
   "./figures/logos/Logo-TK.pdf" 1320675500 13192 72bad4298ad1cc64433507686e88c1e0 ""
   "./figures/logos/Logo-TU_weiss.pdf" 1296038644 5655 7ad5f1462041782ad8ae953e87030400 ""
@@ -168,15 +168,15 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1447534201 31669 df537245012f3e5f05bdc55644b7a3df ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1468759133 1657124 e84bfd70be33692dd381f04676e20b43 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1455289008 7214063 5e02984b18b341f2a9e7d1ed42c5b88b ""
-  "daposterifn.aux" 1470595654 467 9686534c82cf7b51021e3cd4968af5b3 ""
+  "daposterifn.aux" 1470729809 467 9686534c82cf7b51021e3cd4968af5b3 ""
   "daposterifn.cls" 1470595649 22846 1004bbdbc030f61a20bb7b88e0020f9c ""
-  "daposterifn.tex" 1470595638 9150 dc3d1e0ab4c61ed93ed75e1454f2802c ""
+  "daposterifn.tex" 1470729808 9252 82e8fe9cb6ffe5a6b22d77c7b82f6af7 ""
   "figures/logos/Logo-ET_weiss.pdf" 1120753800 5391 170af5c8b6b9b6554dbeaf62968ae236 ""
   "figures/logos/Logo-TK.pdf" 1320675500 13192 72bad4298ad1cc64433507686e88c1e0 ""
   "figures/logos/Logo-TU_weiss.pdf" 1296038644 5655 7ad5f1462041782ad8ae953e87030400 ""
   "figures/passbild.pdf" 1296038644 5655 7ad5f1462041782ad8ae953e87030400 ""
   "img/pap.jpg" 1467899956 64167 338e955e882ca803a2ff543cc72bd5a3 ""
   (generated)
-  "daposterifn.log"
   "daposterifn.pdf"
+  "daposterifn.log"
   "daposterifn.aux"
