@@ -75,14 +75,23 @@ Dabei muss man beachten, dass sich bei der FFT ein Linienspektrum ergibt. Die FF
 %-------------------------------------------------
 \subsection*{Kennwerte}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam $c = \sqrt{a^2 + b^2}$, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-\begin{alignat*}{1}
-	y = \sum_{i=1}^{M} \left[ c_i \, \frac{x_i - \alpha}{1 + \prod_{j=1}^{M} r_{i,j} x_i} + \max \{ \theta_i, \sigma^2 \} \right]
-\end{alignat*}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-
+Um das Klassifizieren für eine große Anzahl an Signalen möglich zu machen, ist es erforderlich die untersuchten Sequenzen anhand von bestimmten Eigenschaften zu sortieren. Damit ein einfacher Vergleich mehrerer Signale schnell möglich ist, bietet es sich an diese Eigenschaften als Zahlenwert auszudrücken. Die beschriebenen Eigenschaften sind entweder physikalischer Natur oder versuchen die Form der Kreuzkorrelation zu charakterisieren. Beim Entwerfen der Maßzahlen besteht die Schwierigkeit darin, möglichst viel aussagekräftige Information dahingehend zu vereinfachen, dass eine Überführung in eine Zahl überhaupt möglich ist. Gleichzeitig darf durch die Vereinfachung nicht die Aussagefähigkeit der Maßzahl zerstört werden, also die Möglichkeit auf eine Eigenschaft des Signals anhand des Zahlenwertes zurück zu schließen.
+\\ Beispielhaft soll hier die Berechnung der Maßzahl $\sigma$ erläutert werden, die eine Aussage über die Verteilung der größten Werte der KKF liefert.
+Insbesondere für stark korrelierte Kanäle fällt die KKF zu den Seiten schnell ab und die Hüllkurve erinnert stark an eine Glockenkurve (siehe Abb. \ref{fig:AM-Demodulation}). Ein Maß für die ,,Breite'' einer Glockenkurve stellt das $\sigma$ im Exponenten der $e$-Funktion dar. Um die Maßzahl aus den numerisch vorliegenden Werten zu erhalten, muss ein mathematischer Ausdruck für die Hüllkurve (\textit{envelope}) gefunden werden. Diese erhält man durch Amplituden-Demodulation der KKF. Dabei wird das Signal gleichgerichtet und auf ein Tiefpassfilter gegeben.
+\begin{align*}
+envelope = IDFT\lbrace DFT\lbrace|\psi_{\text{XY}}(n)|\rbrace\cdot\text{H}_{\text{TP}}\rbrace
+\end{align*}
+Für die Hüllkurve \textit{envelope} wird mittels Methode der kleinsten Quadrate eine Regressionsrechnung auf die Glockenkurvenfunktion vorgenommen. Die Funktionsvorschrift lautet dabei
+\begin{align*}
+y = a\cdot e^{-\frac{(x-\mu)^2}{2\sigma^2}}+b
+\end{align*}
+Mit den zu bestimmenden Konstanten $a$, $b$, $\mu$ und $\sigma$. Der der erhaltene Wert für $\sigma$ stellt ein Maß für die Breite des peaks rund um den Nullpunkt der Korrelation dar. 
+\begin{center}
+	\includegraphics[width=\linewidth]{./img/lucas_von_flur_in_bad_m_(4s)+1s}
+	\captionof{figure}{KKF mit AM-Demodulation und Regression}
+	\label{fig:AM-Demodulation}
+\end{center}
+Weitere entworfene Maßzahlen treffen Aussagen über die Signale hinsichtlich Energieverteilung, Zeitversatz zwischen den Kanälen und den Abfall der Gesamtheit aller Amplituden. 
 
 %-------------------------------------------------
 \section*{Octave-Programm}
