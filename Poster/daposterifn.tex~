@@ -97,51 +97,27 @@ Weitere entworfene Maßzahlen treffen Aussagen über die Signale hinsichtlich Ener
 \section*{Octave-Programm}
 %-------------------------------------------------
 
-Die im vorherigen Abschnitt vorgestellen Maßzahlen wurden im nächsten Schritt in einem Octave-Skript implementiert. Das Programm besteht aus 3 funktionalen Einheiten: Automatisches Einlesen der Audiodateien, Berechnung der Korrelation und der Kennwerte und dem Speichern der errechneten Werte in einer Exceldatei. Ein etwas detailierterer Programmablaufplan ist in Abbildung \ref{fig:Programmablauf} zu sehen. Im Quellcode selbst können bestimmte Parameter eingestellt werden, die die Berechnung auf verschiedenste Weise beeinflussen. Besonders zu bemerken ist, dass man beliebige Abschnitte des Signals systematisch korrelieren kann, so dass man aus wenigen Signalen bereits sehr viele Werte bekommen kann. Die genutzen Abschnitte werden wiederum als extra .wav-Datei gespeichert.\\ Das Skript ist modular aufgebaut, so dass es vergleichsweise einfach möglich ist weitere Analysemethoden zu entwickeln und zu implementieren. Zukünftig wäre es außerdem sinnvoll die Berechnung der Korrelationen zu parallelisieren und so die Ausführung des Programms wesentlich zu beschleunigen. 
-
-%-------------------------------------------------
-\subsection*{Ablaufplan}
-
-Prinzipskizze des Programmablaufs
-
-\begin{center}
-	\includegraphics[width=\linewidth]{./img/pap}
-	\captionof{figure}{Programmablaufplan}
-	\label{fig:Programmablauf}
-\end{center}
-
-
-\begin{center}
-	\begin{tabularx}{\linewidth}{|l|X|X|}
-	  \hline
-		jdffdslf & fjdsf jhg lkjgljfdlg jfdj jrgjfdkgeag & jfdfjwgr igjirejg \\ \hline
-		ejperg   & jgjk rpe jbhpets jpgfg                & gkfdl gh jthjp trhks tpsjrstäj trjs js irithjmn \\ \hline
-	\end{tabularx}
-	\captionof{table}{Unterschrift für Tabelle.\label{tab:tabelle}}
-\end{center}
-
-\blindtext[1]
+Die im vorherigen Abschnitt vorgestellen Maßzahlen wurden im nächsten Schritt in einem Octave-Skript implementiert. Das Programm besteht aus 3 funktionalen Einheiten: Automatisches Einlesen der Audiodateien, Berechnung der Korrelation und der Kennwerte und dem Speichern der errechneten Werte in einer Exceldatei. Im Quellcode selbst können bestimmte Parameter eingestellt werden, die die Berechnung auf verschiedenste Weise beeinflussen. Besonders zu bemerken ist, dass man beliebige Abschnitte des Signals systematisch korrelieren kann, so dass man aus wenigen Signalen bereits sehr viele Werte bekommen kann. Die genutzen Abschnitte werden wiederum als extra .wav-Datei gespeichert.\\ Das Skript ist modular aufgebaut, so dass es vergleichsweise einfach möglich ist weitere Analysemethoden zu entwickeln und zu implementieren. Zukünftig wäre es außerdem sinnvoll die Berechnung der Korrelationen zu parallelisieren und so die Ausführung des Programms wesentlich zu beschleunigen. 
 
 %-------------------------------------------------
 \section*{Signalauswahl}
 %-------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-
-Donec fringilla rhoncus dolor et pretium. Donec non neque eget mi imperdiet porttitor. Nulla facilisi. Ut porta justo nec tortor sollicitudin in elementum sem lobortis. Sed non cursus nunc. Morbi ac felis mollis dolor pulvinar ullamcorper id nec dui. Sed id nibh magna, sit amet laoreet elit.
-\begin{enumerate}
-	\item Duis adipiscing venenatis risus, et condimentum risus commodo nec.
-	\item Quisque ut leo quis leo porta pellentesque ut sit amet leo. Phasellus quis pharetra nisl.
-	\item Fusce imperdiet rhoncus ante, sed iaculis elit euismod vel.
-\end{enumerate}
-Aenean ac nulla ipsum. Sed nulla dui, consectetur sit amet ultrices eget, semper nec ipsum. Pellentesque lacinia ornare sapien, ac accumsan nulla congue eget. Aliquam gravida nulla id justo egestas accumsan.
-
-Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel gravida at, eleifend eget tortor. Phasellus blandit nisi vel leo euismod a vestibulum est vestibulum. Duis convallis dignissim turpis. Nam ullamcorper molestie urna et iaculis.
-
-\blindtext[1]
+Um ein möglichst breites Spektrum an Raum-Effekten zu erhalten, wurde die Aufnahme der Signale an vielen verschiedenen Orten durchgeführt. Aufnahmeorte waren so beispielsweise der Platz vor dem Hörsaalzentrum der TU Dresden, der Trefftzbau, sowie die Wiese zwischen Physik- und Mathematikgebäude (siehe Abb. \ref{fig:Aufnahmesituation}). Außerdem wurde in einer Wohnung gemessen, um Effekte von schallabsorbierenden Stoffen wie Teppich oder Bett zu erhalten. Soweit möglich, wurde die natürliche Geräuschkulisse am jeweiligen Ort eingefangen. Zusätzlich dazu wurde ein definiertes Signal mittels eines Lautsprechers erzeugt, um Direktschall zu nutzen. Bei diesen Aufnahmen sollten die Effekte des Raumes am deutlichsten hervortreten. Abgespeichert wurden die Signale im Stereo WAVE-Format, wie im folgenden Beispiel zu sehen (Abb. \ref{fig:Beispielsignal}).
 
 \subsection*{Beispielsignal}
-Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel gravida at, eleifend eget tortor. Phasellus blandit nisi vel leo euismod a vestibulum est vestibulum. Duis convallis dignissim turpis. Nam ullamcorper molestie urna et iaculis.
+
+\begin{center}
+\includegraphics[width=\linewidth]{./img/wiese_zuschnitt.jpg}
+  \captionof{figure}{Aufnahmesituation auf der Wiese des Trefftzbaus}
+	\label{fig:Aufnahmesituation}
+\end{center}
+
+\begin{center}
+\includegraphics[width=\linewidth]{./img/signal_beispiel.jpg}
+  \captionof{figure}{Aufgenommenes Signal zur Aufnahmesituation aus Abb.\ref{fig:Aufnahmesituation} }
+	\label{fig:Beispielsignal}
+\end{center}
 
 %-------------------------------------------------
 \section*{Zusammenfassung}
@@ -149,6 +125,15 @@ Vestibulum convallis malesuada faucibus. Vestibulum ligula turpis, venenatis vel
 
 In dieser Arbeit wurden Modelle entwickelt, die die Korrelation der beiden Audio-Kanäle einer Stereoaufnahme bezüglich ihres Abklingverhaltens und dominierenden Anteilen beschreiben. Diese Modelle wurden als Grundlage für die Entwicklung eines Octave-Skripts genutzt, welches eine massenhafte Klassifizierung von Audiodaten bezüglich der entwickelten Kriterien ermöglicht. Abschließend wurden Testsignale aufgenommen. \newline In Zukunft müssen die Modelle entsprechend der genauen Anwendung weiter entwickelt werden.
 
+%-------------------------------------------------
+% Quellen
+%-------------------------------------------------
+
+\begin{thebibliography}{}
+\bibitem[ISV]{bezug1} R"udiger Hoffmann, Matthias Wolff: Intelligente Signalverarbeitung 1. Springer Verlag Berlin Heidelberg 2014
+\bibitem[NT]{bezug2} Prof. Dr.-Ing. Dr. h.c. Gerhard P. Fettweis: Einf"uhrung in die Nachrichtentechnik. Technische Universit"at Dresden, Fakult"at Elektrotechnik, Vodafone Stiftungslehrstuhl Mobile Nachrichtensysteme, D-01062 Dresden Sommersemester 2015
+\bibitem[KN]{bezug} Prof. Dr.-Ing. Dr. h.c. Frank H. P. Fitzek: Vorlesung Kooperative Kommunikationssysteme, Dresden 3.6.2016, https://bildungsportal.sachsen.de/opal/auth/\\RepositoryEntry/11031117850/CourseNode/\\93439736179888/dirpath/Lectures/CoopCom-Lecture10-03062016.pdf, downloaded: 12.07.2016
+\end{thebibliography}
 
 
 \end{multicols}
